@@ -1,0 +1,297 @@
+body {
+    background-color: #080f28;;
+}
+
+.divImage {
+    text-align: center;
+    box-sizing: content-box;
+    position: relative;
+    margin-bottom: 30px;
+    object-fit: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 290.4px;
+    width: 193.6px;
+    color: white;
+    font-weight: 400;
+    font-size: .875rem;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: transparent;
+    
+}
+
+.movieList > li:hover .divImage {
+   border-color: rgb(0, 174, 255);
+   cursor: pointer;
+}
+
+.header {     
+    min-height: 100px;
+    background-color: transparent;
+    display: contents;
+}
+
+.movieList {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.movieList > li {
+    list-style-type:none;
+    margin-left: 0px;
+    margin-right: 35px;
+}
+
+.movieList > li > a {
+    text-decoration: none;
+}
+
+.movieList img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.gallery {                 
+    max-width: 1268px;
+    margin-top: 0%;
+    height: auto;
+    margin-left: 180px;
+    margin-right: 0px;
+    background-color: #080f28;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    position: static;
+}
+
+.gallery2 {
+    background-color: #ec1212;;
+    max-width: 300px;
+    margin-top: -1881px;
+    height: 1500px;
+    width: 300px;
+    margin-left: 1448px;
+    margin-right: 200px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    display: none;
+}
+
+.navClass > ul > li{
+    list-style-type:none;
+    display:inline-block;
+    position:relative;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-right:25px;
+    padding-left:25px;
+}
+
+.navClass > ul{
+   background-color:transparent; 
+    color: rgb(255, 255, 255);
+    font-size:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 33%;
+    position: absolute;
+}
+
+ul.sub-menuMovies{
+    position:absolute;
+    background-color:#1e2747;
+    list-style-type:none;
+    margin-top:5px;
+    margin-left:-25px;
+    width:210px;
+    padding-left:0px;
+    color: rgb(255, 255, 255);
+    opacity:0;
+    border-radius: 5px;
+}
+
+ul.sub-menuMovies li{
+    padding-left:20px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+
+ul.sub-menuMovies li:hover{
+    cursor: pointer;
+    color: #007aff;
+    
+}
+.navClass li:hover{
+    color: #007aff;
+    cursor: pointer;
+}
+.navClass li:hover .sub-menuMovies{
+    z-index:1;
+    opacity:1;
+}
+
+.galleryHeader > h1 {
+    margin-left: 45px;
+    font-weight: 700;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    color: white;
+}
+
+.galleryHeader {                 
+    max-width: 1268px;
+    margin-top: 0%;
+    margin-left: 180px;
+    margin-right: 200px;
+    background-color: #080f28;;
+}
+
+.foot {
+    display: inline;
+    box-sizing: border-box;
+    background-color: #080f28;;
+    margin-left: 0px;
+    margin-right: 0px;   
+}
+
+.footIcons {
+    position: relative;
+    align-content: center;
+    height: auto;
+    width: auto;
+}
+
+.footIcons img {
+    margin-left: 5px;
+    height: 35px;
+    width: 35px;
+}
+
+.footIcons img:hover {
+    cursor: pointer;
+}
+
+ul.footLinks {
+    display:inline-flex;
+    position:relative;
+    list-style-type:none;
+    color: whitesmoke;
+    position: static;
+    margin-left: 22%;
+    margin-top: 5%;
+}
+
+ul.footLinks > li {
+    margin-left: 50px;
+}
+
+ul.footLinks > li > h4 {
+    font-weight: 300;
+}
+ul.footLinks > li > h4:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.carouselDiv {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    background-color: #080f28
+}
+
+.carouselDiv > img {
+    object-fit: contain;
+}
+
+.fadedDiv {
+    position: relative;
+    z-index:2;
+    right:0; bottom:0; left:0;
+    height:300px;
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, #080f28 80%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+    margin-top: -300px;
+}
+
+.genreButtonsDiv {
+    max-width: 1268px;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    position: static;
+    margin-left: 180px;
+    display: none;
+}
+
+.genreList{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.genreList img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.genreList > li {
+    list-style-type:none;
+}
+
+.divButtonWithImage {
+    text-align: center;
+    box-sizing: content-box;
+    position: relative;
+    margin-bottom: 30px;
+    color: white;
+    object-fit: cover;
+    font-weight: 400;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: transparent;
+    height: auto;
+    width: auto;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.genreList > li > .divButtonWithImage:hover{
+    border-color: rgb(0, 174, 255);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
