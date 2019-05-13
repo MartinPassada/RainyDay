@@ -23,7 +23,20 @@ body {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-color: transparent;
-    
+}
+
+.movieYear {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    z-index: 3;
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #007aff;
+    padding: 0 .5rem;
+    line-height: 1.2rem;
+    border-radius: 1rem;
+    color: #fff;
 }
 
 .movieList > li:hover .divImage {

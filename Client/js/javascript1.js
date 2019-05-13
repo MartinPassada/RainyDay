@@ -41,8 +41,12 @@ function createMovieList(movies) {
         image.width = 160;
         image.height = 242;
         let movieName = document.createTextNode(movies[i].name);
+        let year = document.createElement("span");
+        year.setAttribute("class", "movieYear");
+        year.innerHTML = movies[i].year;
         //appends
         divImage.appendChild(image);
+        divImage.append(year);
         divImage.append(movieName);
         anchor.appendChild(divImage);
         link.appendChild(anchor);
@@ -123,8 +127,12 @@ function FilteredMovieList (searchresult, genretitle){
         image.width = 160;
         image.height = 242;
         let movieName = document.createTextNode(searchresult[i].name);
+        let year = document.createElement("span");
+        year.setAttribute("class", "movieYear");
+        year.innerHTML = searchresult[i].year;
         //appends
         divImage.appendChild(image);
+        divImage.append(year);
         divImage.append(movieName);
         anchor.appendChild(divImage);
         link.appendChild(anchor);
