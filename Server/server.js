@@ -50,12 +50,12 @@ app.get('/searchbygenre', (req, res) => {
 });
 
 
-//API's REST
+
 app.get('/movies/:id', (req, res) => {
     let searchparameter = req.params.id;
     mongoDatabase.getMovieInfo(movieInfo => {
-    res.render('moviePage', { moviePage: movieInfo });
-        //console.log(movieInfo);
+        console.log(movieInfo);
+    res.render('moviePage', { Info: movieInfo });
     }, searchparameter);
     
 });

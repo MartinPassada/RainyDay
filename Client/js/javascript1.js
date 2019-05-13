@@ -79,10 +79,10 @@ function createGenreList(genres) {
         img.src = imagePath;
         img.maxwidth = 160;
         img.maxheight = 160;
-        let name = document.createElement("h3");
-        name.append(genreArray[i]);
         genreList.appendChild(link);
         link.appendChild(divButtonWithImage);
+        let name = document.createElement("h3");
+        name = genreArray[i];
         divButtonWithImage.append(img);
         divButtonWithImage.append(name);
         divButtonWithImage.addEventListener("click", function(){
