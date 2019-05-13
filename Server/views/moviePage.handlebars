@@ -1,9 +1,36 @@
 {{#each movieInfo}}
-<p>"los datos estan en la pagina"</p>
-<div class = "MovieDetail" id = "MovieDetail">  
-    <img src={{this.imagePath}}></img>
+<div class = "movieDetailDiv" id = "movieDetailDiv"> 
+
+    <div class="movieInfoImgDiv">
+    <img src="{{this.imagePath}}" class="movieInfoImg"></img>
+    </div>
+
+    <div class="movieInfoTitleDiv">
     <h1 class = "movieTitle">{{this.name}}</h1>
-    <p class = "Year&Length">{{this.year}}, {{this.movieLength}}</p>
+    </div>
+
+    <div class="yearLengthResolutionBitrateDiv">
+    <p class = "yearLength">{{this.year}} {{this.movieLength}}</p>
+    <span class = "resolution">{{this.resolution}}</span>
+    <p class = "bitrate">{{this.bitrate}}</p>
+    </div>
+    
+
+    <div class="synopsisDirectorGenreCastDiv">
+    <p>"Synopsis"</p>
+    <p class="director">Director: {{this.director}}</p>
+    <p class="genre">Género: {{this.genre}}</p>
+    <p class="cast">Actores: {{this.cast}}</p>
+    </div>
+
+    <div class="votesRatesDiv">
+        <p>{{this.votes}} votos, promedio: {{this.average}} de 5</p>
+    </div>
+
+    <div class="likesViewsDiv">
+        <p class="views">Views:{{this.views}} Likes: {{this.likes}}</p>
+    </div>
+
 </div>  
 {{/each}}
 

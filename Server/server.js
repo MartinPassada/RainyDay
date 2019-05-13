@@ -61,7 +61,7 @@ app.get('/movies/:id', (req, res) => {
     let searchparameter = req.params.id;
     mongoDatabase.getMovieInfo(movieInfo => {
         console.log(movieInfo);
-    res.render('moviePage', { Info: movieInfo });
+        res.render('moviePage', { movieInfo: movieInfo });
     }, searchparameter);
     
 });

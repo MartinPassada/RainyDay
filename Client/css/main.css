@@ -292,8 +292,37 @@ ul.footLinks > li > h4:hover {
 .genreList > li > .divButtonWithImage:hover{
     cursor: pointer;
     text-decoration: underline;
-    
 }
+
+.movieDetailDiv {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    background-color: #080f28;
+    margin-left: 180px;
+    margin-right: 0px;
+}
+
+.movieInfoImg {
+    left: 0;
+    top: 0;
+    height: 300.4px;
+    width: 203.6px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.yearLength {
+    color: #fff;
+
+}
+
+
+
 
 
 
