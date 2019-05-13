@@ -16,13 +16,13 @@
             <header class = "header" id = "header">           
                     <nav class='navClass'>
                         <ul>
-                            <li>Inicio</li>
+                            <li onclick = "goHome()">Inicio</li>
                             <li>
                                 Películas
                                 <ul class="sub-menuMovies">
                                         <li class="linkGeneros" onclick="showAndScrollTo()">Géneros</li>
-                                        <li class="linkMasVistas">Más Vistas</li>
-                                        <li class="linkRanking">Ranking</li>
+                                        <li class="linkMoreViewed" id="linkMoreViewed" onclick="scrollToSmoothly(document.getElementById('gallery').offsetTop)">Más Vistas</li>
+                                        <li class="linkRanking" id="linkRanking" onclick="scrollToSmoothly(document.getElementById('gallery').offsetTop)">Ranking</li>
                                 </ul>
                             </li>
                             <li>Series</li>
@@ -69,6 +69,9 @@
     <script src="js/javascript1.js"></script>
 
     <script>
+        function goHome(){
+            window.location.href="/";
+        }
         function showAndScrollTo(){
             showDiv();
             scrollToDiv();
@@ -109,6 +112,7 @@
             var elem = document.getElementById("genreButtonsDiv");
             scrollToSmoothly(elem.offsetTop);
         }
+        
     </script>
         
 </body>

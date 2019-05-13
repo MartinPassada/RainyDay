@@ -47,7 +47,7 @@ function getGenres(success, failure) {
 
 }
  
-function getsearchByGenre(success, failure, searchparameter) {
+function getSearchByGenre(success, failure, searchparameter) {
 
     req = new XMLHttpRequest();
 
@@ -66,6 +66,29 @@ function getsearchByGenre(success, failure, searchparameter) {
     }
 
     req.open("GET", `/searchbygenre?genre=${searchparameter}`);
+    req.send();
+
+}
+
+function getMostViewedMovies(success, failure) {
+
+    req = new XMLHttpRequest();
+
+    req.onload = function() {
+
+        let respObj = JSON.parse(this.responseText);
+
+        if (this.status == 200) {
+           
+            success(respObj);
+        } else {
+           
+            failure(respObj.error);
+        }
+
+    }
+
+    req.open("GET", "/mostviewed");
     req.send();
 
 }

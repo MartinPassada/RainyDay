@@ -1,6 +1,13 @@
 
 var galleryDiv = document.getElementById("gallery");
 var genreDiv = document.getElementById('genreButtonsDiv');
+var linkMostWieved = document.getElementById("linkMoreViewed");
+
+linkMostWieved.addEventListener("click", function(){
+    getMostViewedMovies(
+    response => {showMostViewedMovies(response);},
+    error => showError(error));
+    });
 
 getLatestMovies(
     response => {
@@ -17,6 +24,7 @@ getGenres(
     error => showError(error)
     // function(error){ showError(error) }
 );
+
 
 
 /**
@@ -90,7 +98,7 @@ function createGenreList(genres) {
         divButtonWithImage.append(img);
         divButtonWithImage.append(name);
         divButtonWithImage.addEventListener("click", function(){
-        getsearchByGenre(
+        getSearchByGenre(
         response => {FilteredMovieList(response, genreArray[i]);},
         error => showError(error), 
         genreArray[i]);
@@ -150,6 +158,44 @@ function FilteredMovieList (searchresult, genretitle){
 function showError(strError) {
     console.log(`ERROR: ${strError}`);
 }
+
+function showMostViewedMovies(mostWieved) {
+    galleryDiv.innerHTML = "";
+    let galleryTitle = document.getElementById("galleryHeaderTitle");
+    galleryTitle.innerHTML = "";
+    galleryTitle.innerHTML = "Más Vistas";
+
+    var movieList = document.createElement("ul");
+    movieList.setAttribute("class", "movieList");
+    movieList.setAttribute("id", "movieList");
+    
+    for (let i = 0; i < mostWieved.length; i++){
+        let divImage = document.createElement("div");
+        divImage.setAttribute("class", "divImage");
+        anchor = document.createElement("a");
+        anchor.href = mostWieved[i].moviePagePath + mostWieved[i]._id;
+        let link = document.createElement("li");
+        let image = document.createElement("img");
+        image.src = mostWieved[i].imagePath;
+        image.width = 160;
+        image.height = 242;
+        let movieName = document.createTextNode(mostWieved[i].name);
+        let year = document.createElement("span");
+        year.setAttribute("class", "movieYear");
+        year.innerHTML = mostWieved[i].year;
+        //appends
+        divImage.appendChild(image);
+        divImage.append(year);
+        divImage.append(movieName);
+        anchor.appendChild(divImage);
+        link.appendChild(anchor);
+        movieList.appendChild(link);
+    }
+    galleryDiv.appendChild(movieList);
+}
+
+
+
 
 
 

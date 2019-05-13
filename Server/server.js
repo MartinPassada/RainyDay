@@ -49,6 +49,12 @@ app.get('/searchbygenre', (req, res) => {
     }, searchparameter);
 });
 
+app.get('/mostviewed', (req, res) => {
+    mongoDatabase.getMostWievedMovies(mostViewedMovies => {
+        res.json(mostViewedMovies);
+    });
+});
+
 
 
 app.get('/movies/:id', (req, res) => {
