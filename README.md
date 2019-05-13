@@ -1,12 +1,12 @@
 # Repo
 Repositorio
 
-Changelog (Commit Nro 7)
+*Changelog (Commit Nro 7)
 
 la pagina handlebars ya tiene css y datos de pelicula (quedo a medio hacer)
 
 
-Changelog ("agregué un par de funciones)
+*Changelog ("agregué un par de funciones)
 
 El boton "inicio" ahora te lleva al home
 
