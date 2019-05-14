@@ -1,6 +1,10 @@
 # Repo
 Repositorio
 
+*Changelog (Commit Nro 8)
+
+La pagina handlebars ya muestra como debe las peliculas
+
 *Changelog (Commit Nro 7)
 
 la pagina handlebars ya tiene css y datos de pelicula (quedo a medio hacer)
