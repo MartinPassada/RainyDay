@@ -5,6 +5,8 @@
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
+    <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
+
     
 </head>
 
@@ -13,7 +15,7 @@
     <header class = "header" id = "header" style=display:block;>            
         <nav class='navClass'>
             <ul>
-                <li>Inicio</li>
+                <li onclick = "goHome()">Inicio</li>
                 <li>
                 </li>
                 <li></li>
@@ -43,5 +45,14 @@
         </ul>
           
     </footer>
+
+
+    <script>
+        // Redirecciona al Home
+        function goHome(){
+            window.location.href="/";
+        }
+    </script>
+    
 </body>
 </html>

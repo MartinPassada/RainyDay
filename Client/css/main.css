@@ -317,7 +317,7 @@ ul.footLinks > li > h4:hover {
 .movieDetailDiv > h1 {
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-right: 50%;
+    margin-right: 25%;
     font-size: 2.85rem;
     max-width: max-content;
     position: relative;
@@ -433,6 +433,15 @@ ul.footLinks > li > h4:hover {
 .heartEmpty-Full {
     margin-left: 7.5%;
     margin-right: 2.5%;
+}
+
+.synopsisDiv {
+    white-space: initial;
+    text-overflow: ellipsis;
+    height: 35%;
+    position: relative;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 
