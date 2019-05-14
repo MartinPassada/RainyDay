@@ -22,7 +22,7 @@ function getLatestMovies(cbOK) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("moviesdatabase");
-            collection.find().sort({AddedDate:-1}).limit(35).toArray((err, data) => {
+            collection.find().sort({AddedDate:-1}).limit(20).toArray((err, data) => {
                 cbOK(data);
             });
         }

@@ -202,7 +202,7 @@ ul.footLinks {
     list-style-type:none;
     color: whitesmoke;
     position: static;
-    margin-left: 22%;
+    margin-left: 16%;
     margin-top: 5%;
 }
 
@@ -294,18 +294,126 @@ ul.footLinks > li > h4:hover {
     text-decoration: underline;
 }
 
+/*handlebars*/
+
 .movieDetailDiv {
-    width: auto;
-    height: auto;
+    width: 80%;
     box-sizing: border-box;
-    display: flex;
     position: relative;
     background-color: #080f28;
-    margin-left: 180px;
-    margin-right: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: #fff;
+    flex-wrap: wrap;
+    display: flow-root;
+    height: auto;
+    max-height: -moz-max-content;
+    height: 300px;
+    float: inherit;
 }
 
-.movieInfoImg {
+
+
+.movieDetailDiv > h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 50%;
+    font-size: 2.85rem;
+    max-width: max-content;
+    position: relative;
+    float: inline-start;
+    
+}
+
+.resolution {
+    z-index: 3;
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #edb709;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    line-height: 1.2rem;
+    border-radius: 1rem;
+    color: #1a1818;
+}
+
+.movieTitleEng {
+    position: absolute;
+    position: relative;
+    display: inline-block;
+    margin-top: 0%;
+    color: #8da0bc;
+    margin-right: 55%;
+    margin-bottom: 0px;
+}
+
+.synopsis {
+    color: #8da0bc;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    overflow: auto;
+    font-size: small; 
+}
+
+.movieInfoList1{
+    list-style-type: none;
+    color: #8da0bc;
+}
+
+.movieInfoList2 {
+    list-style-type: none;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+}
+
+.movieInfoList2 :nth-child(1) strong{
+    color: #8da0bc;
+}
+.movieInfoList2 :nth-child(2) strong{
+    color: #8da0bc;
+}
+.movieInfoList2 :nth-child(3) strong{
+    color: #8da0bc;
+}
+
+.year {
+     margin-right: 1%;
+}
+    
+.movieLength {
+    margin-right: 1%;
+}
+    
+.resolution {
+     margin-right: 1%;
+}
+
+.movieInfoList1 > li:nth-child(2) {
+    font-style: italic;
+    font-size: small;
+}
+
+.views > img:nth-child(1) {
+    width:17px;
+    height:17px;
+    margin-top: 0.5%;
+}
+
+.infoImgDiv{
+    box-sizing: content-box;
+    max-height: 310.4px;
+    max-width: 203.6px;
+    text-align: center;
+    color: #fff;
+    object-fit: cover;
+    height: auto;
+    width: auto;
+    margin-right: 2.5%;
+    float: left;
+    
+}
+
+.movieDetailDiv > img {
     left: 0;
     top: 0;
     height: 300.4px;
@@ -313,14 +421,19 @@ ul.footLinks > li > h4:hover {
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
-    box-sizing: border-box;
+    
+    
 }
-
-.yearLength {
-    color: #fff;
+.movieInfoImg{
+    max-height: 310.4px;
+    max-width: 203.6px;
+    margin-bottom: 8.5%;
 
 }
-
+.heartEmpty-Full {
+    margin-left: 7.5%;
+    margin-right: 2.5%;
+}
 
 
 

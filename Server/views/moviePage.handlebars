@@ -1,35 +1,38 @@
 {{#each movieInfo}}
 <div class = "movieDetailDiv" id = "movieDetailDiv"> 
-
-    <div class="movieInfoImgDiv">
+    <div class="infoImgDiv">
     <img src="{{this.imagePath}}" class="movieInfoImg"></img>
+    <span class="views">Vistas: {{this.views}} <img src="/img/hearticonempty.png" class="heartEmpty-Full"></img> {{this.likes}}</span>
     </div>
 
-    <div class="movieInfoTitleDiv">
+
     <h1 class = "movieTitle">{{this.name}}</h1>
-    </div>
+    <h4 class = "movieTitleEng">Nombre en ingles de la pelicula</h4>
+    <ul class= "movieInfoList1">
+        <li>
+            <span class = "year"> {{this.year}}</span>
+            <span class = "movieLength"> {{this.movieLength}}</span>
+            <span class = "resolution">{{this.resolution}}</span> 
+            <span class = "bitrate"> {{this.bitrate}} kb/s</span>
+        </li>
+        <li><span>({{this.votes}} votos, promedio: {{this.average}} de 5)</span>
+        </li>
+    </ul>
 
-    <div class="yearLengthResolutionBitrateDiv">
-    <p class = "yearLength">{{this.year}} {{this.movieLength}}</p>
-    <span class = "resolution">{{this.resolution}}</span>
-    <p class = "bitrate">{{this.bitrate}}</p>
-    </div>
+    <p class="synopsis">Película de no-ficción sobre el astro argentino dirigido por Álex de la Iglesia con guión de Jorge Valdano.
+        Messi combina imágenes de archivo, entrevistas y filmaciones familiares inéditas, con la recreación de los momentos más importantes de la vida del protagonista. 
+        Alex de la Iglesia repara especialmente en la infancia y adolescencia del jugador argentino, que a sus 27 años, es uno de los grandes iconos de la historia del futbol y del deporte en general.
+    </p>
+
+    <ul class="movieInfoList2">
+        
+        <li class="director"><strong>Director:</strong> {{this.director}}</li>
+        <li class="genre"><strong>Género:</strong> {{this.genre}}</li>
+        <li class="cast"><strong>Actores:</strong> {{this.cast}}</li>
+        
+
+    </ul>
     
-
-    <div class="synopsisDirectorGenreCastDiv">
-    <p>"Synopsis"</p>
-    <p class="director">Director: {{this.director}}</p>
-    <p class="genre">Género: {{this.genre}}</p>
-    <p class="cast">Actores: {{this.cast}}</p>
-    </div>
-
-    <div class="votesRatesDiv">
-        <p>{{this.votes}} votos, promedio: {{this.average}} de 5</p>
-    </div>
-
-    <div class="likesViewsDiv">
-        <p class="views">Views:{{this.views}} Likes: {{this.likes}}</p>
-    </div>
 
 </div>  
 {{/each}}

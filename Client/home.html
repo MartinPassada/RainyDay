@@ -20,9 +20,21 @@
                             <li>
                                 Películas
                                 <ul class="sub-menuMovies">
-                                        <li class="linkGeneros" onclick="showAndScrollTo()">Géneros</li>
-                                        <li class="linkMoreViewed" id="linkMoreViewed" onclick="scrollToSmoothly(document.getElementById('gallery').offsetTop)">Más Vistas</li>
-                                        <li class="linkRanking" id="linkRanking" onclick="scrollToSmoothly(document.getElementById('gallery').offsetTop)">Ranking</li>
+                                        <li class = "linkGeneros" 
+                                            onclick = "showDiv();
+                                            scrollToSmoothly(document.getElementById('genreButtonsDiv').offsetTop)">
+                                            Géneros
+                                        </li>
+                                        <li class="linkMoreViewed" id="linkMoreViewed"
+                                            onclick = "changeGalleryTitleName('Más Vistas');
+                                            scrollToSmoothly(document.getElementById('galleryHeader').offsetTop)">
+                                            Más Vistas
+                                        </li>
+                                        <li class="linkRanking" id="linkRanking"
+                                            onclick = "changeGalleryTitleName('Ranking');
+                                            scrollToSmoothly(document.getElementById('galleryHeader').offsetTop)">
+                                            Ranking
+                                        </li>
                                 </ul>
                             </li>
                             <li>Series</li>
@@ -69,13 +81,14 @@
     <script src="js/javascript1.js"></script>
 
     <script>
+
+
+        // Redirecciona al Home
         function goHome(){
             window.location.href="/";
         }
-        function showAndScrollTo(){
-            showDiv();
-            scrollToDiv();
-        }
+
+        // Muestra u oculta div de generos
         function showDiv() {
             var div = document.getElementById("genreButtonsDiv");
             if (div.style.display == "block") {
@@ -85,6 +98,8 @@
                 div.style.display = "block";
             }
         }
+
+        // Auto scroll a la posicion dada (elemento html)
         function scrollToSmoothly(pos, time) {
             var currentPos = window.scrollY || window.screenTop;
             if (currentPos < pos) {
@@ -108,10 +123,18 @@
                 }, time);
             }
         }
-        function scrollToDiv(){
+
+        // Vacia el titulo de la galeria y lo reemplaza por su correspondiente
+        function changeGalleryTitleName(title){
+            let headerTitle = document.getElementById("galleryHeaderTitle");
+            headerTitle.innerHTML = "";
+            headerTitle.innerHTML = title;
+        }
+
+        /*function scrollToDiv(){
             var elem = document.getElementById("genreButtonsDiv");
             scrollToSmoothly(elem.offsetTop);
-        }
+        }*/
         
     </script>
         
