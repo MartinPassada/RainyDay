@@ -2,6 +2,15 @@
 var galleryDiv = document.getElementById("gallery");
 var genreDiv = document.getElementById('genreButtonsDiv');
 var linkMostWieved = document.getElementById("linkMoreViewed");
+var linkRanking = document.getElementById("linkRanking");
+
+linkRanking.addEventListener("click", function(){
+    getRankedMovies(
+    response => {showRankedMovies(response);},
+    error => showError(error));
+});
+
+
 
 linkMostWieved.addEventListener("click", function(){
     getMostViewedMovies(
@@ -161,9 +170,12 @@ function showError(strError) {
 
 function showMostViewedMovies(mostWieved) {
     galleryDiv.innerHTML = "";
+    /*
     let galleryTitle = document.getElementById("galleryHeaderTitle");
+    El evento de click en el link ya vacia y cambia el titulo de la lista
     galleryTitle.innerHTML = "";
     galleryTitle.innerHTML = "Más Vistas";
+    */
 
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
@@ -193,6 +205,46 @@ function showMostViewedMovies(mostWieved) {
     }
     galleryDiv.appendChild(movieList);
 }
+
+function showRankedMovies (rankedMovies){
+    galleryDiv.innerHTML = "";
+    /*
+    let galleryTitle = document.getElementById("galleryHeaderTitle");
+    El evento de click en el link ya vacia y cambia el titulo de la lista
+    galleryTitle.innerHTML = "";
+    galleryTitle.innerHTML = "Más Vistas";
+    */
+
+    var movieList = document.createElement("ul");
+    movieList.setAttribute("class", "movieList");
+    movieList.setAttribute("id", "movieList");
+    
+    for (let i = 0; i < mostWieved.length; i++){
+        let divImage = document.createElement("div");
+        divImage.setAttribute("class", "divImage");
+        anchor = document.createElement("a");
+        anchor.href = rankedMovies[i].moviePagePath + rankedMovies[i]._id;
+        let link = document.createElement("li");
+        let image = document.createElement("img");
+        image.src = rankedMovies[i].imagePath;
+        image.width = 160;
+        image.height = 242;
+        let movieName = document.createTextNode(rankedMovies[i].name);
+        let year = document.createElement("span");
+        year.setAttribute("class", "movieYear");
+        year.innerHTML = mostWieved[i].year;
+        //appends
+        divImage.appendChild(image);
+        divImage.append(year);
+        divImage.append(movieName);
+        anchor.appendChild(divImage);
+        link.appendChild(anchor);
+        movieList.appendChild(link);
+    }
+    galleryDiv.appendChild(movieList);
+}
+
+
 
 
 
