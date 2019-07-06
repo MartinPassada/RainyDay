@@ -1,5 +1,15 @@
 # No name movie page changelog
 
+## Update #10
+
+*Server-Side
+
+No changes
+
+*Cliente-Side
+
+minor css fixes
+
 ## Update #9
 
 *Server-Side
