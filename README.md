@@ -1,20 +1,11 @@
-# Repo
-Repositorio
+# No name movie page changelog
 
-*Changelog (Commit Nro 8)
+## Update #9
 
-La pagina handlebars ya muestra como debe las peliculas
+*Server-Side
 
-*Changelog (Commit Nro 7)
+A brand new not-implemented-yet api to sort movies by rank
 
-la pagina handlebars ya tiene css y datos de pelicula (quedo a medio hacer)
+*Cliente-Side
 
-
-*Changelog ("agregué un par de funciones)
-
-El boton "inicio" ahora te lleva al home
-
-El boton "Mas vistas" ahora scrollea a la galeria y muestra las peliculas mas vistas
-
-El boton "Ranking" ahora scrollea a la galeria (aun no hay funciones ni apis)
-
+No changes
