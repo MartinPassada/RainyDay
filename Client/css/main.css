@@ -1,5 +1,5 @@
 body {
-    background-color: #080f28;;
+    background-color: #0d1841;;
 }
 
 .divImage {
@@ -82,7 +82,7 @@ body {
     height: auto;
     margin-left: 180px;
     margin-right: 0px;
-    background-color: #080f28;
+    background-color: #0d1841;
     overflow: hidden;
     box-sizing: border-box;
     display: inline-table;
@@ -91,7 +91,7 @@ body {
 
 .gallery2 {
     background-color: #ec1212;;
-    max-width: 300px;
+    max-width: 16%;
     margin-top: -1881px;
     height: 1500px;
     width: 300px;
@@ -168,15 +168,16 @@ ul.sub-menuMovies li:hover{
     margin-top: 0%;
     margin-left: 180px;
     margin-right: 200px;
-    background-color: #080f28;;
+    background-color: #0d1841;
 }
 
 .foot {
-    display: inline;
+    display: inline-;
     box-sizing: border-box;
-    background-color: #080f28;;
-    margin-left: 0px;
-    margin-right: 0px;   
+    margin-left: 0%;
+    margin-right: 0%;  
+    background-color: #010d2f;
+    margin-top: 3%;
 }
 
 .footIcons {
@@ -202,8 +203,10 @@ ul.footLinks {
     list-style-type:none;
     color: whitesmoke;
     position: static;
-    margin-left: 16%;
-    margin-top: 5%;
+    margin-left: 20%;
+    margin-top: 2.5%;
+    margin-bottom: 1.5%;
+    
 }
 
 ul.footLinks > li {
@@ -224,7 +227,7 @@ ul.footLinks > li > h4:hover {
     box-sizing: border-box;
     display: flex;
     position: relative;
-    background-color: #080f28
+    background-color: #0d1841
 }
 
 .carouselDiv > img {
@@ -236,7 +239,7 @@ ul.footLinks > li > h4:hover {
     z-index:2;
     right:0; bottom:0; left:0;
     height:300px;
-    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, #080f28 80%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, #0d1841 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
     margin-top: -300px;
 }
@@ -300,7 +303,7 @@ ul.footLinks > li > h4:hover {
     width: 80%;
     box-sizing: border-box;
     position: relative;
-    background-color: #080f28;
+    background-color: #0d1841;
     margin-right: 10%;
     margin-left: 10%;
     color: #fff;
@@ -353,7 +356,7 @@ ul.footLinks > li > h4:hover {
     color: #8da0bc;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
     overflow: auto;
-    font-size: small; 
+    font-size: medium; 
 }
 
 .movieInfoList1{
@@ -438,11 +441,13 @@ ul.footLinks > li > h4:hover {
 .synopsisDiv {
     white-space: initial;
     text-overflow: ellipsis;
-    height: 35%;
+    height: 24%;
     position: relative;
     margin-top: 0%;
     margin-bottom: 0%;
 }
+
+
 
 
 
