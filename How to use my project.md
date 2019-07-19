@@ -23,8 +23,8 @@ https://code.visualstudio.com/
 
 # Follow the steps
 
-..*Extract folder "repo-master"
-..*Open Visual Studio Code and Add the "repo-master" folder, you'll see the files and now you'll be able to navigate through the code.
+-Extract folder "repo-master"
+-Open Visual Studio Code and Add the "repo-master" folder, you'll see the files and now you'll be able to navigate through the code.
 ..*Go to Terminal --> New Terminal
 A terminal will open showing the default path for the folder you added. Something like this --> PS C:\Program Files (x86)\YOUR PATH\Repo-master>
 ..*Write and the end of the path this "cd Server", without quotes to change de directory path. now the path would be displayed like this --> C:\Program Files (x86)\YOUR PATH\Repo-master\Server>
