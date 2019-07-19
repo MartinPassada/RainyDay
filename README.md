@@ -6,7 +6,7 @@
 
 No changes
 
-*Cliente-Side
+*Client-Side
 
 minor css fixes
 
@@ -16,6 +16,6 @@ minor css fixes
 
 A brand new not-implemented-yet api to sort movies by rank
 
-*Cliente-Side
+*Client-Side
 
 No changes
