@@ -6,30 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
     <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
-
     
 </head>
 
 <body>
   
-    <header class = "header" id = "header" style=display:block;>            
-        <nav class='navClass'>
-            <ul>
-                <li onclick = "goHome()">Inicio</li>
-                <li>
-                </li>
-                <li></li>
-                <li>Contacto</li>
-            </ul>
-        </nav>       
-    </header>  
+<header class = "header" id = "header" style=display:block;>            
+    <nav class='navClass'>
+        <ul>
+            <li onclick = "goHome()">Inicio</li>
+            <li>
+            </li>
+            <li></li>
+            <li>Contacto</li>
+        </ul>
+    </nav>       
+</header>  
     
     
-    {{{body}}}
+{{{body}}}
    
-   
+<section class = "commentsSection">
+
+    <h2 class = "commentsSectionTitle"> Comentarios</h2>
+
+    <div class = "newCommentdiv">
+
+        <figure class = "userInfo">
+            <img class = "userImage" src="/img/nouser.png" height="105px" width="105px"></img>
+            <h4 class = "userNameTitle">Usuario Anonimo</h4>
+        </figure>
+
+        <div class= "inputCommentDiv">
+            <textarea placeholder = "Escribe un comentario..."></textarea>   
+            <button class = "commentButton">Comentar >></button>
+        </div>
+    </div>
+
+</section>
         
-    <footer class="foot" id="foot">                     
+<footer class="foot" id="foot">                     
         <ul class = footLinks>
             <li><h4>Copyright© Todos los derechos reservados</h4></li>
             <li><h4>Privacy Policy</h4></li>
@@ -44,15 +60,19 @@
 
         </ul>
           
-    </footer>
+</footer>
 
 
-    <script>
-        // Redirecciona al Home
-        function goHome(){
-            window.location.href="/";
-        }
-    </script>
+<script>
+    // Redirecciona al Home
+    function goHome(){
+        window.location.href="/";
+    }
+
+
+</script>
+
+
     
 </body>
 </html>

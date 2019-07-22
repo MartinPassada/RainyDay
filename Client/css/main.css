@@ -1,5 +1,16 @@
 body {
-    background-color: #0d1841;;
+  background-color: #0d1841;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.LogInButton {
+
+}
+.SignIn {
+
 }
 
 .divImage {
@@ -297,7 +308,7 @@ ul.footLinks > li > h4:hover {
     text-decoration: underline;
 }
 
-/*handlebars*/
+/***********************************************handlebars******************************************************/
 
 .movieDetailDiv {
     width: 80%;
@@ -322,7 +333,6 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 0px;
     margin-right: 25%;
     font-size: 2.85rem;
-    max-width: max-content;
     position: relative;
     float: inline-start;
     
@@ -446,6 +456,121 @@ ul.footLinks > li > h4:hover {
     margin-top: 0%;
     margin-bottom: 0%;
 }
+.playerdiv {
+    box-sizing: content-box;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    align-content: center;   
+}
+
+.subtitles {
+    height:85%;
+    text-indent:0;
+    font-size:16px;
+    font-size:1rem;
+    font-weight:bold;
+    color:#666;
+    background:#000;
+    border-radius:2px;
+}
+
+.commentsSection {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    height: auto;
+
+}
+
+.commentsSectionTitle{
+    color: whitesmoke;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    
+}
+
+.inputCommentDiv > textarea:nth-child(1){
+    width: 70%;
+}
+
+
+.newCommentdiv {
+ 
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 0px;
+  padding-bottom: 1.0%;
+  width: 70%;  
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  height: auto;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-color: whitesmoke;
+  border-radius: 1rem;
+  background-color: whitesmoke;
+}
+
+.userInfo {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  margin-left: 0px;
+  margin-right: 3%;
+}
+
+
+.userNameTitle {
+  display: inline-block;
+  margin-left: 0.3%;
+  margin-bottom: 1%;
+  border-radius: 0.5rem;
+  background: 0d1841;
+  background-color: rgb(43, 107, 190);
+  color: whitesmoke;
+  padding-top: 0.3%;
+  padding-bottom: 0.3%;
+  padding-right: 0.5%;
+  padding-left: 0.5%;
+  height: auto;
+  width: auto;
+  position: absolute;
+  margin-right: 1%;
+  margin-top: 31.2833px;
+}
+
+.userImage {
+  margin-bottom: 2%;
+  border-radius: 2.5rem;
+  display: inline-block;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+}
+
+.commentButton {
+  background-color: rgb(43, 107, 190);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: inline-end;
+  border-radius: 1.5rem;
+}
+
+
+
+
 
 
 
