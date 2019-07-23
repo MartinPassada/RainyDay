@@ -1,5 +1,15 @@
 # No name movie page changelog
 
+## Update #12
+
+*Server-Side
+
+1. The not-implemented api to sort movies by rank is now working
+
+*Client-Side
+
+1. css fixes
+
 ## Update #11
 
 *Server-Side
