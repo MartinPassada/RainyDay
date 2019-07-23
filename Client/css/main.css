@@ -7,10 +7,11 @@ body {
 }
 
 .LogInButton {
+    cursor: pointer;
 
 }
 .SignIn {
-
+    cursor: pointer;
 }
 
 .divImage {
@@ -377,6 +378,10 @@ ul.footLinks > li > h4:hover {
 .movieInfoList2 {
     list-style-type: none;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: inline-start;
+    padding-left: 0px;
 }
 
 .movieInfoList2 :nth-child(1) strong{
@@ -451,7 +456,7 @@ ul.footLinks > li > h4:hover {
 .synopsisDiv {
     white-space: initial;
     text-overflow: ellipsis;
-    height: 24%;
+    height: auto;
     position: relative;
     margin-top: 0%;
     margin-bottom: 0%;

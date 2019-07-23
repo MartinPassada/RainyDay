@@ -11,7 +11,6 @@ linkRanking.addEventListener("click", function(){
 });
 
 
-
 linkMostWieved.addEventListener("click", function(){
     getMostViewedMovies(
     response => {showMostViewedMovies(response);},
@@ -170,13 +169,6 @@ function showError(strError) {
 
 function showMostViewedMovies(mostWieved) {
     galleryDiv.innerHTML = "";
-    /*
-    let galleryTitle = document.getElementById("galleryHeaderTitle");
-    El evento de click en el link ya vacia y cambia el titulo de la lista
-    galleryTitle.innerHTML = "";
-    galleryTitle.innerHTML = "Más Vistas";
-    */
-
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
@@ -208,18 +200,11 @@ function showMostViewedMovies(mostWieved) {
 
 function showRankedMovies (rankedMovies){
     galleryDiv.innerHTML = "";
-    /*
-    let galleryTitle = document.getElementById("galleryHeaderTitle");
-    El evento de click en el link ya vacia y cambia el titulo de la lista
-    galleryTitle.innerHTML = "";
-    galleryTitle.innerHTML = "Más Vistas";
-    */
-
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
     
-    for (let i = 0; i < mostWieved.length; i++){
+    for (let i = 0; i < rankedMovies.length; i++){
         let divImage = document.createElement("div");
         divImage.setAttribute("class", "divImage");
         anchor = document.createElement("a");
@@ -232,7 +217,7 @@ function showRankedMovies (rankedMovies){
         let movieName = document.createTextNode(rankedMovies[i].name);
         let year = document.createElement("span");
         year.setAttribute("class", "movieYear");
-        year.innerHTML = mostWieved[i].year;
+        year.innerHTML = rankedMovies[i].year;
         //appends
         divImage.appendChild(image);
         divImage.append(year);

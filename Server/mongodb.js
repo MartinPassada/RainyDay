@@ -3,6 +3,7 @@ module.exports.getGenres = getGenres;
 module.exports.searchByGenres = searchByGenres;
 module.exports.getMovieInfo = getMovieInfo;
 module.exports.getMostWievedMovies = getMostWievedMovies;
+module.exports.getRankedMovies = getRankedMovies;
 
 
 const mongodb = require("mongodb");
@@ -113,6 +114,25 @@ function getMostWievedMovies(cbOK){
             var db = client.db("admin");
             var collection = db.collection("moviesdatabase");
             collection.find().sort({views:-1}).toArray((err, data) => {
+                cbOK(data);
+            });
+        }
+
+        // Cierro la conexión
+        client.close();
+    });
+}
+
+function getRankedMovies(cbOK){
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {            
+            // Error en la conexión
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("moviesdatabase");
+            collection.find().sort({average:-1}).toArray((err, data) => {
                 cbOK(data);
             });
         }

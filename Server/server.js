@@ -65,6 +65,12 @@ app.get('/movies/:id', (req, res) => {
     }, searchparameter);
     
 });
+
+app.get('/ranked', (req, res) => {
+    mongoDatabase.getRankedMovies(rankedMovies => {
+        res.json(rankedMovies);
+    });
+});
     
  
     
