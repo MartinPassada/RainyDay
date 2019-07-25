@@ -18,7 +18,7 @@ https://code.visualstudio.com/
 
 ## 6. Reboot your system
 
-## 7. Make sure service "mongoDB database server" is started
+## 7. Make sure service "mongoDB database server" is running
 
 
 # Follow the steps
@@ -30,7 +30,7 @@ A terminal will open showing the default path for the folder you added. Somethin
 4. Write and the end of the path this "cd Server", without quotes to change de directory path. now the path would be displayed like this --> **C:\Program Files (x86)\YOUR PATH\Repo-master\Server>**
 5. Write on the terminal, in a new line "npm start" without quotes. A message will show up saying **"listening in port 8000"**
 6. Open Mongo Compass
-7. Create a new default connection (localhost 127.0.0.1), if connection fails you didn't do right the point number 7. Start the service manually.
+7. Create a new default connection (localhost 127.0.0.1), if connection fails you didn't do right the point number 7. Start the service manually. (Windows + R) --> services.msc
 8. Once you created the connection go to Admin and click the plus button + "create collection" and name it "moviesdatabase" without quotes and in lowercase
 9. Now go to your new "moviesdatabase" tag (you'll find it inside Admin, dropdown it if necessary) and click in the "collection" button from the menu-bar and import Data
 10. Browse **"Repo-master/Server/moviesdatabse.json"** folder and import it
