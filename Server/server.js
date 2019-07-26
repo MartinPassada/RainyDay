@@ -6,9 +6,11 @@ const path = require('path');
 
 // JS propios
 const mongoDatabase = require('./mongodb.js');
+const login = require ('./login.js');
 
 //Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Recursos estaticos
 app.use(express.static(path.join(__dirname, '../Client')));
@@ -22,9 +24,9 @@ app.engine('handlebars', exphbs({
   app.set('views', path.join(__dirname, '/views'));
 
 
-// GET API's
+// GET API's //
 
-//HOME
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Client/home.html'));
 });
@@ -55,8 +57,6 @@ app.get('/mostviewed', (req, res) => {
     });
 });
 
-
-
 app.get('/movies/:id', (req, res) => {
     let searchparameter = req.params.id;
     mongoDatabase.getMovieInfo(movieInfo => {
@@ -71,7 +71,21 @@ app.get('/ranked', (req, res) => {
         res.json(rankedMovies);
     });
 });
-    
+
+// POST API's //
+
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    if (req.body.user !== undefined && req.body.password !== undefined) {
+      if (login.validarUsuario(req.body.user, req.body.password)) {
+        res.redirect('http://twitter.com');
+      } else {
+        res.sendStatus(403);
+      }
+    } else {
+      res.status(403).end();
+    }
+  });
  
     
 

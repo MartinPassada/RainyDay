@@ -11,7 +11,6 @@
 
 <body>
 
-    
     <div class = "carouselDiv" id = "carouselDiv">   
             <header class = "header" id = "header">           
                     <nav class='navClass'>
@@ -39,8 +38,7 @@
                             </li>
                             <li>Series</li>
                             <li>Contacto</li>
-                            <button class = "LogInButton">Ingresar</button>
-                            <button class = "SignIn">Registrarse</button>
+                            <button class = "LogInButton" id= "LogInButton" onclick="showLoginForm()">Ingresar</button>
                         </ul>
                         
                     </nav>       
@@ -49,10 +47,8 @@
     </div>
     <div class = "fadedDiv" id="fadedDiv">
     </div>
-    
-    <div class= "genreButtonsDiv" id="genreButtonsDiv">
-        
-    </div>
+
+    <div class= "genreButtonsDiv" id="genreButtonsDiv"></div>
 
     <div class="galleryHeader" id="galleryHeader">     
         <h1 class = "galleryHeaderTitle" id="galleryHeaderTitle">ÚLTIMAS PELÍCULAS AGREGADAS</h1>
@@ -61,7 +57,45 @@
     </div> 
     <div class="gallery2" id="gallery2"> 
     </div>               
-        
+    
+    <!-- LOGIN FORM -->
+    <section class="loginForm" id ="loginForm">
+            <div class="overlay"></div>
+
+            <div class="background-image-login"></div>
+
+            <h1 class="login-h1">INGRESAR</h1>
+
+            <div class="login-container">
+
+            <img class= "crossForCloseImg" id="crossForCloseImg" src="img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
+            <img class= "logoImage" src="img/logo.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+            <label>
+                <input class="E-mail-input" id="E-mail-input" type="text" placeholder="E-mail"/>
+            </label>
+            <label>
+                <input class="Password-input" id="Password-input" type="password" placeholder="Password"/>
+            </label>
+
+            <div class="alertBox-Success" id="alertBox-Success">
+                <strong>Exito!</strong> Bien!!.
+            </div>
+            <div class="alertBox-Error" id="alertBox-Error">
+                <strong>Error!</strong> Mal!!.
+            </div>
+
+            <button class="submitButton" id="submitButton" onclick="doLogin()">ENTRAR</button>
+
+            <a href="" class="SignUp">Registrate!</a>
+            <a href="" class="forgot-password">Olvidaste la contraseña?</a>
+                
+            </form>
+        </div>
+    </section>
+
+          <!-- -->
 
     <footer class="foot" id="foot">                     
         <ul class = footLinks>
@@ -70,9 +104,9 @@
             <li><h4>Terms of Service</h4></li>
             <li>
                 <div class = footIcons>
-                    <img src="/icons/rss-icon.png"></img>
-                    <img src="/icons/slack-icon.png"></img>
-                    <img src="/icons/twitter-icon.png"></img>
+                    <a href="https://www.rss.com" target="_blank"><img src="/icons/rss-icon.png"></img></a>
+                    <a href="https://www.slack.com" target="_blank"><img src="/icons/slack-icon.png"></img></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="/icons/twitter-icon.png"></img></a>
                 </div>
             </li>
 
@@ -82,64 +116,7 @@
     
     <script src="js/ajax.js"></script>
     <script src="js/javascript1.js"></script>
-
-    <script>
-
-
-        // Redirecciona al Home
-        function goHome(){
-            window.location.href="/";
-        }
-
-        // Muestra u oculta div de generos
-        function showDiv() {
-            var div = document.getElementById("genreButtonsDiv");
-            if (div.style.display == "block") {
-                div.style.display = "none";
-            } 
-            else {
-                div.style.display = "block";
-            }
-        }
-
-        // Auto scroll a la posicion dada (elemento html)
-        function scrollToSmoothly(pos, time) {
-            var currentPos = window.scrollY || window.screenTop;
-            if (currentPos < pos) {
-                var t = 10;
-                for (let i = currentPos; i <= pos; i += 10) {
-                t += 10;
-                setTimeout(function() {
-                    window.scrollTo(0, i);
-                }, t / 2);
-                }
-            } else {
-                time = time || 2;
-                var i = currentPos;
-                var x;
-                x = setInterval(function() {
-                window.scrollTo(0, i);
-                i -= 10;
-                if (i <= pos) {
-                    clearInterval(x);
-                }
-                }, time);
-            }
-        }
-
-        // Vacia el titulo de la galeria y lo reemplaza por su correspondiente
-        function changeGalleryTitleName(title){
-            let headerTitle = document.getElementById("galleryHeaderTitle");
-            headerTitle.innerHTML = "";
-            headerTitle.innerHTML = title;
-        }
-
-        /*function scrollToDiv(){
-            var elem = document.getElementById("genreButtonsDiv");
-            scrollToSmoothly(elem.offsetTop);
-        }*/
-        
-    </script>
+    <script src="js/javascript2.js"></script>
         
 </body>
 </html>
