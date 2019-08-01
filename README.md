@@ -9,6 +9,7 @@
 *Client-Side
 
 1. css fixes
+2. links added to social media bar in the footer
 
 ## Update #11
 
