@@ -668,22 +668,22 @@ ul.footLinks > li > h4:hover {
     
 }
 
-.E-mail-input{
+.e-mail{
     height: 30px;
     width: 230px;
     margin-left: 15%;
     margin-bottom: 3%;
 }
 
-.E-mail-input:hover{
+.e-mail:hover{
     background-color: rgb(231, 231, 231);
 }
 
-.Password-input:hover{
+.password:hover{
     background-color: rgb(231, 231, 231);
 }
 
-.Password-input {
+.password {
     height: 30px;
     width: 230px;
     margin-left: 15%;

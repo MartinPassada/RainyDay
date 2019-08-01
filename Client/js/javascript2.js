@@ -78,11 +78,13 @@ function doLogin() {
         }
     }
     var data = {
-        user: document.getElementById("E-mail-input").value,
-        password: document.getElementById("Password-input").value
+        user: document.getElementById("e-mail").value,
+        password: document.getElementById("password").value
     }
+    console.log("apunto de hacer el send");
     req.open("POST", "/login");
     req.setRequestHeader('Content-type', 'application/json');
     req.send(JSON.stringify(data));
+    console.log('hizo el send');
 
 }
