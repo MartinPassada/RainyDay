@@ -10,7 +10,7 @@
 
 1. Added support for some viewports like 1024x768 - 1280x720 - 1366x768.
 2. Navbar now sticks when you scroll down.
-3. Login Form now is well displayed.
+3. Login Form is now well displayed.
 4. Basic login functions were added, use "admin-admin" for log
 5. some css fixes
 
