@@ -78,7 +78,7 @@ app.post('/login', (req, res) => {
     console.log(req.body);
     if (req.body.user !== undefined && req.body.password !== undefined) {
       if (login.validarUsuario(req.body.user, req.body.password)) {
-        res.redirect('http://twitter.com');
+        res.redirect('/');
       } else {
         res.sendStatus(403);
       }

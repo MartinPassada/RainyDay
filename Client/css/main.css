@@ -41,7 +41,7 @@ body {
     position: absolute;
     bottom: .5rem;
     right: .5rem;
-    z-index: 3;
+    /*! z-index: 3; */
     font-size: .75rem;
     font-weight: 700;
     background-color: #007aff;
@@ -55,13 +55,7 @@ body {
    border-color: rgb(0, 174, 255);
    cursor: pointer;
 }
-
-.header {     
-    min-height: 100px;
-    background-color: transparent;
-    display: contents;
-}
-
+    
 .movieList {
     display: inline-flex;
     flex-wrap: wrap;
@@ -92,7 +86,7 @@ body {
     max-width: 1268px;
     margin-top: 0%;
     height: auto;
-    margin-left: 180px;
+    margin-left: 14%;
     margin-right: 0px;
     background-color: #0d1841;
     overflow: hidden;
@@ -115,7 +109,22 @@ body {
     display: none;
 }
 
-.navClass > ul > li{
+.nav {
+     min-height: 60px;
+     background-color: #0d1841;
+     /*! overflow: hidden; */
+     display: block;
+    /*! position: fixed; */
+     z-index: 1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.nav > ul > li{
     list-style-type:none;
     display:inline-block;
     position:relative;
@@ -125,26 +134,30 @@ body {
     padding-left:25px;
 }
 
-.navClass > ul{
-   background-color:transparent; 
+.nav > ul{
+    background-color:transparent; 
     color: rgb(255, 255, 255);
-    font-size:20px;
+    /*! font-size:18px; */
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 33%;
     position: absolute;
+    /*! display: flow-root; */
 }
 
 ul.sub-menuMovies{
     position:absolute;
-    background-color:#1e2747;
+    background-color:#0d1841;
     list-style-type:none;
-    margin-top:5px;
+    margin-top:4%;
     margin-left:-25px;
-    width:210px;
-    padding-left:0px;
+    width:130px;
+    padding-left:5%;
     color: rgb(255, 255, 255);
     opacity:0;
     border-radius: 5px;
+    /*! padding: ; */
+    padding-right: 5%;
+    padding-bottom: 5%;
 }
 
 ul.sub-menuMovies li{
@@ -159,28 +172,32 @@ ul.sub-menuMovies li:hover{
     color: #007aff;
     
 }
-.navClass li:hover{
+.nav li:hover{
     color: #007aff;
     cursor: pointer;
 }
-.navClass li:hover .sub-menuMovies{
+.nav li:hover .sub-menuMovies{
     z-index:1;
     opacity:1;
 }
 
 .galleryHeader > h1 {
-    margin-left: 45px;
     font-weight: 700;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
     color: white;
+    margin-left: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
 }
 
 .galleryHeader {                 
     max-width: 1268px;
     margin-top: 0%;
-    margin-left: 180px;
+    margin-left: 16%;
     margin-right: 200px;
     background-color: #0d1841;
+    margin-bottom: 1%;
 }
 
 .foot {
@@ -219,6 +236,7 @@ ul.footLinks {
     margin-top: 2.5%;
     margin-bottom: 1.5%;
     
+    /*! margin-right: 20%; */
 }
 
 ul.footLinks > li {
@@ -248,7 +266,7 @@ ul.footLinks > li > h4:hover {
 
 .fadedDiv {
     position: relative;
-    z-index:2;
+    /*! z-index:2; */
     right:0; bottom:0; left:0;
     height:300px;
     background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, #0d1841 80%);
@@ -264,7 +282,7 @@ ul.footLinks > li > h4:hover {
     box-sizing: border-box;
     display: inline-table;
     position: static;
-    margin-left: 180px;
+    margin-left: 14%;
     display: none;
 }
 
@@ -327,8 +345,6 @@ ul.footLinks > li > h4:hover {
     float: inherit;
 }
 
-
-
 .movieDetailDiv > h1 {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -359,8 +375,9 @@ ul.footLinks > li > h4:hover {
     display: inline-block;
     margin-top: 0%;
     color: #8da0bc;
-    margin-right: 55%;
+    margin-right: 50%;
     margin-bottom: 0px;
+    font-size: large;
 }
 
 .synopsis {
@@ -460,6 +477,7 @@ ul.footLinks > li > h4:hover {
     position: relative;
     margin-top: 0%;
     margin-bottom: 0%;
+    max-height: 150px;
 }
 .playerdiv {
     box-sizing: content-box;
@@ -619,6 +637,8 @@ ul.footLinks > li > h4:hover {
     padding: 1em;
     margin-top: 1em;
     position: relative;
+    /*! padding-bottom: 3em; */
+    padding-top: 1.em;
 }
 
 .login > img {
@@ -637,24 +657,23 @@ ul.footLinks > li > h4:hover {
 }
 
 .submitButton {
-    border-bottom: 4px solid #0077a4;
-    border-bottom: 6px solid #0077a4;
-    border: none;
-    margin: 0;
-    width: 100%;
-    margin-top: 1em;
+    
+    color: whitesmoke;
+    background-color: #e76e54;
+    /*! border: aliceblue; */
+    /*! border-radius: 1rem; */
     padding: 1em;
-    font-size: 1.1em;
-    border-radius: 0;
-    letter-spacing: 0.02em;
-    background-color: #00aced;
-    color: white;
-    border-bottom: 4px solid #0077a4;
-    cursor: pointer;
-    margin-bottom: 2%;
+    padding-right: 1.2em;
+    padding-left: 1.2em;
+    margin-left: 33.5%;
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 .submitButton:hover {
-   background-color: #00aeedb4;
+   
+    background-color: lightblue;
+    cursor: pointer;
 }
 
 .logoImage {
@@ -727,7 +746,7 @@ ul.footLinks > li > h4:hover {
     display: none;
 }
 
-.SignUp{
+.signUp{
     color: #007aff;
     margin-left: 38%;
 }
@@ -735,6 +754,59 @@ ul.footLinks > li > h4:hover {
 .forgot-password{
     color: #007aff;
     margin-left: 25%;
+}
+
+@media screen and (max-width: 1280px){
+    .gallery {
+        margin-left: 0%;
+    }
+    .foot ul {
+        margin-left: 0%
+    }
+    .galleryHeader{
+        margin-left: 4%;
+    }
+    .nav ul {
+        padding-left: 26%;
+    }
+    .commentButton {
+        padding: 13px;
+    }
+    .newCommentdiv {
+        padding: 1.2em;
+    }
+    .genreButtonsDiv{
+        margin-left: 0%;
+    }
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
+    }
+    ul.sub-menuMovies {
+        padding-right: 0%;
+        padding-left: 0%;
+        
+    }
+}
+
+@media screen and (max-width: 1546px){
+    .movieDetailDiv {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        display: flow-root;
+    }
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
+    }
+    .playerdiv {
+        padding: 0%;
+        margin: 5em;
+        margin-top: 25%;
+    }
 }
 
 

@@ -1,5 +1,19 @@
 # No name movie page changelog
 
+## Update #13
+
+*Server-Side
+
+1. minor fixes
+
+*Client-Side
+
+1. Added support for some viewports like 1024x768 - 1280x720 - 1366x768.
+2. Navbar now sticks when you scroll down.
+3. Login Form now is well displayed.
+4. Basic login functions were added, use "admin-admin" for log
+5. some css fixes
+
 ## Update #12
 
 *Server-Side

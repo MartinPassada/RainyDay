@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Ver Pelicula</title>
     <meta charset='utf-8'>
@@ -10,48 +11,48 @@
 </head>
 
 <body>
-  
-<header class = "header" id = "header" style=display:block;>            
-    <nav class='navClass'>
+    <div class="nav" id="nav">
         <ul>
-            <li onclick = "goHome()">Inicio</li>
-            <li>
-            </li>
-            <li></li>
+            <li onclick="goHome()">Inicio</li>
             <li>Contacto</li>
+            <button class="LogInButton" id="LogInButton" onclick="showLoginForm()">Ingresar</button>
         </ul>
-    </nav>       
-</header>  
-    
-    
-{{{body}}}
-   
-<section class = "commentsSection">
-
-    <h2 class = "commentsSectionTitle"> Comentarios</h2>
-
-    <div class = "newCommentdiv">
-
-        <figure class = "userInfo">
-            <img class = "userImage" src="/img/nouser.png" height="105px" width="105px"></img>
-            <h4 class = "userNameTitle">Usuario Anonimo</h4>
-        </figure>
-
-        <div class= "inputCommentDiv">
-            <textarea placeholder = "Escribe un comentario..."></textarea>   
-            <button class = "commentButton">Comentar >></button>
-        </div>
     </div>
 
-</section>
-        
-<footer class="foot" id="foot">                     
-        <ul class = footLinks>
-            <li><h4>Copyright© Todos los derechos reservados</h4></li>
-            <li><h4>Privacy Policy</h4></li>
-            <li><h4>Terms of Service</h4></li>
+    {{{body}}}
+
+    <section class="commentsSection">
+
+        <h2 class="commentsSectionTitle"> Comentarios</h2>
+
+        <div class="newCommentdiv">
+
+            <figure class="userInfo">
+                <img class="userImage" src="/img/nouser.png" height="105px" width="105px"></img>
+                <h4 class="userNameTitle">Usuario Anonimo</h4>
+            </figure>
+
+            <div class="inputCommentDiv">
+                <textarea placeholder="Escribe un comentario..."></textarea>
+                <button class="commentButton">Comentar >></button>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="foot" id="foot">
+        <ul class=footLinks>
             <li>
-                <div class = footIcons>
+                <h4>Copyright© Todos los derechos reservados</h4>
+            </li>
+            <li>
+                <h4>Privacy Policy</h4>
+            </li>
+            <li>
+                <h4>Terms of Service</h4>
+            </li>
+            <li>
+                <div class=footIcons>
                     <img src="/icons/rss-icon.png"></img>
                     <img src="/icons/slack-icon.png"></img>
                     <img src="/icons/twitter-icon.png"></img>
@@ -59,20 +60,19 @@
             </li>
 
         </ul>
-          
-</footer>
+
+    </footer>
 
 
-<script>
-    // Redirecciona al Home
+    <script>
     function goHome(){
-        window.location.href="/";
+    window.location.href="/";
     }
 
+    </script>
 
-</script>
 
 
-    
 </body>
+
 </html>

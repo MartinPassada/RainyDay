@@ -3,6 +3,27 @@ function goHome(){
     window.location.href="/";
 }
 
+window.onscroll = function() {stickyNavBar()};
+window.onload = function() {stickyLoginForm()};
+
+var navbar = document.getElementById("nav");
+var loginForm = document.getElementById("loginForm");
+var fadedDivPos = document.getElementById("fadedDiv").offsetTop;
+
+
+function stickyNavBar() {
+  if (window.pageYOffset >= fadedDivPos) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+} 
+
+function stickyLoginForm() {
+    loginForm.classList.add("sticky");
+} 
+
+
 // Muestra y oculta div de generos
 function showDiv() {
     var div = document.getElementById("genreButtonsDiv");
@@ -49,10 +70,12 @@ function changeGalleryTitleName(title){
 function showLoginForm(){
     var loginForm = document.getElementById("loginForm");
     loginForm.style.display = "flex";
+    navbar.style.display = "none";
 }
 
 function closeLoginForm(){
     var loginForm = document.getElementById("loginForm");
+    navbar.style.display = "block";
     loginForm.style.display = "none";
 }
 
@@ -62,29 +85,33 @@ function doLogin() {
     
     req.onload = function() {
         const errorMessageDiv = document.getElementById("alertBox-Error");
-        console.log("hasta aca llego");
+        const successMessageDiv = document.getElementById("alertBox-Success");
 
         if (req.status == 200) {
-            window.location.replace(req.responseURL);
+            console.log("todo ok");
+            successMessageDiv.innerHTML = "<strong>Exito!</strong> Datos correctos, redireccionando...";
+            successMessageDiv.style.display = "flex";
+            setTimeout(function() {successMessageDiv.style.display="none"},3000);
+            setTimeout(function() {window.location.replace(req.responseURL)},3500);
 
         } else if (req.status == 403) {
             // 403: No autorizado
+            errorMessageDiv.innerHTML = "<strong>Error!</strong> Usuario y/o contraseña invalidos";
             errorMessageDiv.style.display = "flex"; 
+            setTimeout(function() {errorMessageDiv.style.display="none"},3000);
             
         } else {
             // Otro código HTTP
             errorMessageDiv.textContent = `Error inesperado (código ${request.status})`;
             errorMessageDiv.style.display = "flex";
+            setTimeout(function() {errorMessageDiv.style.display="none"},3000);
         }
     }
     var data = {
         user: document.getElementById("e-mail").value,
         password: document.getElementById("password").value
     }
-    console.log("apunto de hacer el send");
     req.open("POST", "/login");
     req.setRequestHeader('Content-type', 'application/json');
     req.send(JSON.stringify(data));
-    console.log('hizo el send');
-
 }
