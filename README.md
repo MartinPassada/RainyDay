@@ -8,7 +8,7 @@
 
 *Client-Side
 
-1. New welcome screen with sign up box (Work in progress)
+1. New welcome screen with sign up box (Work in progress).
 
 
 ## Update #13

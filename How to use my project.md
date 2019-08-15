@@ -18,7 +18,7 @@ https://code.visualstudio.com/
 
 ## 6. Reboot your system
 
-## 7. Make sure service "mongoDB database server" is running (step N°)
+## 7. Make sure service "mongoDB database server" is running
 
 
 # Follow the steps
