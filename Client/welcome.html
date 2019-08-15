@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    
+    <a href="/" class="enterButton" id="enterbutton">ENTRAR</a>
+    <a class="signUpButton" id="signUpButton" onclick="showLoginForm()">REGISTRATE</a>
+
+    <!-- SIGNUP FORM  -->
+    <section class="loginForm" id="loginForm">
+        <div class="overlay"></div>
+
+        <div class="background-image-login"></div>
+
+        <h1 class="login-h1">BIENVENIDO !!</h1>
+
+        <div class="login-container">
+
+            <img class="crossForCloseImg" id="crossForCloseImg" src="img/crossforclose.png" onclick="closeLoginForm()"
+                height="25px" width="25px"></img>
+            <img class="logoImage" src="img/logo.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+                <label>
+                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail" />
+                </label>
+                <label>
+                    <input class="user-name" id="user-name" type="text" placeholder="Nombre de Usuario"/>
+                </label>
+                <label>
+                    <input class="password" id="password" type="password" placeholder="Password" />
+                </label>
+                <label>
+                    <input class="repeat-password" id="repeat-password" type="password" placeholder="Repetir Password" />
+                </label>
+
+                <div class="alertBox-Success" id="alertBox-Success">
+                    <strong>Exito!</strong>
+                </div>
+                <div class="alertBox-Error" id="alertBox-Error">
+                    <strong>Error!</strong>
+                </div>
+
+                <a class="submitSignUpButton" id="submitSignUpButton" onclick="doSignUp()">REGISTRARSE</a>
+                
+                <!-- <div class="loginFormLinksDiv" id="loginFormLinksDiv">
+                <a href="" class="signUp">Link1</a> 
+                <a href="" class="forgot-password">Link2</a> -->
+
+                </div>   
+            </form>
+        </div>
+    </section>
+    <!-- END OF SIGNUP FORM  -->
+
+
+    <script src="js/welcome.js"></script>
+</body>
+
+</html>

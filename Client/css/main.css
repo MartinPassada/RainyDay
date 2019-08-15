@@ -637,7 +637,6 @@ ul.footLinks > li > h4:hover {
     padding: 1em;
     margin-top: 1em;
     position: relative;
-    /*! padding-bottom: 3em; */
     padding-top: 1.em;
 }
 
@@ -660,8 +659,6 @@ ul.footLinks > li > h4:hover {
     
     color: whitesmoke;
     background-color: #e76e54;
-    /*! border: aliceblue; */
-    /*! border-radius: 1rem; */
     padding: 1em;
     padding-right: 1.2em;
     padding-left: 1.2em;
@@ -669,8 +666,28 @@ ul.footLinks > li > h4:hover {
     display: inline-flex;
     margin-top: 5%;
     margin-bottom: 5%;
+    /*! margin-right: 50.5%; */
 }
 .submitButton:hover {
+   
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.submitSignUpButton {
+    
+    color: whitesmoke;
+    background-color: #e76e54;
+    padding: 1em;
+    padding-right: 1.2em;
+    padding-left: 1.2em;
+    margin-left: 28.5%;
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    
+}
+.submitSignUpButton:hover {
    
     background-color: lightblue;
     cursor: pointer;
@@ -698,6 +715,17 @@ ul.footLinks > li > h4:hover {
     background-color: rgb(231, 231, 231);
 }
 
+.user-name{
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+.user-name:hover{
+    background-color: rgb(231, 231, 231);
+}
+
 .password:hover{
     background-color: rgb(231, 231, 231);
 }
@@ -706,6 +734,18 @@ ul.footLinks > li > h4:hover {
     height: 30px;
     width: 230px;
     margin-left: 15%;
+    margin-bottom: 10.2px;
+}
+
+.repeat-password:hover{
+    background-color: rgb(231, 231, 231);
+}
+
+.repeat-password {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 10.2px;
 }
 
 .alertBox-Success{
@@ -755,6 +795,55 @@ ul.footLinks > li > h4:hover {
     color: #007aff;
     margin-left: 25%;
 }
+
+.enterButton {
+	-moz-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	-webkit-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	background-color:#7892c2;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:28px;
+	font-weight:bold;
+	padding:12px 20px;
+	text-decoration:none;
+}
+.enterButton:hover {
+	background-color:#1a70d9;
+}
+.enterButton:active {
+	position:relative;
+	top:1px;
+}
+
+.signUpButton {
+	-moz-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	-webkit-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	box-shadow:inset -50px 0px 0px -50px #9fb4f2;
+	background-color:#7892c2;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:28px;
+	font-weight:bold;
+	padding:12px 20px;
+	text-decoration:none;
+}
+.signUpButton:hover {
+	background-color:#1a70d9;
+}
+.signUpButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
 
 @media screen and (max-width: 1280px){
     .gallery {

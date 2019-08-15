@@ -4,6 +4,7 @@ const exphbs  = require('express-handlebars')
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 // JS propios
 const mongoDatabase = require('./mongodb.js');
 const login = require ('./login.js');
@@ -19,10 +20,14 @@ app.use(express.static(path.join(__dirname, '../Client')));
 app.engine('handlebars', exphbs({
     defaultLayout: 'moviePageLayout',
     layoutsDir: path.join(__dirname, '/layouts')
-  }));
-  app.set('view engine', 'handlebars')
-  app.set('views', path.join(__dirname, '/views'));
+}));
+app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, '/views'));
 
+// Session
+
+var userName = "";
+var sessionStatus = false;
 
 // GET API's //
 
@@ -31,6 +36,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../Client/home.html'));
 });
 
+app.get('/welcome', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Client/welcome.html'));
+});
 
 app.get('/latestmovies', (req, res) => {
     mongoDatabase.getLatestMovies(moviesCollection => {
@@ -65,6 +73,7 @@ app.get('/movies/:id', (req, res) => {
     }, searchparameter);
     
 });
+
 
 app.get('/ranked', (req, res) => {
     mongoDatabase.getRankedMovies(rankedMovies => {

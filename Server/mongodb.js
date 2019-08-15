@@ -9,6 +9,8 @@ module.exports.getRankedMovies = getRankedMovies;
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 const mongoURL = 'mongodb://localhost:27017';
+const fs = require("fs");
+const path = require('path');
 
 
 
@@ -77,8 +79,6 @@ function searchByGenres(cbOK, searchparameter) {
         client.close();
     });
 
-
-
 }
 
 function getMovieInfo(cbOK, searchparameter) { 
@@ -92,15 +92,24 @@ function getMovieInfo(cbOK, searchparameter) {
             var db = client.db("admin");
             var collection = db.collection("moviesdatabase");
             collection.find ({"_id": ObjectID(searchparameter)}).toArray((err, data) => {
+                //var completeFileName = `${data[0].name}.${data[0].filetype}`;
+                var videoPath = `${data[0].moviePagePath}${data[0].name}.${data[0].filetype}`;
+                try {
+                    if(fs.readFileSync(path.resolve(__dirname, `../Client${videoPath}`), {})){
+                        data[0].exist = true;
+                    }
+                } catch (err) {
+                    console.log(err);
+                    if(err.code === 'ENOENT'){
+                        data[0].exist = false;
+                        
+                    }
+                }
                 cbOK(data);
             });
         }
-
-        // Cierro la conexión
         client.close();
     });
-
-
 
 }
 

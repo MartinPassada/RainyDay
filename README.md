@@ -1,5 +1,16 @@
 # No name movie page changelog
 
+## Update #14
+
+*Server-Side
+
+1. Error handling was added when movie doesn't exist
+
+*Client-Side
+
+1. New welcome screen with sign up box (Work in progress)
+
+
 ## Update #13
 
 *Server-Side
@@ -11,7 +22,7 @@
 1. Added support for some viewports like 1024x768 - 1280x720 - 1366x768.
 2. Navbar now sticks when you scroll down.
 3. Login Form now is well displayed.
-4. Basic login functions were added, use "admin-admin" for log
+4. Basic log-in functions were added, use "admin-admin" for log
 5. some css fixes
 
 ## Update #12
