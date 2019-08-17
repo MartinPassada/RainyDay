@@ -12,7 +12,7 @@
 
 1. Sign Up form completed, validations included.
 2. Log In form completed also with validations.
-3. Auto Log In function after sign up.
+3. Added a function that automagically logs you in after sign up.
 4. Nav bar displays username when logged, if not, shows "annonymous user".
 5. Added button to log off.
 6. Some fixes and stuff I don't remember.
