@@ -79,7 +79,39 @@ function closeLoginForm(){
     loginForm.style.display = "none";
 }
 
-function doLogin() {
+function checkdata(){
+
+    var loginData = {
+        user: document.getElementById("e-mail").value,
+        password: document.getElementById("password").value
+    };
+
+    const errorMessageDiv = document.getElementById('alertBox-Error');
+    var passwordPattern = /^([a-zA-Z0-9_.-]{5,15})$/gm;
+    
+    if(loginData.password == ''){
+        errorMessageDiv.innerHTML = "Debes introducir una password";
+        errorMessageDiv.style.display = "flex"; 
+        setTimeout(function() {errorMessageDiv.style.display="none"},2300);
+
+    }else if(loginData.user == ''){
+        errorMessageDiv.innerHTML = "Debes introducir un e-mail o usuario";
+        errorMessageDiv.style.display = "flex"; 
+        setTimeout(function() {errorMessageDiv.style.display="none"},3000);
+
+    }else if (loginData.password.search(passwordPattern)){
+    errorMessageDiv.innerHTML = "La password debe tener minimo 5 caracteres y maximo 15";
+    errorMessageDiv.style.display = "flex"; 
+    setTimeout(function() {errorMessageDiv.style.display="none"},3000);
+    }else{
+
+        doLogin(loginData);
+
+    }
+}
+
+
+function doLogin(loginData) {
 
     req = new XMLHttpRequest();
     
@@ -88,7 +120,7 @@ function doLogin() {
         const successMessageDiv = document.getElementById("alertBox-Success");
 
         if (req.status == 200) {
-            console.log("todo ok");
+            
             successMessageDiv.innerHTML = "<strong>Exito!</strong> Datos correctos, redireccionando...";
             successMessageDiv.style.display = "flex";
             setTimeout(function() {successMessageDiv.style.display="none"},3000);
@@ -96,22 +128,19 @@ function doLogin() {
 
         } else if (req.status == 403) {
             // 403: No autorizado
-            errorMessageDiv.innerHTML = "<strong>Error!</strong> Usuario y/o contraseña invalidos";
+            errorMessageDiv.innerHTML = "<strong>Error!</strong> Usuario/email y/o contraseña invalidos";
             errorMessageDiv.style.display = "flex"; 
             setTimeout(function() {errorMessageDiv.style.display="none"},3000);
             
         } else {
             // Otro código HTTP
-            errorMessageDiv.textContent = `Error inesperado (código ${request.status})`;
+            errorMessageDiv.textContent = `Error inesperado (código ${req.status})`;
             errorMessageDiv.style.display = "flex";
             setTimeout(function() {errorMessageDiv.style.display="none"},3000);
         }
     }
-    var data = {
-        user: document.getElementById("e-mail").value,
-        password: document.getElementById("password").value
-    }
+    
     req.open("POST", "/login");
     req.setRequestHeader('Content-type', 'application/json');
-    req.send(JSON.stringify(data));
+    req.send(JSON.stringify(loginData));
 }

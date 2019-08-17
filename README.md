@@ -1,10 +1,28 @@
 # No name movie page changelog
 
+## Update #15
+
+*Server-Side
+
+1. Sign Up api is working, checks if user exist, encrypts passwords and more.
+2. Log in api works as expected, also encrypts passwords to compare with DB.
+3. The server now controls session status.
+
+*Client-Side
+
+1. Sign Up form completed, validations included.
+2. Log In form completed also with validations.
+3. Auto Log In function after sign up.
+4. Nav bar displays username when logged, if not, shows "annonymous user".
+5. Added button to log off.
+6. Some fixes and stuff I don't remember.
+
+
 ## Update #14
 
 *Server-Side
 
-1. Error handling was added when movie doesn't exist
+1. Error handling was added when movie doesn't exist.
 
 *Client-Side
 

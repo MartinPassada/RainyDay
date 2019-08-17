@@ -1,3 +1,39 @@
+//Session
+
+checkSessionStatus(
+    response => {
+    autoLogIn(response);},
+    error => showError(error)
+);
+
+function autoLogIn(userName){
+    let navList = document.getElementById('navList');
+    let userNameLink = document.createElement("li"); 
+    userNameLink.setAttribute('class', 'userNameLink');
+
+    if(userName !== 'Usuario Anonimo'){
+        userNameLink.innerHTML = 'Hola' + userName + '!!';
+
+        let logInButton = document.getElementById('LogInButton');
+        logInButton.style.display = "none";
+
+        var logOutButton = document.createElement("li");
+        logOutButton.innerHTML = "Cerrar Sesion";
+        logOutButton.addEventListener("click", function(){
+            logOut(error => showError(error))
+        });
+
+        navList.appendChild(logOutButton);
+            
+        }else{
+
+            userNameLink.innerHTML = userName;
+        }
+    
+    
+    navList.appendChild(userNameLink);
+}
+
 
 var galleryDiv = document.getElementById("gallery");
 var genreDiv = document.getElementById('genreButtonsDiv');
@@ -15,22 +51,19 @@ linkMostWieved.addEventListener("click", function(){
     getMostViewedMovies(
     response => {showMostViewedMovies(response);},
     error => showError(error));
-    });
+});
 
 getLatestMovies(
     response => {
-        createMovieList(response);
-    },
+    createMovieList(response);},
     error => showError(error)
-    // function(error){ showError(error) }
 );
 
 getGenres(
     response => {
         createGenreList(response);
     },
-    error => showError(error)
-    // function(error){ showError(error) }
+    error => showError(error) 
 );
 
 

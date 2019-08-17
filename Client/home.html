@@ -12,7 +12,7 @@
 
 <body>
     <div class="nav" id="nav">
-        <ul>
+        <ul class = "navList" id="navList">
             <li onclick="goHome()">Inicio</li>
             <li>
                 Películas
@@ -66,7 +66,7 @@
 
             <form class="form" action="">
                 <label>
-                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail" />
+                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail o Usuario" />
                 </label>
                 <label>
                     <input class="password" id="password" type="password" placeholder="Password" />
@@ -79,7 +79,7 @@
                     <strong>Error!</strong>
                 </div>
 
-                <a class="submitButton" id="submitButton" onclick="doLogin()">ENTRAR</a>
+                <a class="submitButton" id="submitButton" onclick="checkdata()">ENTRAR</a>
                 
                 <div class="loginFormLinksDiv" id="loginFormLinksDiv">
                 <a href="/welcome" class="signUp">Registrate!</a>

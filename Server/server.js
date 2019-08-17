@@ -7,7 +7,8 @@ const path = require('path');
 
 // JS propios
 const mongoDatabase = require('./mongodb.js');
-const login = require ('./login.js');
+const hash = require('./hash.js');
+
 
 //Middleware
 app.use(bodyParser.json());
@@ -26,10 +27,26 @@ app.set('views', path.join(__dirname, '/views'));
 
 // Session
 
-var userName = "";
+var userName = "Usuario Anonimo";
 var sessionStatus = false;
 
+
+
 // GET API's //
+
+app.get('/checkSessionStatus', (req, res) => {
+    if (sessionStatus){
+        res.send(`${userName}`);
+    }else{
+        res.status(403).send(`${userName}`);
+    }
+});
+
+app.get('/logOut', (req, res) => {
+    sessionStatus = false;
+    userName = "Usuario Anonimo";
+    res.redirect('/');
+});
 
 
 app.get('/', (req, res) => {
@@ -83,26 +100,49 @@ app.get('/ranked', (req, res) => {
 
 // POST API's //
 
+//LOGIN
+
 app.post('/login', (req, res) => {
-    console.log(req.body);
-    if (req.body.user !== undefined && req.body.password !== undefined) {
-      if (login.validarUsuario(req.body.user, req.body.password)) {
-        res.redirect('/');
-      } else {
-        res.sendStatus(403);
-      }
-    } else {
-      res.status(403).end();
+    let loginData = req.body;
+    loginData.password = hash.SHA1(loginData.password);
+    mongoDatabase.validateLogin(loginData, cbOK => {
+        if(`${cbOK}` == 403){
+
+            res.sendStatus(403);
+
+        }else if (`${cbOK}` !== 403){
+
+            userName = (`${cbOK}`);
+            sessionStatus = true;
+            res.redirect('/');
+        }; 
+    })}
+);
+
+//SIGNUP
+
+  app.post('/signUp', (req, res) => {
+    let userData = req.body;
+    userData.password1 = hash.SHA1(userData.password1);
+    mongoDatabase.addNewUser(userData, cbOK => {
+        if(`${cbOK}` == 403){
+
+            res.sendStatus(403);
+
+        }else if (`${cbOK}` == 999){
+
+            res.sendStatus(999);
+
+        }else if (`${cbOK}` !== 403 && `${cbOK}` !== 999){
+
+            userName = (`${cbOK}`);
+            sessionStatus = true;
+            res.redirect('/');
+            
+        }
+      }); 
     }
-  });
+  );
  
-    
-
-
-
-
-
-
-
 app.listen(8000);
 console.log('listening in port 8000');
