@@ -856,7 +856,7 @@ ul.footLinks > li > h4:hover {
         margin-left: 4%;
     }
     .nav ul {
-        padding-left: 26%;
+        padding-left: 17%;
     }
     .commentButton {
         padding: 13px;
@@ -891,6 +891,10 @@ ul.footLinks > li > h4:hover {
         white-space: inherit;
         overflow: scroll;
     }
+    .nav ul {
+        padding-left: 17%;
+    }
+    
     .playerdiv {
         padding: 0%;
         margin: 5em;
@@ -901,6 +905,7 @@ ul.footLinks > li > h4:hover {
 .userNameLink{
     float: right;
 }
+
 
 
 
