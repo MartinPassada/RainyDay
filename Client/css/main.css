@@ -1,15 +1,15 @@
 body {
-  background-color: #0d1841;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
+    background-color: #0d1841;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .LogInButton {
     cursor: pointer;
-
 }
+
 .SignIn {
     cursor: pointer;
 }
@@ -51,23 +51,23 @@ body {
     color: #fff;
 }
 
-.movieList > li:hover .divImage {
-   border-color: rgb(0, 174, 255);
-   cursor: pointer;
+.movieList>li:hover .divImage {
+    border-color: rgb(0, 174, 255);
+    cursor: pointer;
 }
-    
+
 .movieList {
     display: inline-flex;
     flex-wrap: wrap;
 }
 
-.movieList > li {
-    list-style-type:none;
+.movieList>li {
+    list-style-type: none;
     margin-left: 0px;
     margin-right: 35px;
 }
 
-.movieList > li > a {
+.movieList>li>a {
     text-decoration: none;
 }
 
@@ -82,7 +82,7 @@ body {
     box-sizing: border-box;
 }
 
-.gallery {                 
+.gallery {
     max-width: 1268px;
     margin-top: 0%;
     height: auto;
@@ -96,7 +96,8 @@ body {
 }
 
 .gallery2 {
-    background-color: #ec1212;;
+    background-color: #ec1212;
+    ;
     max-width: 16%;
     margin-top: -1881px;
     height: 1500px;
@@ -110,32 +111,32 @@ body {
 }
 
 .nav {
-     min-height: 60px;
-     background-color: #0d1841;
-     /*! overflow: hidden; */
-     display: block;
+    min-height: 60px;
+    background-color: #0d1841;
+    /*! overflow: hidden; */
+    display: block;
     /*! position: fixed; */
-     z-index: 1;
+    z-index: 1;
 }
 
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
-  }
-
-.nav > ul > li{
-    list-style-type:none;
-    display:inline-block;
-    position:relative;
-    padding-top:5px;
-    padding-bottom:5px;
-    padding-right:25px;
-    padding-left:25px;
 }
 
-.nav > ul{
-    background-color:transparent; 
+.nav>ul>li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.nav>ul {
+    background-color: transparent;
     color: rgb(255, 255, 255);
     /*! font-size:18px; */
     font-family: Arial, Helvetica, sans-serif;
@@ -144,46 +145,46 @@ body {
     /*! display: flow-root; */
 }
 
-ul.sub-menuMovies{
-    position:absolute;
-    background-color:#0d1841;
-    list-style-type:none;
-    margin-top:4%;
-    margin-left:-25px;
-    width:130px;
-    padding-left:5%;
+ul.sub-menuMovies {
+    position: absolute;
+    background-color: #0d1841;
+    list-style-type: none;
+    margin-top: 4%;
+    margin-left: -25px;
+    width: 130px;
+    padding-left: 5%;
     color: rgb(255, 255, 255);
-    opacity:0;
+    opacity: 0;
     border-radius: 5px;
     /*! padding: ; */
     padding-right: 5%;
     padding-bottom: 5%;
 }
 
-ul.sub-menuMovies li{
-    padding-left:20px;
-    padding-top:5px;
-    padding-bottom:5px;
+ul.sub-menuMovies li {
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
-
-ul.sub-menuMovies li:hover{
+ul.sub-menuMovies li:hover {
     cursor: pointer;
     color: #007aff;
-    
 }
-.nav li:hover{
+
+.nav li:hover {
     color: #007aff;
     cursor: pointer;
 }
-.nav li:hover .sub-menuMovies{
-    z-index:1;
-    opacity:1;
+
+.nav li:hover .sub-menuMovies {
+    z-index: 1;
+    opacity: 1;
 }
 
-.galleryHeader > h1 {
+.galleryHeader>h1 {
     font-weight: 700;
-    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
     color: white;
     margin-left: 40px;
     margin-top: 0px;
@@ -191,7 +192,7 @@ ul.sub-menuMovies li:hover{
     margin-left: 0px;
 }
 
-.galleryHeader {                 
+.galleryHeader {
     max-width: 1268px;
     margin-top: 0%;
     margin-left: 16%;
@@ -204,7 +205,7 @@ ul.sub-menuMovies li:hover{
     display: inline-;
     box-sizing: border-box;
     margin-left: 0%;
-    margin-right: 0%;  
+    margin-right: 0%;
     background-color: #010d2f;
     margin-top: 3%;
 }
@@ -227,26 +228,26 @@ ul.sub-menuMovies li:hover{
 }
 
 ul.footLinks {
-    display:inline-flex;
-    position:relative;
-    list-style-type:none;
+    display: inline-flex;
+    position: relative;
+    list-style-type: none;
     color: whitesmoke;
     position: static;
     margin-left: 20%;
     margin-top: 2.5%;
     margin-bottom: 1.5%;
-    
     /*! margin-right: 20%; */
 }
 
-ul.footLinks > li {
+ul.footLinks>li {
     margin-left: 50px;
 }
 
-ul.footLinks > li > h4 {
+ul.footLinks>li>h4 {
     font-weight: 300;
 }
-ul.footLinks > li > h4:hover {
+
+ul.footLinks>li>h4:hover {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -260,17 +261,19 @@ ul.footLinks > li > h4:hover {
     background-color: #0d1841
 }
 
-.carouselDiv > img {
+.carouselDiv>img {
     object-fit: contain;
 }
 
 .fadedDiv {
     position: relative;
     /*! z-index:2; */
-    right:0; bottom:0; left:0;
-    height:300px;
-    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%, #0d1841 80%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #0d1841 80%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
     margin-top: -300px;
 }
 
@@ -286,7 +289,7 @@ ul.footLinks > li > h4:hover {
     display: none;
 }
 
-.genreList{
+.genreList {
     display: inline-flex;
     flex-wrap: wrap;
 }
@@ -302,8 +305,8 @@ ul.footLinks > li > h4:hover {
     box-sizing: border-box;
 }
 
-.genreList > li {
-    list-style-type:none;
+.genreList>li {
+    list-style-type: none;
 }
 
 .divButtonWithImage {
@@ -319,13 +322,13 @@ ul.footLinks > li > h4:hover {
     max-height: 120px;
     margin-top: 10px;
     display: inline-block;
-
 }
 
-.genreList > li > .divButtonWithImage:hover{
+.genreList>li>.divButtonWithImage:hover {
     cursor: pointer;
     text-decoration: underline;
 }
+
 
 /***********************************************handlebars******************************************************/
 
@@ -343,16 +346,16 @@ ul.footLinks > li > h4:hover {
     max-height: -moz-max-content;
     height: 300px;
     float: inherit;
+    z-index: -1;
 }
 
-.movieDetailDiv > h1 {
+.movieDetailDiv>h1 {
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 25%;
     font-size: 2.85rem;
     position: relative;
     float: inline-start;
-    
 }
 
 .resolution {
@@ -382,59 +385,61 @@ ul.footLinks > li > h4:hover {
 
 .synopsis {
     color: #8da0bc;
-    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
     overflow: auto;
-    font-size: medium; 
+    font-size: medium;
 }
 
-.movieInfoList1{
+.movieInfoList1 {
     list-style-type: none;
     color: #8da0bc;
 }
 
 .movieInfoList2 {
     list-style-type: none;
-    font-family: -apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
     margin-top: 0px;
     margin-bottom: 0px;
     float: inline-start;
     padding-left: 0px;
 }
 
-.movieInfoList2 :nth-child(1) strong{
+.movieInfoList2 :nth-child(1) strong {
     color: #8da0bc;
 }
-.movieInfoList2 :nth-child(2) strong{
+
+.movieInfoList2 :nth-child(2) strong {
     color: #8da0bc;
 }
-.movieInfoList2 :nth-child(3) strong{
+
+.movieInfoList2 :nth-child(3) strong {
     color: #8da0bc;
 }
 
 .year {
-     margin-right: 1%;
+    margin-right: 1%;
 }
-    
+
 .movieLength {
     margin-right: 1%;
 }
-    
+
 .resolution {
-     margin-right: 1%;
+    margin-right: 1%;
 }
 
-.movieInfoList1 > li:nth-child(2) {
+.movieInfoList1>li:nth-child(2) {
     font-style: italic;
     font-size: small;
 }
 
-.views > img:nth-child(1) {
-    width:17px;
-    height:17px;
+.views>img:nth-child(1) {
+    width: 17px;
+    height: 17px;
     margin-top: 0.5%;
 }
 
-.infoImgDiv{
+.infoImgDiv {
     box-sizing: content-box;
     max-height: 310.4px;
     max-width: 203.6px;
@@ -445,10 +450,9 @@ ul.footLinks > li > h4:hover {
     width: auto;
     margin-right: 2.5%;
     float: left;
-    
 }
 
-.movieDetailDiv > img {
+.movieDetailDiv>img {
     left: 0;
     top: 0;
     height: 300.4px;
@@ -456,15 +460,14 @@ ul.footLinks > li > h4:hover {
     object-fit: cover;
     object-position: top;
     border-radius: 5px;
-    
-    
 }
-.movieInfoImg{
+
+.movieInfoImg {
     max-height: 310.4px;
     max-width: 203.6px;
     margin-bottom: 8.5%;
-
 }
+
 .heartEmpty-Full {
     margin-left: 7.5%;
     margin-right: 2.5%;
@@ -479,24 +482,25 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 0%;
     max-height: 150px;
 }
+
 .playerdiv {
     box-sizing: content-box;
     padding-top: 5%;
     padding-bottom: 3%;
     padding-left: 10%;
     padding-right: 10%;
-    align-content: center;   
+    align-content: center;
 }
 
 .subtitles {
-    height:85%;
-    text-indent:0;
-    font-size:16px;
-    font-size:1rem;
-    font-weight:bold;
-    color:#666;
-    background:#000;
-    border-radius:2px;
+    height: 85%;
+    text-indent: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #666;
+    background: #000;
+    border-radius: 2px;
 }
 
 .commentsSection {
@@ -505,98 +509,96 @@ ul.footLinks > li > h4:hover {
     padding-top: 2%;
     padding-bottom: 2%;
     height: auto;
-
 }
 
-.commentsSectionTitle{
+.commentsSectionTitle {
     color: whitesmoke;
     margin-top: 0px;
     margin-bottom: 0px;
-    
 }
 
-.inputCommentDiv > textarea:nth-child(1){
+.inputCommentDiv>textarea:nth-child(1) {
     width: 70%;
 }
 
-
 .newCommentdiv {
- 
-  padding-left: 3%;
-  padding-right: 3%;
-  padding-top: 0px;
-  padding-bottom: 1.0%;
-  width: 70%;  
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding-bottom: 1%;
-  padding-top: 1%;
-  height: auto;
-  border-top-style: solid;
-  border-right-style: solid;
-  border-bottom-style: solid;
-  border-left-style: solid;
-  border-color: whitesmoke;
-  border-radius: 1rem;
-  background-color: whitesmoke;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 0px;
+    padding-bottom: 1.0%;
+    width: 70%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-bottom: 4%;
+    padding-top: 1%;
+    height: auto;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: whitesmoke;
+    border-radius: 1rem;
+    background-color: whitesmoke;
+    max-width: auto;
 }
 
 .userInfo {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  margin-left: 0px;
-  margin-right: 3%;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-left: 0px;
+    margin-right: 3%;
 }
 
-
 .userNameTitle {
-  display: inline-block;
-  margin-left: 0.3%;
-  margin-bottom: 1%;
-  border-radius: 0.5rem;
-  background: 0d1841;
-  background-color: rgb(43, 107, 190);
-  color: whitesmoke;
-  padding-top: 0.3%;
-  padding-bottom: 0.3%;
-  padding-right: 0.5%;
-  padding-left: 0.5%;
-  height: auto;
-  width: auto;
-  position: absolute;
-  margin-right: 1%;
-  margin-top: 31.2833px;
+    display: ruby-text;
+    margin-left: 0.3%;
+    margin-bottom: 1%;
+    border-radius: 0.5rem;
+    background: 0d1841;
+    background-color: rgb(43, 107, 190);
+    color: whitesmoke;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    padding-right: 0.5%;
+    padding-left: 0.5%;
+    height: auto;
+    width: auto;
+    margin-right: 1%;
+    margin-top: 31.2833px;
+    /*! z-index: 0; */
 }
 
 .userImage {
-  margin-bottom: 2%;
-  border-radius: 2.5rem;
-  display: inline-block;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
+    margin-bottom: 2%;
+    border-radius: 2.5rem;
+    display: inline-block;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
 }
 
 .commentButton {
-  background-color: rgb(43, 107, 190);
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  float: inline-end;
-  border-radius: 1.5rem;
+    background-color: rgb(43, 107, 190);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    float: inline-end;
+    border-radius: 1.5rem;
+    display: block;
+    position: inherit;
 }
 
-.loginForm{
-  width: 100%;
-  height: 100%;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.loginForm {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
@@ -605,7 +607,7 @@ ul.footLinks > li > h4:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.76);
+    background-color: rgba(0, 0, 0, 0.76);
 }
 
 .background-image-login {
@@ -615,9 +617,10 @@ ul.footLinks > li > h4:hover {
     right: 0;
     bottom: 0;
     z-index: -1;
-    background: src= "img/nouser.png";
+    background: src="img/nouser.png";
     background-size: cover;
 }
+
 .login-h1 {
     color: #fff;
     z-index: 2;
@@ -630,6 +633,7 @@ ul.footLinks > li > h4:hover {
     margin-top: 1.1em;
     border-bottom: 1px solid #ddd;
 }
+
 .login-container {
     width: 100%;
     max-width: 340px;
@@ -640,12 +644,13 @@ ul.footLinks > li > h4:hover {
     padding-top: 1.em;
 }
 
-.login > img {
+.login>img {
     width: 20%;
     display: table;
     margin: 0.6em auto 1.4em;
 }
-.form.input{
+
+.form.input {
     width: 100%;
     padding: 1em;
     font-size: 1.1em;
@@ -656,7 +661,6 @@ ul.footLinks > li > h4:hover {
 }
 
 .submitButton {
-    
     color: whitesmoke;
     background-color: #e76e54;
     padding: 1em;
@@ -668,14 +672,13 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 5%;
     /*! margin-right: 50.5%; */
 }
+
 .submitButton:hover {
-   
     background-color: lightblue;
     cursor: pointer;
 }
 
 .submitSignUpButton {
-    
     color: whitesmoke;
     background-color: #e76e54;
     padding: 1em;
@@ -685,10 +688,9 @@ ul.footLinks > li > h4:hover {
     display: inline-flex;
     margin-top: 5%;
     margin-bottom: 5%;
-    
 }
+
 .submitSignUpButton:hover {
-   
     background-color: lightblue;
     cursor: pointer;
 }
@@ -698,35 +700,34 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 5%;
 }
 
-.crossForCloseImg{
+.crossForCloseImg {
     float: right;
     cursor: pointer;
-    
 }
 
-.e-mail{
+.e-mail {
     height: 30px;
     width: 230px;
     margin-left: 15%;
     margin-bottom: 3%;
 }
 
-.e-mail:hover{
+.e-mail:hover {
     background-color: rgb(231, 231, 231);
 }
 
-.user-name{
+.user-name {
     height: 30px;
     width: 230px;
     margin-left: 15%;
     margin-bottom: 3%;
 }
 
-.user-name:hover{
+.user-name:hover {
     background-color: rgb(231, 231, 231);
 }
 
-.password:hover{
+.password:hover {
     background-color: rgb(231, 231, 231);
 }
 
@@ -737,7 +738,7 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 10.2px;
 }
 
-.repeat-password:hover{
+.repeat-password:hover {
     background-color: rgb(231, 231, 231);
 }
 
@@ -748,7 +749,7 @@ ul.footLinks > li > h4:hover {
     margin-bottom: 10.2px;
 }
 
-.alertBox-Success{
+.alertBox-Success {
     margin-top: 16px;
     color: #155724;
     background-color: #d4edda;
@@ -765,7 +766,7 @@ ul.footLinks > li > h4:hover {
     display: none;
 }
 
-.alertBox-Error{
+.alertBox-Error {
     margin-top: 16px;
     position: relative;
     padding: .75rem 1.25rem;
@@ -786,73 +787,74 @@ ul.footLinks > li > h4:hover {
     display: none;
 }
 
-.signUp{
+.signUp {
     color: #007aff;
     margin-left: 38%;
 }
 
-.forgot-password{
+.forgot-password {
     color: #007aff;
     margin-left: 25%;
 }
 
 .enterButton {
-	-moz-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	-webkit-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	background-color:#7892c2;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:28px;
-	font-weight:bold;
-	padding:12px 20px;
-	text-decoration:none;
+    -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    background-color: #7892c2;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
 }
+
 .enterButton:hover {
-	background-color:#1a70d9;
+    background-color: #1a70d9;
 }
+
 .enterButton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .signUpButton {
-	-moz-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	-webkit-box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	box-shadow:inset -50px 0px 0px -50px #9fb4f2;
-	background-color:#7892c2;
-	border:1px solid #4e6096;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Trebuchet MS;
-	font-size:28px;
-	font-weight:bold;
-	padding:12px 20px;
-	text-decoration:none;
+    -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    background-color: #7892c2;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
 }
+
 .signUpButton:hover {
-	background-color:#1a70d9;
+    background-color: #1a70d9;
 }
+
 .signUpButton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
-
-
-
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1280px) {
     .gallery {
         margin-left: 0%;
     }
     .foot ul {
         margin-left: 0%
     }
-    .galleryHeader{
+    .galleryHeader {
         margin-left: 4%;
     }
     .nav ul {
@@ -864,7 +866,7 @@ ul.footLinks > li > h4:hover {
     .newCommentdiv {
         padding: 1.2em;
     }
-    .genreButtonsDiv{
+    .genreButtonsDiv {
         margin-left: 0%;
     }
     .synopsisDiv {
@@ -875,11 +877,10 @@ ul.footLinks > li > h4:hover {
     ul.sub-menuMovies {
         padding-right: 0%;
         padding-left: 0%;
-        
     }
 }
 
-@media screen and (max-width: 1546px){
+@media screen and (max-width: 1546px) {
     .movieDetailDiv {
         margin-left: 5%;
         margin-right: 5%;
@@ -894,7 +895,6 @@ ul.footLinks > li > h4:hover {
     .nav ul {
         padding-left: 17%;
     }
-    
     .playerdiv {
         padding: 0%;
         margin: 5em;
@@ -902,22 +902,14 @@ ul.footLinks > li > h4:hover {
     }
 }
 
-.userNameLink{
+.userNameLink {
     float: right;
 }
 
+.imageInput {
+    display: block;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.currentImage {
+    display: none;
+}

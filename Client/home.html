@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<noscript></noscript>-->
+    <!--<meta name='viewport' content='width=device-width, initial-scale=1'>-->
 </head>
 
 <body>
     <div class="nav" id="nav">
-        <ul class = "navList" id="navList">
+        <ul class="navList" id="navList">
             <li onclick="goHome()">Inicio</li>
             <li>
                 Películas
@@ -60,8 +61,7 @@
 
         <div class="login-container">
 
-            <img class="crossForCloseImg" id="crossForCloseImg" src="img/crossforclose.png" onclick="closeLoginForm()"
-                height="25px" width="25px"></img>
+            <img class="crossForCloseImg" id="crossForCloseImg" src="img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
             <img class="logoImage" src="img/logo.png" height="105px" width="105px"></img>
 
             <form class="form" action="">
@@ -80,11 +80,11 @@
                 </div>
 
                 <a class="submitButton" id="submitButton" onclick="checkdata()">ENTRAR</a>
-                
+
                 <div class="loginFormLinksDiv" id="loginFormLinksDiv">
-                <a href="/welcome" class="signUp">Registrate!</a>
-                <a href="" class="forgot-password">Olvidaste la contraseña?</a>
-                </div>   
+                    <a href="/welcome" class="signUp">Registrate!</a>
+                    <a class="forgot-password">Olvidaste la contraseña?</a>
+                </div>
             </form>
         </div>
     </section>
@@ -104,9 +104,12 @@
             </li>
             <li>
                 <div class=footIcons>
-                    <a  href="https://www.rss.com" target="_blank"><img src="/icons/rss-icon.png"></img></a>
-                    <a  href="https://www.slack.com" target="_blank"><img src="/icons/slack-icon.png"></img></a>
-                    <a  href="https://www.twitter.com" target="_blank"><img src="/icons/twitter-icon.png"></img></a>
+                    <a href="https://www.rss.com" target="_blank"><img src="/icons/rss-icon.png"></img>
+                    </a>
+                    <a href="https://www.slack.com" target="_blank"><img src="/icons/slack-icon.png"></img>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="/icons/twitter-icon.png"></img>
+                    </a>
                 </div>
             </li>
 
@@ -115,8 +118,15 @@
     </footer>
 
     <script src="js/ajax.js"></script>
+    <script src="js/login-ajax.js"></script>
+
+    <script src="js/login.js"></script>
     <script src="js/javascript1.js"></script>
     <script src="js/javascript2.js"></script>
 
+
+
+
 </body>
+
 </html>

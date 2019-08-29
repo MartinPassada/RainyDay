@@ -1,4 +1,3 @@
-
 /**Trae @param movies es un array con [{object}] lo parsea y ejecuta funciones createList y createGenreDivs */
 function getLatestMovies(success, failure) {
 
@@ -9,11 +8,11 @@ function getLatestMovies(success, failure) {
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
-           
+
             success(respObj);
-            
+
         } else {
-           
+
             failure(respObj.error);
         }
 
@@ -33,10 +32,10 @@ function getGenres(success, failure) {
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
-           
+
             success(respObj);
         } else {
-           
+
             failure(respObj.error);
         }
 
@@ -46,7 +45,7 @@ function getGenres(success, failure) {
     req.send();
 
 }
- 
+
 function getSearchByGenre(success, failure, searchparameter) {
 
     req = new XMLHttpRequest();
@@ -56,10 +55,10 @@ function getSearchByGenre(success, failure, searchparameter) {
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
-           
+
             success(respObj, searchparameter);
         } else {
-           
+
             failure(respObj.error);
         }
 
@@ -79,10 +78,10 @@ function getMostViewedMovies(success, failure) {
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
-           
+
             success(respObj);
         } else {
-           
+
             failure(respObj.error);
         }
 
@@ -102,10 +101,10 @@ function getRankedMovies(success, failure) {
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
-           
+
             success(respObj);
         } else {
-           
+
             failure(respObj.error);
         }
 
@@ -115,67 +114,3 @@ function getRankedMovies(success, failure) {
     req.send();
 
 }
-
-function checkSessionStatus(success, failure) {
-
-    req = new XMLHttpRequest();
-
-    req.onload = function() {
-
-        let respObj = this.responseText;
-
-        if (this.status == 200) {
-           
-            success(respObj);
-
-        }else if (this.status == 403){
-            // si no esta logueado, igual cambio el nombre de usuario a "usuario anonimo"
-
-            success(respObj)
-
-        }else{
-
-            failure(respObj.error);
-        }
-    }
-
-    req.open("GET", "/checkSessionStatus");
-    req.send();
-
-}
-
-function logOut(success, failure) {
-
-    req = new XMLHttpRequest();
-
-    req.onload = function() {
-
-        if (this.status == 200) {
-           
-            window.location.replace(req.responseURL)
-
-        }else if (this.status == 403){
-            
-            console.log("no se pudo desloguear");
-
-
-        }else{
-
-            failure(respObj.error);
-        }
-    }
-
-    req.open("GET", "/logOut");
-    req.send();
-
-}
-
-
-
-
-
-
-
-
-
-

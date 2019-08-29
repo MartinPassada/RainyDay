@@ -1,5 +1,20 @@
 # No name movie page changelog
 
+## Update #16
+
+*Server-Side
+
+1. Javascipt code was splitted into more .js files for better organization
+2. Handlebars page now sticks navbar and show logged user name
+3. Implemented Express-sessions for allow multiuser activity
+
+
+
+*Client-Side
+
+1. Comments section on handlebars page now displays a preview of the current selected image for uploading.
+2. Minor Css fixes
+
 ## Update #15
 
 *Server-Side

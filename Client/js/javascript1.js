@@ -1,61 +1,25 @@
-//Session
-
-checkSessionStatus(
-    response => {
-    autoLogIn(response);},
-    error => showError(error)
-);
-
-function autoLogIn(userName){
-    let navList = document.getElementById('navList');
-    let userNameLink = document.createElement("li"); 
-    userNameLink.setAttribute('class', 'userNameLink');
-
-    if(userName !== 'Usuario Anonimo'){
-        userNameLink.innerHTML = 'Hola' + userName + '!!';
-
-        let logInButton = document.getElementById('LogInButton');
-        logInButton.style.display = "none";
-
-        var logOutButton = document.createElement("li");
-        logOutButton.innerHTML = "Cerrar Sesion";
-        logOutButton.addEventListener("click", function(){
-            logOut(error => showError(error))
-        });
-
-        navList.appendChild(logOutButton);
-            
-        }else{
-
-            userNameLink.innerHTML = userName;
-        }
-    
-    
-    navList.appendChild(userNameLink);
-}
-
-
 var galleryDiv = document.getElementById("gallery");
 var genreDiv = document.getElementById('genreButtonsDiv');
 var linkMostWieved = document.getElementById("linkMoreViewed");
 var linkRanking = document.getElementById("linkRanking");
 
-linkRanking.addEventListener("click", function(){
+linkRanking.addEventListener("click", function() {
     getRankedMovies(
-    response => {showRankedMovies(response);},
-    error => showError(error));
+        response => { showRankedMovies(response); },
+        error => showError(error));
 });
 
 
-linkMostWieved.addEventListener("click", function(){
+linkMostWieved.addEventListener("click", function() {
     getMostViewedMovies(
-    response => {showMostViewedMovies(response);},
-    error => showError(error));
+        response => { showMostViewedMovies(response); },
+        error => showError(error));
 });
 
 getLatestMovies(
     response => {
-    createMovieList(response);},
+        createMovieList(response);
+    },
     error => showError(error)
 );
 
@@ -63,7 +27,7 @@ getGenres(
     response => {
         createGenreList(response);
     },
-    error => showError(error) 
+    error => showError(error)
 );
 
 
@@ -74,12 +38,12 @@ getGenres(
  */
 
 function createMovieList(movies) {
-    
+
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
-    
-    for (let i = 0; i < movies.length; i++){
+
+    for (let i = 0; i < movies.length; i++) {
         let divImage = document.createElement("div");
         divImage.setAttribute("class", "divImage");
         anchor = document.createElement("a");
@@ -109,13 +73,13 @@ function createMovieList(movies) {
  * @param genres es un array con [{object}] los trae la funcion getData
  */
 function createGenreList(genres) {
-    
+
     //filtro los generos.
     var genreArray = [];
     for (let i = 0; i < genres.length; i++) {
         genreArray.push(...(genres[i].genre.split(',')));
     }
-    genreArray = genreArray.filter(function(itemValue, itemIndex, arraySelf){return genreArray.indexOf(itemValue) === itemIndex });
+    genreArray = genreArray.filter(function(itemValue, itemIndex, arraySelf) { return genreArray.indexOf(itemValue) === itemIndex });
     //armo una lista
     var genreList = document.createElement('ul');
     genreList.setAttribute("class", "genreList");
@@ -138,24 +102,24 @@ function createGenreList(genres) {
         name = genreArray[i];
         divButtonWithImage.append(img);
         divButtonWithImage.append(name);
-        divButtonWithImage.addEventListener("click", function(){
-        getSearchByGenre(
-        response => {FilteredMovieList(response, genreArray[i]);},
-        error => showError(error), 
-        genreArray[i]);
+        divButtonWithImage.addEventListener("click", function() {
+            getSearchByGenre(
+                response => { FilteredMovieList(response, genreArray[i]); },
+                error => showError(error),
+                genreArray[i]);
         });
-        
-        
+
+
     }
     genreDiv.appendChild(genreList);
-    
+
 }
 
 /** 
-* funcion que arma una lista con peliculas por genero buscado y las muestra en el home
-* @param searchresult es un array con [{object}] los trae la funcion getsearchByGenre
-*/
-function FilteredMovieList (searchresult, genretitle){
+ * funcion que arma una lista con peliculas por genero buscado y las muestra en el home
+ * @param searchresult es un array con [{object}] los trae la funcion getsearchByGenre
+ */
+function FilteredMovieList(searchresult, genretitle) {
     galleryDiv.innerHTML = "";
     let galleryTitle = document.getElementById("galleryHeaderTitle");
     galleryTitle.innerHTML = "";
@@ -164,8 +128,8 @@ function FilteredMovieList (searchresult, genretitle){
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
-    
-    for (let i = 0; i < searchresult.length; i++){
+
+    for (let i = 0; i < searchresult.length; i++) {
         let divImage = document.createElement("div");
         divImage.setAttribute("class", "divImage");
         anchor = document.createElement("a");
@@ -205,8 +169,8 @@ function showMostViewedMovies(mostWieved) {
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
-    
-    for (let i = 0; i < mostWieved.length; i++){
+
+    for (let i = 0; i < mostWieved.length; i++) {
         let divImage = document.createElement("div");
         divImage.setAttribute("class", "divImage");
         anchor = document.createElement("a");
@@ -231,13 +195,13 @@ function showMostViewedMovies(mostWieved) {
     galleryDiv.appendChild(movieList);
 }
 
-function showRankedMovies (rankedMovies){
+function showRankedMovies(rankedMovies) {
     galleryDiv.innerHTML = "";
     var movieList = document.createElement("ul");
     movieList.setAttribute("class", "movieList");
     movieList.setAttribute("id", "movieList");
-    
-    for (let i = 0; i < rankedMovies.length; i++){
+
+    for (let i = 0; i < rankedMovies.length; i++) {
         let divImage = document.createElement("div");
         divImage.setAttribute("class", "divImage");
         anchor = document.createElement("a");
@@ -261,14 +225,3 @@ function showRankedMovies (rankedMovies){
     }
     galleryDiv.appendChild(movieList);
 }
-
-
-
-
-
-
-
-
-
-
-
