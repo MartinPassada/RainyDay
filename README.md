@@ -12,7 +12,7 @@
 
 *Client-Side
 
-1. Comments section on handlebars page now displays a preview of the current selected image for uploading.
+1. Comments section on handlebars page now displays a preview of the current image choosed for uploading.
 2. Minor Css fixes
 
 ## Update #15
