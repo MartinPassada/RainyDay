@@ -1,5 +1,13 @@
 # No name movie page changelog
 
+## Update #17
+
+*Client-Side
+
+1. Now you can comment movies if your're logged. Comments will not show up 'till next update.
+2. Miscellaneous fixes
+3. Username is displayed as expected on comments section
+
 ## Update #16
 
 *Server-Side

@@ -6,15 +6,14 @@ module.exports.getMostWievedMovies = getMostWievedMovies;
 module.exports.getRankedMovies = getRankedMovies;
 module.exports.validateLogin = validateLogin;
 module.exports.addNewUser = addNewUser;
-
+module.exports.postComment = postComment;
+module.exports.getComments = getComments;
 
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 const mongoURL = 'mongodb://localhost:27017';
 const fs = require("fs");
 const path = require('path');
-
-
 
 
 
@@ -163,12 +162,12 @@ function validateLogin(loginData, cbOK) {
             collection.find({ "$or": [{ "email": `${loginData.user}` }, { "userName": `${loginData.user}` }] }).limit(1).toArray((err, data) => {
                 console.log(data);
                 if (data == '') {
-                    //console.log("no se encontraron datos de login para usuario ni email");
+
                     cbOK(403);
 
                 } else if (data[0].email === loginData.user || data[0].userName === loginData.user && data[0].password === loginData.password) {
 
-                    //console.log('todo correcto');
+
                     cbOK(`${data[0].userName}`);
 
                 } else {
@@ -202,17 +201,15 @@ function addNewUser(userData, cbOK) {
                         genreLikes: `${userData.genreLikes}`
                     });
 
-                    //console.log("como el usuario o mail no se encontro, ya fue agregado a la DB");
-
                     cbOK(`${userData.userName}`);
 
                 } else if (data[0].email === userData.email) {
 
-                    //console.log("El email ya esta en la DB");
+
                     cbOK(403);
 
                 } else if (data[0].userName === userData.userName) {
-                    //console.log("El nombre de usuario esta en uso");
+
                     cbOK(999);
 
                 }
@@ -221,4 +218,55 @@ function addNewUser(userData, cbOK) {
 
         //client.close();
     });
+}
+
+// COMMENTS
+
+function postComment(userCommentary, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("comments");
+            collection.insertOne({
+
+                movieID: `${userCommentary.movieID}`,
+                author: `${userCommentary.author}`,
+                date: userCommentary.date,
+                image: userCommentary.image,
+                text: `${userCommentary.text}`
+
+
+            });
+
+
+            cbOK(200);
+
+        }
+
+    });
+    //client.close();
+}
+
+function getComments(cbOK, searchparameter) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("comments");
+            collection.find()({ movieID: new RegExp(searchparameter) }).sort({ date: -1 }).limit(20).toArray((err, data) => {
+                cbOK(data);
+            });
+        }
+
+
+        client.close();
+    });
+
+
+
 }

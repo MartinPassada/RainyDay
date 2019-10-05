@@ -375,10 +375,10 @@ ul.footLinks>li>h4:hover {
 .movieTitleEng {
     position: absolute;
     position: relative;
-    display: inline-block;
+    display: block;
     margin-top: 0%;
     color: #8da0bc;
-    margin-right: 50%;
+    margin-right: 53%;
     margin-bottom: 0px;
     font-size: large;
 }
@@ -584,12 +584,13 @@ ul.footLinks>li>h4:hover {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    /*! font-size: 16px; */
     cursor: pointer;
-    float: inline-end;
+    /*! float: inline-end; */
     border-radius: 1.5rem;
     display: block;
     position: inherit;
+    /*! float: inline-end; */
 }
 
 .loginForm {
@@ -766,7 +767,45 @@ ul.footLinks>li>h4:hover {
     display: none;
 }
 
+.success-box {
+    margin-top: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
 .alertBox-Error {
+    margin-top: 16px;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+}
+
+.error-box {
     margin-top: 16px;
     position: relative;
     padding: .75rem 1.25rem;

@@ -12,8 +12,8 @@ const hash = require('./hash.js');
 
 
 //Middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 app.use(session({
     secret: 'whatever',
@@ -54,11 +54,11 @@ app.get('/getUserName', (req, res) => {
 app.get('/checkSessionStatus', (req, res) => {
     if (req.session.user == undefined) {
 
-        res.send(false);
+        res.status(403).send('undefined');
 
     } else if (req.session.user !== undefined) {
 
-        res.send(true);
+        res.status(200).send('finded');
 
     } else {
 
@@ -110,7 +110,6 @@ app.get('/mostviewed', (req, res) => {
 app.get('/movies/:id', (req, res) => {
     let searchparameter = req.params.id;
     mongoDatabase.getMovieInfo(movieInfo => {
-        console.log(movieInfo);
         res.render('moviePage', { movieInfo: movieInfo });
     }, searchparameter);
 
@@ -121,6 +120,13 @@ app.get('/ranked', (req, res) => {
     mongoDatabase.getRankedMovies(rankedMovies => {
         res.json(rankedMovies);
     });
+});
+
+app.get('/getComments', (req, res) => {
+    let searchparameter = req.query.movieID
+    mongoDatabase.getComments(filteredsearch => {
+        res.json(filteredsearch);
+    }, searchparameter);
 });
 
 // POST API's //
@@ -166,6 +172,22 @@ app.post('/signUp', (req, res) => {
         }
     });
 });
+
+//COMMENTS
+
+app.post('/postComments', (req, res) => {
+    let userCommentary = req.body;
+    mongoDatabase.postComment(userCommentary, cbOK => {
+
+        if (`${cbOK}` == 200) {
+
+            res.sendStatus(200);
+        }
+    });
+
+});
+
+
 
 app.listen(8000);
 console.log('listening in port 8000');

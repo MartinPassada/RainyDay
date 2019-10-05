@@ -35,7 +35,7 @@
 
         <div class="login-container">
 
-            <img class="crossForCloseImg" id="crossForCloseImg" src="..img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
+            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
             <img class="logoImage" src="img/logo.png" height="105px" width="105px"></img>
 
             <form class="form" action="">
@@ -76,14 +76,17 @@
                 <img class="userImage" src="/img/nouser.png" height="105px" width="105px"></img>
                 <h4 class="userNameTitle" id="userNameTitle">Usuario Anonimo</h4>
             </figure>
-            <div class="alertBox-Error" id="alertBox-Error">
+            <div class="error-box" id="error-box">
                 <strong>Error!</strong>
+            </div>
+            <div class="success-box" id="success-box">
+                <strong>Exito!</strong>
             </div>
 
             <div class="inputCommentDiv">
                 <textarea class="commentTextArea" id="commentTextArea" placeholder="Escribe un comentario..."></textarea>
                 <input class="imageInput" type='file' placeholder="Puedes subir una Imagen con tu comentario" accept="image/*" onchange="readURL(this);"/>
-                <img class='currentImage' id="currentImage" src="#" />
+                <img class='currentImage' id="currentImage" src="#"/>
                 <button class="commentButton" id="commentButton" onclick='checkUserStatus()'>Comentar >></button>
             </div>
         </div>

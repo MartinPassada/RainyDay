@@ -12,7 +12,7 @@ function UserNameOnNavBar(userName) {
     userNameLink.setAttribute('id', 'userNameLink');
 
     if (userName !== "Usuario Anonimo") {
-        userNameLink.innerHTML = 'Hola' + userName + '!!';
+        userNameLink.innerHTML = userName;
 
         let logInButton = document.getElementById('LogInButton');
         logInButton.style.display = "none";
