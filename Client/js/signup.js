@@ -1,12 +1,17 @@
 function checkUserData() {
 
+
+
     var userData = {
         email: document.getElementById('e-mail').value,
         userName: document.getElementById('user-name').value,
         password1: document.getElementById('password').value,
-        genreLikes: []
+        moviesLiked: [],
+        commentsLiked: [],
+        commentsUnliked: []
 
     };
+
 
     let password2 = document.getElementById('repeat-password').value;
 

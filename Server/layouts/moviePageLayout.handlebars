@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
     <link href="//vjs.zencdn.net/5.11/video-js.min.css" rel="stylesheet">
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=/noscript.html">
+    </noscript>
     
 </head>
 
@@ -66,9 +69,7 @@
 
     {{{body}}}
 
-    <section class="commentsSection" id="commentsSection">
-
-        <h2 class="commentsSectionTitle"> Comentarios</h2>
+    <h2 class="commentsSectionTitle"> Comentarios</h2>
 
         <div class="newCommentdiv">
 
@@ -85,11 +86,13 @@
 
             <div class="inputCommentDiv">
                 <textarea class="commentTextArea" id="commentTextArea" placeholder="Escribe un comentario..."></textarea>
-                <input class="imageInput" type='file' placeholder="Puedes subir una Imagen con tu comentario" accept="image/*" onchange="readURL(this);"/>
+                <input class="imageInput" id="imageInput" type='file' placeholder="Puedes subir una Imagen con tu comentario" accept="image/*" onchange="readURL(this);"/>
                 <img class='currentImage' id="currentImage" src="#"/>
                 <button class="commentButton" id="commentButton" onclick='checkUserStatus()'>Comentar >></button>
             </div>
         </div>
+
+    <section class="commentsSection" id="commentsSection">
 
     </section>
 

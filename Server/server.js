@@ -34,7 +34,7 @@ app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, '/views'));
 
 
-// GET API's //
+// GET //
 
 app.get('/getUserName', (req, res) => {
 
@@ -49,21 +49,6 @@ app.get('/getUserName', (req, res) => {
         res.sendStatus(500);
     }
 
-});
-
-app.get('/checkSessionStatus', (req, res) => {
-    if (req.session.user == undefined) {
-
-        res.status(403).send('undefined');
-
-    } else if (req.session.user !== undefined) {
-
-        res.status(200).send('finded');
-
-    } else {
-
-        res.sendStatus(500);
-    }
 });
 
 app.get('/logout', (req, res) => {
@@ -123,10 +108,74 @@ app.get('/ranked', (req, res) => {
 });
 
 app.get('/getComments', (req, res) => {
-    let searchparameter = req.query.movieID
-    mongoDatabase.getComments(filteredsearch => {
-        res.json(filteredsearch);
+    let searchparameter = req.query.movieID;
+    mongoDatabase.getComments(response => {
+        res.json(response);
     }, searchparameter);
+});
+
+app.get('/getLastComment', (req, res) => {
+    let searchparameter = req.query.movieID;
+    mongoDatabase.getLastComment(response => {
+        res.json(response);
+    }, searchparameter);
+});
+
+app.get('/getLikesForUser', (req, res) => {
+
+    if (req.session.user !== undefined) {
+        let userName = req.session.user;
+        let movieID = req.query.movieID;
+        mongoDatabase.getLikesForUser(userName, movieID, cbOK => {
+
+            res.json(cbOK);
+
+        });
+
+    } else {
+
+        res.sendStatus(403);
+
+    }
+
+});
+app.get('/getUpLikesForComments', (req, res) => {
+
+    if (req.session.user !== undefined) {
+        let userName = req.session.user;
+
+        mongoDatabase.getUpLikesForComments(userName, cbOK => {
+
+
+            res.json(cbOK);
+
+        });
+
+    } else {
+
+        res.status(200).send('Usuario Anonimo');
+
+    }
+
+});
+app.get('/getDownLikesForComments', (req, res) => {
+
+    if (req.session.user !== undefined) {
+        let userName = req.session.user;
+
+        mongoDatabase.getDownLikesForComments(userName, cbOK => {
+
+
+            res.json(cbOK);
+
+        });
+
+    } else {
+
+        res.status(200).send('Usuario Anonimo');
+
+    }
+
 });
 
 // POST API's //
@@ -179,13 +228,95 @@ app.post('/postComments', (req, res) => {
     let userCommentary = req.body;
     mongoDatabase.postComment(userCommentary, cbOK => {
 
+
         if (`${cbOK}` == 200) {
 
             res.sendStatus(200);
+
         }
     });
 
 });
+
+//LIKE
+
+app.post('/postLike', (req, res) => {
+    let userData = req.body;
+    mongoDatabase.postLike(userData, cbOK => {
+
+        if (cbOK == 'se quito like') {
+
+            res.status(200).send('se quito like');
+
+        } else if (cbOK == 'se agrego like') {
+
+            res.status(200).send('se agrego like');
+
+        } else {
+            res.status(500);
+        }
+
+    });
+
+});
+
+//LIKE UP
+
+app.post('/postLikeCommentUp', (req, res) => {
+    var commentUpData = req.body;
+
+    mongoDatabase.commentUp(commentUpData, cbOK => {
+
+        if (cbOK == 'se quito like') {
+
+            res.status(200).send('se quito like');
+
+        } else if (cbOK == 'se agrego like') {
+
+            res.status(200).send('se agrego like');
+
+        } else if (cbOK == 'Nop...') {
+
+            res.status(200).send('Nop...');
+
+        } else {
+            res.status(500);
+        }
+
+    });
+
+});
+
+//LIKE DOWN
+
+app.post('/postLikeCommentDown', (req, res) => {
+    var commentDownData = req.body;
+
+    mongoDatabase.commentDown(commentDownData, cbOK => {
+
+
+        if (cbOK == 'se quito like') {
+
+            res.status(200).send('se quito like');
+
+        } else if (cbOK == 'se agrego like') {
+
+            res.status(200).send('se agrego like');
+
+        } else if (cbOK == 'Nop...') {
+
+            res.status(200).send('Nop...');
+
+        } else {
+            res.status(500);
+        }
+
+    });
+
+});
+
+
+
 
 
 

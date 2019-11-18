@@ -8,6 +8,14 @@ module.exports.validateLogin = validateLogin;
 module.exports.addNewUser = addNewUser;
 module.exports.postComment = postComment;
 module.exports.getComments = getComments;
+module.exports.postLike = postLike;
+module.exports.getLikesForUser = getLikesForUser;
+module.exports.getLastComment = getLastComment;
+module.exports.commentUp = commentUp;
+module.exports.commentDown = commentDown;
+module.exports.getUpLikesForComments = getUpLikesForComments;
+module.exports.getDownLikesForComments = getDownLikesForComments;
+
 
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
@@ -32,7 +40,7 @@ function getLatestMovies(cbOK) {
         }
 
 
-        client.close();
+        //client.close();
     });
 
 
@@ -54,7 +62,7 @@ function getGenres(cbOK) {
         }
 
 
-        client.close();
+        //client.close();
     });
 
 
@@ -76,7 +84,7 @@ function searchByGenres(cbOK, searchparameter) {
         }
 
 
-        client.close();
+        //client.close();
     });
 
 }
@@ -91,14 +99,14 @@ function getMovieInfo(cbOK, searchparameter) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("moviesdatabase");
-            collection.find({ "_id": ObjectID(searchparameter) }).toArray((err, data) => {
+            collection.find({ "_id": ObjectID(`${searchparameter}`) }).toArray((err, data) => {
                 var videoPath = `${data[0].moviePagePath}${data[0].name}.${data[0].filetype}`;
                 try {
                     if (fs.readFileSync(path.resolve(__dirname, `../Client${videoPath}`), {})) {
                         data[0].exist = true;
                     }
                 } catch (err) {
-                    console.log(err);
+
                     if (err.code === 'ENOENT') {
                         data[0].exist = false;
 
@@ -107,7 +115,7 @@ function getMovieInfo(cbOK, searchparameter) {
                 cbOK(data);
             });
         }
-        client.close();
+        //client.close();
     });
 
 }
@@ -127,7 +135,7 @@ function getMostWievedMovies(cbOK) {
         }
 
 
-        client.close();
+        //client.close();
     });
 }
 
@@ -146,7 +154,7 @@ function getRankedMovies(cbOK) {
         }
 
 
-        client.close();
+        //client.close();
     });
 }
 
@@ -160,7 +168,7 @@ function validateLogin(loginData, cbOK) {
             var db = client.db("admin");
             var collection = db.collection("users");
             collection.find({ "$or": [{ "email": `${loginData.user}` }, { "userName": `${loginData.user}` }] }).limit(1).toArray((err, data) => {
-                console.log(data);
+
                 if (data == '') {
 
                     cbOK(403);
@@ -177,7 +185,7 @@ function validateLogin(loginData, cbOK) {
             });
         }
 
-        client.close();
+        //client.close();
     });
 }
 
@@ -198,7 +206,9 @@ function addNewUser(userData, cbOK) {
                         email: `${userData.email}`,
                         userName: `${userData.userName}`,
                         password: `${userData.password1}`,
-                        genreLikes: `${userData.genreLikes}`
+                        moviesLiked: userData.moviesLiked,
+                        commentsLiked: userData.commentsLiked,
+                        commentsUnliked: userData.commentsUnliked
                     });
 
                     cbOK(`${userData.userName}`);
@@ -229,24 +239,33 @@ function postComment(userCommentary, cbOK) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("comments");
-            collection.insertOne({
 
-                movieID: `${userCommentary.movieID}`,
-                author: `${userCommentary.author}`,
-                date: userCommentary.date,
-                image: userCommentary.image,
-                text: `${userCommentary.text}`
+            collection.count({}, function(err, NroOfdocs) {
 
+                var aux = NroOfdocs;
 
+                collection.insertOne({
+
+                    movieID: `${userCommentary.movieID}`,
+                    author: `${userCommentary.author}`,
+                    date: userCommentary.date,
+                    image: userCommentary.image,
+                    likes: userCommentary.likes,
+                    text: `${userCommentary.text}`,
+                    Nro: (aux + 1)
+
+                });
             });
 
 
             cbOK(200);
 
+
         }
 
+        //client.close()
     });
-    //client.close();
+
 }
 
 function getComments(cbOK, searchparameter) {
@@ -258,15 +277,268 @@ function getComments(cbOK, searchparameter) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("comments");
-            collection.find()({ movieID: new RegExp(searchparameter) }).sort({ date: -1 }).limit(20).toArray((err, data) => {
+            collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(15).toArray((err, data) => {
                 cbOK(data);
             });
         }
 
 
-        client.close();
+        //client.close();
     });
+}
+
+function getLastComment(cbOK, searchparameter) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("comments");
+            collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(1).toArray((err, data) => {
+
+                cbOK(data);
+            });
+        }
 
 
+        //client.close();
+    });
+}
 
+function postLike(userData, cbOK) {
+    var ObjectID = require('mongodb').ObjectID;
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var users = db.collection("users");
+            var moviesdatabase = db.collection("moviesdatabase");
+            var found = false;
+
+
+            users.find({ userName: `${userData.userName}` }).project({ "moviesLiked": 1.0 }).limit(1).toArray((err, userLikes) => {
+
+
+                for (var i = 0; i < userLikes[0].moviesLiked.length; i++) {
+                    if (userLikes[0].moviesLiked[i] == userData.movieID) {
+                        found = true;
+                    }
+                }
+
+
+                if (found == true) {
+
+                    users.updateOne({ userName: `${userData.userName}` }, { $pull: { moviesLiked: `${userData.movieID}` } });
+
+                    moviesdatabase.updateOne({ "_id": ObjectID(`${userData.movieID}`) }, { $inc: { likes: -1 } });
+
+                    cbOK('se quito like');
+
+
+                } else if (found == false) {
+
+
+                    users.updateOne({ userName: `${userData.userName}` }, { $addToSet: { moviesLiked: `${userData.movieID}` } });
+
+                    moviesdatabase.updateOne({ "_id": ObjectID(`${userData.movieID}`) }, { $inc: { likes: +1 } });
+
+                    cbOK('se agrego like');
+
+                }
+
+
+            });
+        }
+        //client.close();
+
+    });
+}
+
+function getLikesForUser(userName, movieID, cbOK) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("users");
+            collection.find({ userName: `${userName}` }).project({ "moviesLiked": 1.0 }).limit(1).toArray((err, data) => {
+
+                var found = false;
+
+                for (var i = 0; i < data[0].moviesLiked.length; i++) {
+                    if (data[0].moviesLiked[i] == movieID) {
+                        found = true;
+                    }
+                }
+
+                cbOK(found);
+
+            });
+        }
+
+
+        //client.close();
+    });
+}
+
+function getUpLikesForComments(userName, cbOK) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("users");
+            collection.find({ userName: `${userName}` }).project({ commentsLiked: 1, _id: 0 }).limit(1).toArray((err, data) => {
+
+                cbOK(data);
+
+            });
+        }
+
+
+        //client.close();
+    });
+}
+
+function getDownLikesForComments(userName, cbOK) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("users");
+            collection.find({ userName: `${userName}` }).project({ commentsUnliked: 1, _id: 0 }).limit(1).toArray((err, data) => {
+
+                cbOK(data);
+
+            });
+        }
+
+
+        //client.close();
+    });
+}
+//up
+function commentUp(commentUpData, cbOK) {
+    var ObjectID = require('mongodb').ObjectID;
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var users = db.collection("users");
+            var commentsdatabase = db.collection("comments");
+            var foundinliked = false;
+            var foundinUnliked = false;
+
+
+            users.find({ userName: `${commentUpData.userName}` }).project({ commentsUnliked: 1.0, commentsLiked: 1.0, }).limit(1).toArray((err, userLikes) => {
+
+
+                for (var i = 0; i < userLikes[0].commentsUnliked.length; i++) {
+                    if (userLikes[0].commentsUnliked[i] == commentUpData.commentsId) {
+                        foundinUnliked = true;
+                    }
+                }
+                for (var i = 0; i < userLikes[0].commentsLiked.length; i++) {
+                    if (userLikes[0].commentsLiked[i] == commentUpData.commentsId) {
+                        foundinliked = true;
+                    }
+                }
+
+
+                if (foundinUnliked == true) {
+
+                    users.updateOne({ userName: `${commentUpData.userName}` }, { $pull: { commentsUnliked: `${commentUpData.commentsId}` } });
+
+                    commentsdatabase.updateOne({ "_id": ObjectID(`${commentUpData.commentsId}`) }, { $inc: { likes: +1 } });
+
+                    cbOK('se quito like');
+
+
+                } else if (foundinUnliked == false && foundinliked == false) {
+
+
+                    users.updateOne({ userName: `${commentUpData.userName}` }, { $addToSet: { commentsLiked: `${commentUpData.commentsId}` } });
+
+                    commentsdatabase.updateOne({ "_id": ObjectID(`${commentUpData.commentsId}`) }, { $inc: { likes: +1 } });
+
+                    cbOK('se agrego like');
+
+                } else {
+                    cbOK('Nop...');
+                }
+
+
+            });
+        }
+        //client.close();
+
+    });
+}
+//down
+function commentDown(commentDownData, cbOK) {
+    var ObjectID = require('mongodb').ObjectID;
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var users = db.collection("users");
+            var commentsdatabase = db.collection("comments");
+            var foundinliked = false;
+            var foundinUnliked = false;
+
+
+            users.find({ userName: `${commentDownData.userName}` }).project({ commentsUnliked: 1.0, commentsLiked: 1.0, }).limit(1).toArray((err, userLikes) => {
+
+
+                for (var i = 0; i < userLikes[0].commentsLiked.length; i++) {
+                    if (userLikes[0].commentsLiked[i] == commentDownData.commentsId) {
+                        foundinliked = true;
+                    }
+                }
+                for (var i = 0; i < userLikes[0].commentsUnliked.length; i++) {
+                    if (userLikes[0].commentsUnliked[i] == commentDownData.commentsId) {
+                        foundinUnliked = true;
+                    }
+                }
+
+                if (foundinliked == true) {
+
+                    users.updateOne({ userName: `${commentDownData.userName}` }, { $pull: { commentsLiked: `${commentDownData.commentsId}` } });
+
+                    commentsdatabase.updateOne({ "_id": ObjectID(`${commentDownData.commentsId}`) }, { $inc: { likes: -1 } });
+
+                    cbOK('se quito like');
+
+
+                } else if (foundinliked == false && foundinUnliked == false) {
+
+
+                    users.updateOne({ userName: `${commentDownData.userName}` }, { $addToSet: { commentsUnliked: `${commentDownData.commentsId}` } });
+
+                    commentsdatabase.updateOne({ "_id": ObjectID(`${commentDownData.commentsId}`) }, { $inc: { likes: -1 } });
+
+                    cbOK('se agrego like');
+
+                } else {
+                    cbOK('Nop...');
+                }
+
+
+            });
+        }
+        //client.close();
+
+    });
 }

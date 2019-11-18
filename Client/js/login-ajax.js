@@ -34,7 +34,7 @@ function doLogin(loginData) {
             successMessageDiv.innerHTML = "<strong>Exito!</strong> Datos correctos, redireccionando...";
             successMessageDiv.style.display = "flex";
             setTimeout(function() { successMessageDiv.style.display = "none" }, 2000);
-            setTimeout(function() { window.location.replace(req.responseURL) }, 2000);
+            setTimeout(function() { window.location.replace(req.responseURL) }, 500);
 
         } else if (req.status == 403) {
             // 403: No autorizado

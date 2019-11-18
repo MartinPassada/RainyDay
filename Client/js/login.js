@@ -28,6 +28,7 @@ function UserNameOnNavBar(userName) {
     } else {
 
         userNameLink.innerHTML = userName;
+
     }
 
 

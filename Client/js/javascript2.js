@@ -8,11 +8,11 @@ window.onload = function() { stickyLoginForm() };
 
 var navbar = document.getElementById("nav");
 var loginForm = document.getElementById("loginForm");
-var fadedDivPos = document.getElementById("fadedDiv").offsetTop;
+//var fadedDivPos = document.getElementById("fadedDiv").offsetHeight;
 
 
 function stickyNavBar() {
-    if (window.pageYOffset >= fadedDivPos) {
+    if (window.pageYOffset >= 1000) {
         navbar.classList.add("sticky");
     } else {
         navbar.classList.remove("sticky");

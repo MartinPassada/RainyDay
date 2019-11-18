@@ -1,5 +1,23 @@
 # Changelog
 
+## Update #18
+
+*Client-Side
+New features...
+
+1. Comments now will display as expected 
+2. Users can like movies from now on 
+3. Users can upload an image with their comments 
+4. Upvote and Downvote for comments 
+5. Now users will see a message when deactivate Javascript
+
+*Server-Side
+1. A function will convert images to text for store them into database
+2. Likes (for movies) will display immediately after user's action
+3. New comments and likes (for comments) will display immediately after user's action
+4. Secret message will display to programmers who try upvoting/downvoting a comment twice
+
+
 ## Update #17
 
 *Client-Side

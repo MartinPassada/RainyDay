@@ -1,8 +1,17 @@
 {{#each movieInfo}}
 <div class = "movieDetailDiv" id = "movieDetailDiv"> 
     <div class="infoImgDiv">
+
     <img src="{{this.imagePath}}" class="movieInfoImg"></img>
-    <span class="views">Vistas: {{this.views}} <img src="/img/hearticonempty.png" class="heartEmpty-Full"></img> {{this.likes}}</span>
+
+    <span class="views" id= 'views'>    
+    
+    Vistas: <span class='viewsNumber' id="viewsNumber">{{this.views}}</span>
+    <img src="/img/hearticonempty.png" class="heartEmpty-Full" id='heartEmpty-Full' onclick="checkUserStatusForLike()"></img> 
+    <span class='likesNumber' id="likesNumber">{{this.likes}}</span>    
+    
+    </span>
+
     </div>
     <h1 class="movieTitle">{{this.name}}</h1>
     <h4 class="movieTitleEng">{{this.spanishname}}</h4>
@@ -25,12 +34,15 @@
         <li class="cast"><strong>Actores:</strong> {{this.cast}}</li>
     </ul>
 </div>  
+<div class="errorBoxForLike" id="errorBoxForLike">
+    <strong>Error!</strong>
+</div>
 
-<div class = "playerdiv">
+<div class = "playerdiv" id="playerdiv">
 
     {{#if this.exist}}
 
-    <video class= "Player" width="100%" height="100%" controls>
+    <video class= "Player" id="Player" width="100%" height="100%" controls>
 
     <source
      src="{{this.moviepagepath}}{{this.name}}.{{this.filetype}}"

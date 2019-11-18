@@ -346,7 +346,7 @@ ul.footLinks>li>h4:hover {
     max-height: -moz-max-content;
     height: 300px;
     float: inherit;
-    z-index: -1;
+    z-index: 0;
 }
 
 .movieDetailDiv>h1 {
@@ -356,6 +356,14 @@ ul.footLinks>li>h4:hover {
     font-size: 2.85rem;
     position: relative;
     float: inline-start;
+}
+
+.likesNumber {
+    font-size: larger;
+}
+
+.viewsNumber {
+    font-size: larger;
 }
 
 .resolution {
@@ -471,6 +479,9 @@ ul.footLinks>li>h4:hover {
 .heartEmpty-Full {
     margin-left: 7.5%;
     margin-right: 2.5%;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
 }
 
 .synopsisDiv {
@@ -485,10 +496,10 @@ ul.footLinks>li>h4:hover {
 
 .playerdiv {
     box-sizing: content-box;
-    padding-top: 5%;
-    padding-bottom: 3%;
-    padding-left: 10%;
-    padding-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
     align-content: center;
 }
 
@@ -515,6 +526,7 @@ ul.footLinks>li>h4:hover {
     color: whitesmoke;
     margin-top: 0px;
     margin-bottom: 0px;
+    margin-left: 10%;
 }
 
 .inputCommentDiv>textarea:nth-child(1) {
@@ -526,10 +538,10 @@ ul.footLinks>li>h4:hover {
     padding-right: 3%;
     padding-top: 0px;
     padding-bottom: 1.0%;
-    width: 70%;
+    width: 55.3%;
     margin-top: 2%;
-    margin-bottom: 2%;
-    padding-bottom: 4%;
+    margin-bottom: 0%;
+    /*! padding-bottom: 4%; */
     padding-top: 1%;
     height: auto;
     border-top-style: solid;
@@ -537,9 +549,11 @@ ul.footLinks>li>h4:hover {
     border-bottom-style: solid;
     border-left-style: solid;
     border-color: whitesmoke;
-    border-radius: 1rem;
     background-color: whitesmoke;
     max-width: auto;
+    /*! z-index: -1; */
+    /*! margin-right: 10%; */
+    margin-left: 10%;
 }
 
 .userInfo {
@@ -591,6 +605,7 @@ ul.footLinks>li>h4:hover {
     display: block;
     position: inherit;
     /*! float: inline-end; */
+    margin-top: 1%;
 }
 
 .loginForm {
@@ -609,6 +624,7 @@ ul.footLinks>li>h4:hover {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.76);
+    z-index: 2;
 }
 
 .background-image-login {
@@ -643,6 +659,7 @@ ul.footLinks>li>h4:hover {
     margin-top: 1em;
     position: relative;
     padding-top: 1.em;
+    z-index: 3;
 }
 
 .login>img {
@@ -807,7 +824,7 @@ ul.footLinks>li>h4:hover {
 
 .error-box {
     margin-top: 16px;
-    position: relative;
+    position: static;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
@@ -824,6 +841,31 @@ ul.footLinks>li>h4:hover {
     background-color: #f8d7da;
     border-color: #f5c6cb;
     display: none;
+    z-index: 0;
+}
+
+.errorBoxForLike {
+    margin-top: 3%;
+    position: relative;
+    padding: .75rem 1.25rem;
+    /*! margin-bottom: ; */
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    z-index: -1;
 }
 
 .signUp {
@@ -886,7 +928,81 @@ ul.footLinks>li>h4:hover {
     top: 1px;
 }
 
+@media screen and (max-width: 1025px) {
+    .fullDate {
+        display: inline-block;
+    }
+    .commentDiv {
+        border-left-width: 0.3ch;
+    }
+    .dateNumber {
+        margin: 0%;
+        margin-left: 1%;
+        display: inline-block;
+    }
+    .dateText {
+        margin: 0%;
+        display: inline-block;
+    }
+    .gallery {
+        margin-left: 0%;
+    }
+    .foot ul {
+        margin-left: 0%
+    }
+    .galleryHeader {
+        margin-left: 4%;
+    }
+    .nav ul {
+        padding-left: 17%;
+    }
+    .commentButton {
+        padding: 13px;
+    }
+    .newCommentdiv {
+        padding: 1.2em;
+        width: 72%
+    }
+    .genreButtonsDiv {
+        margin-left: 0%;
+    }
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
+    }
+    ul.sub-menuMovies {
+        padding-right: 0%;
+        padding-left: 0%;
+    }
+    .errorBoxForLike {
+        display: none;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
+    }
+    .views {
+        margin-bottom: 5%;
+        /*! 0 */
+    }
+    .movieDetailDiv {
+        margin-bottom: 10%;
+    }
+}
+
 @media screen and (max-width: 1280px) {
+    .fullDate {
+        display: inline-block;
+    }
+    .dateNumber {
+        margin: 0%;
+        margin-left: 1%;
+        display: inline-block;
+    }
+    .dateText {
+        margin: 0%;
+        display: inline-block;
+    }
     .gallery {
         margin-left: 0%;
     }
@@ -917,9 +1033,30 @@ ul.footLinks>li>h4:hover {
         padding-right: 0%;
         padding-left: 0%;
     }
+    .errorBoxForLike {
+        display: none;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
+    }
 }
 
 @media screen and (max-width: 1546px) {
+    .fullDate {
+        display: inline-block;
+        width: auto;
+    }
+    .dateNumber {
+        margin: 0%;
+        margin-left: 1%;
+        display: inline-block;
+        width: 100%;
+    }
+    .dateText {
+        margin: 0%;
+        display: inline-block;
+        width: 100%;
+    }
     .movieDetailDiv {
         margin-left: 5%;
         margin-right: 5%;
@@ -937,7 +1074,13 @@ ul.footLinks>li>h4:hover {
     .playerdiv {
         padding: 0%;
         margin: 5em;
-        margin-top: 25%;
+        margin-top: 10%;
+    }
+    .errorBoxForLike {
+        display: none;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
     }
 }
 
@@ -952,3 +1095,99 @@ ul.footLinks>li>h4:hover {
 .currentImage {
     display: none;
 }
+
+
+/*Comments */
+
+.commentDiv {
+    margin-bottom: 2%;
+    background-color: whitesmoke;
+    width: 76.5%;
+    height: auto;
+    padding-bottom: 1%;
+    border-left-style: solid;
+    border-left-color: orange;
+    border-left-width: 1ch;
+}
+
+.authorName {
+    display: inline-block;
+    margin-top: 2.5%;
+    margin-left: 1%;
+    color: 007aff;
+    color: #007aff;
+}
+
+.commentText {
+    margin-left: 1%;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.dateText {
+    color: #007aff;
+    display: inline-block;
+}
+
+.dateNumber {
+    color: orange;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.fullDate {
+    float: inline-end;
+    width: 20%;
+}
+
+.restoredImage {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
+
+.arrowUp {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.arrowDown {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.arrowAndLikesDiv {
+    float: inline-start;
+    /*! height: min-content; */
+    height: 10%;
+    /*! display: inline-grid; */
+    /*! position: absolute; */
+    display: inline-grid;
+    margin-left: 0.5%;
+}
+
+.commentId {
+    visibility: hidden;
+    display: none;
+}
+
+.commentLikes {
+    /*! padding-left: 1%; */
+    margin-left: 33%;
+    font-size: large;
+}
+
+.noscriptDiv {
+    background-image: url('img/noscript.jpg');
+    height: auto;
+    display: block;
+}
+
+.noscriptTitle {
+    color: whitesmoke;
+}
+
+.noscriptImage {}
