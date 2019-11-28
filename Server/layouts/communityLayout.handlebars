@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comunidad</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=noscript.html">
+    </noscript>
+
+</head>
+
+<body>
+    <div class="nav" id="nav">
+        <ul class="navList" id="navList">
+            <li onclick="goHome()">Inicio</li>
+            <li><a class="communityLink" href="../community">Comunidad</a>
+                <ul class="sub-menuMovies">
+                    <li class="createGroup" onclick="showCreateGroupForm()">Crear Grupo</li>
+                </ul>
+            </li>
+            <li>Contacto</li>
+            <button class="LogInButton" id="LogInButton" onclick="showLoginForm()">Ingresar</button>
+        </ul>
+    </div>
+    <div class="boxCommunityError" id="boxCommunityError">
+        <strong>Error!</strong>
+    </div>
+    <div class="boxCommunitySuccess" id="boxCommunitySuccess">
+        <strong>Exito!</strong>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <section class="loginForm" id="loginForm">
+        <div class="overlay"></div>
+
+        <div class="background-image-login"></div>
+
+        <h1 class="login-h1">INGRESAR</h1>
+
+        <div class="login-container">
+
+            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
+            <img class="logoImage" src="img/logo.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+                <label>
+                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail o Usuario" />
+                </label>
+                <label>
+                    <input class="password" id="password" type="password" placeholder="Password" />
+                </label>
+
+                <div class="alertBox-Success" id="alertBox-Success">
+                    <strong>Exito!</strong>
+                </div>
+                <div class="alertBox-Error" id="alertBox-Error">
+                    <strong>Error!</strong>
+                </div>
+
+                <a class="submitButton" id="submitButton" onclick="checkdata()">ENTRAR</a>
+
+                <div class="loginFormLinksDiv" id="loginFormLinksDiv">
+                    <a href="../welcome" class="signUp">Registrate!</a>
+                    <a class="forgot-password">Olvidaste la contraseña?</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- END OF LOGIN FORM --> 
+
+    <!-- Create Group FORM -->
+    <section class="groupForm" id="groupForm">
+        <div class="overlay"></div>
+
+        <div class="background-image-login"></div>
+
+        <h1 class="login-h1">CREAR GRUPO</h1>
+
+        <div class="login-container">
+
+            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeGroupForm()" height="25px" width="25px"></img>
+            <img class="logoImage" src="img/groups.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+                <label>
+                        <input class="groupName" id="groupName" type="text" placeholder="Nombre del Grupo" />
+                    </label>
+                <label>
+                        <input class="groupDescription" id="groupDescription" type="text" placeholder="Descripcion" />
+                    </label>
+
+                <div class="alertBox-SuccessForGroupsForm" id="alertBox-SuccessForGroupsForm">
+                    <strong>Exito!</strong>
+                </div>
+                <div class="alertBox-ErrorForGroupsForm" id="alertBox-ErrorForGroupsForm">
+                    <strong>Error!</strong>
+                </div>
+
+                <a class="submitButton" id="submitButton" onclick="checkUserStatusAndCreateGroup()">CREAR GRUPO</a>
+
+            </form>
+        </div>
+    </section>
+    <!-- END OF Create Group Form -->
+
+    {{{body}}}
+
+
+    <footer class="foot" id="foot">
+        <ul class=footLinks>
+            <li>
+                <h4>Copyright© Todos los derechos reservados</h4>
+            </li>
+            <li>
+                <h4>Privacy Policy</h4>
+            </li>
+            <li>
+                <h4>Terms of Service</h4>
+            </li>
+            <li>
+                <div class=footIcons>
+                    <img src="/icons/rss-icon.png"></img>
+                    <img src="/icons/slack-icon.png"></img>
+                    <img src="/icons/twitter-icon.png"></img>
+                </div>
+            </li>
+        </ul>
+
+    </footer>
+
+    
+    <script src="../js/login-ajax.js"></script>
+    <script src="../js/community-ajax.js"></script>
+    <script src="../js/community.js"></script>
+    <script src="../js/login.js"></script>
+    
+
+
+</body>
+
+</html>

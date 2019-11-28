@@ -1,7 +1,5 @@
 function checkUserData() {
 
-
-
     var userData = {
         email: document.getElementById('e-mail').value,
         userName: document.getElementById('user-name').value,

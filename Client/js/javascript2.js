@@ -3,8 +3,8 @@ function goHome() {
     window.location.href = "/";
 }
 
+window.onload = function() { stickyLoginForm(), stickyGroupForm() };
 window.onscroll = function() { stickyNavBar() };
-window.onload = function() { stickyLoginForm() };
 
 var navbar = document.getElementById("nav");
 var loginForm = document.getElementById("loginForm");
@@ -12,17 +12,12 @@ var loginForm = document.getElementById("loginForm");
 
 
 function stickyNavBar() {
-    if (window.pageYOffset >= 1000) {
+    if (window.pageYOffset >= 1500) {
         navbar.classList.add("sticky");
     } else {
         navbar.classList.remove("sticky");
     }
 }
-
-function stickyLoginForm() {
-    loginForm.classList.add("sticky");
-}
-
 
 // Muestra y oculta div de generos
 function showDiv() {
@@ -64,16 +59,4 @@ function changeGalleryTitleName(title) {
     let headerTitle = document.getElementById("galleryHeaderTitle");
     headerTitle.innerHTML = "";
     headerTitle.innerHTML = title;
-}
-
-function showLoginForm() {
-    var loginForm = document.getElementById("loginForm");
-    loginForm.style.display = "flex";
-    navbar.style.display = "none";
-}
-
-function closeLoginForm() {
-    var loginForm = document.getElementById("loginForm");
-    navbar.style.display = "block";
-    loginForm.style.display = "none";
 }

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Pagina Principal</title>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -20,11 +20,11 @@
             <li>
                 Películas
                 <ul class="sub-menuMovies">
-                    <li class="linkGeneros" onclick="showDiv();
+                    <li class="linkGenre" onclick="showDiv();
                             scrollToSmoothly(document.getElementById('genreButtonsDiv').offsetTop)">
                         Géneros
                     </li>
-                    <li class="linkMoreViewed" id="linkMoreViewed" onclick="changeGalleryTitleName('Más Vistas');
+                    <li class="linkMostViewed" id="linkMostViewed" onclick="changeGalleryTitleName('Más Vistas');
                             scrollToSmoothly(document.getElementById('galleryHeader').offsetTop)">
                         Más Vistas
                     </li>
@@ -34,7 +34,11 @@
                     </li>
                 </ul>
             </li>
-            <li>Series</li>
+            <li><a class="communityLink" href="/community">Comunidad</a>
+                <ul class="sub-menuMovies">
+                    <li class="createGroup" onclick="showCreateGroupForm()">Crear Grupo</li>
+                </ul>
+            </li>
             <li>Contacto</li>
             <button class="LogInButton" id="LogInButton" onclick="showLoginForm()">Ingresar</button>
         </ul>
@@ -68,10 +72,10 @@
 
             <form class="form" action="">
                 <label>
-                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail o Usuario" />
+                    <input class="e-mail" id="e-mail" type="text" placeholder="E-mail o Usuario"/>
                 </label>
                 <label>
-                    <input class="password" id="password" type="password" placeholder="Password" />
+                    <input class="password" id="password" type="password" placeholder="Password"/>
                 </label>
 
                 <div class="alertBox-Success" id="alertBox-Success">
@@ -91,6 +95,43 @@
         </div>
     </section>
     <!-- END OF LOGIN FORM -->
+
+    <!--*****************************************************-->
+
+    <!-- Create Group FORM -->
+    <section class="groupForm" id="groupForm">
+        <div class="overlay"></div>
+
+        <div class="background-image-login"></div>
+
+        <h1 class="login-h1">CREAR GRUPO</h1>
+
+        <div class="login-container">
+
+            <img class="crossForCloseImg" id="crossForCloseImg" src="img/crossforclose.png" onclick="closeGroupForm()" height="25px" width="25px"></img>
+            <img class="logoImage" src="img/groups.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+                <label>
+                        <input class="groupName" id="groupName" type="text" placeholder="Nombre del Grupo" />
+                    </label>
+                <label>
+                        <input class="groupDescription" id="groupDescription" type="text" placeholder="Descripcion" />
+                    </label>
+
+                <div class="alertBox-SuccessForGroupsForm" id="alertBox-SuccessForGroupsForm">
+                    <strong>Exito!</strong>
+                </div>
+                <div class="alertBox-ErrorForGroupsForm" id="alertBox-ErrorForGroupsForm">
+                    <strong>Error!</strong>
+                </div>
+
+                <a class="submitButton" id="submitButton" onclick="checkUserStatusAndCreateGroup()">CREAR GRUPO</a>
+
+            </form>
+        </div>
+    </section>
+    <!-- END OF Create Group Form -->
 
 
     <footer class="foot" id="foot">
@@ -121,10 +162,11 @@
 
     <script src="js/ajax.js"></script>
     <script src="js/login-ajax.js"></script>
-
-    <script src="js/login.js"></script>
+    <script src="js/community-ajax.js"></script>
     <script src="js/javascript1.js"></script>
     <script src="js/javascript2.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/community.js"></script>
 
 
 

@@ -1,4 +1,5 @@
-function getComments(success, failure, searchparameter) {
+function getComments(success, failure, searchparameter, isForum) {
+
 
     req = new XMLHttpRequest();
 
@@ -19,12 +20,12 @@ function getComments(success, failure, searchparameter) {
 
     }
 
-    req.open("GET", `/getComments?movieID=${searchparameter}`);
+    req.open("GET", `/getComments?currentID=${searchparameter}&isForum=${isForum}`);
     req.send();
 
 }
 
-function getLastComment(success, failure, searchparameter) {
+function getLastComment(success, failure, searchparameter, isForum) {
 
     req = new XMLHttpRequest();
 
@@ -45,7 +46,7 @@ function getLastComment(success, failure, searchparameter) {
 
     }
 
-    req.open("GET", `/getLastComment?movieID=${searchparameter}`);
+    req.open("GET", `/getLastComment?currentID=${searchparameter}&isForum=${isForum}`);
     req.send();
 
 }
@@ -148,8 +149,9 @@ function getDownLikesForComments(success, failure) {
 
 
 function postComment(userCommentary) {
-    req = new XMLHttpRequest();
+    var isForum = isThisForum();
 
+    req = new XMLHttpRequest();
 
     req.onload = function() {
 
@@ -158,14 +160,14 @@ function postComment(userCommentary) {
 
         if (this.status == 200) {
 
-            var movieID = getCurrentMovieID();
+            var movieID = getCurrentID();
             successMessageDiv.innerHTML = "<strong>Exito!</strong> Estamos publicando tu comentario..";
             successMessageDiv.style.display = "flex";
             setTimeout(function() { successMessageDiv.style.display = "none" }, 2000);
             getLastComment(
                 response => { drawComments(response); },
                 error => showError(error),
-                movieID);
+                movieID, isForum);
             //setTimeout(function() { window.location.reload(true) }, 1500);
 
 

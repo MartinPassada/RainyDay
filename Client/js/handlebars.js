@@ -1,5 +1,3 @@
-stickyLoginForm();
-
 function goHome() {
     window.location.href = "/";
 }
@@ -7,26 +5,37 @@ function goHome() {
 window.onscroll = function() { changeUserNameOnCommentsSection(), stickyNavBar() };
 
 window.onload = function() {
+    stickyLoginForm();
+    //stickyGroupForm();
+    var currentID = this.getCurrentID();
+    var aux = isThisForum();
+    if (aux == "Forum") {
 
-    var movieID = this.getCurrentMovieID();
-
-    getComments(
-        response => { drawComments(response); },
-        error => showError(error),
-        movieID);
-
-    function loadingGif() {
-        var heartIcon = document.getElementById('heartEmpty-Full');
-        heartIcon.src = "/img/loading.gif";
-
-        getLikesForUser(
-            response => { changeIcon(response); },
+        getComments(
+            response => { drawComments(response); },
             error => showError(error),
-            movieID);
-    }
-    loadingGif();
+            currentID, aux);
 
-};
+    } else {
+        getComments(
+            response => { drawComments(response); },
+            error => showError(error),
+            currentID);
+
+        function loadingGif() {
+            var heartIcon = document.getElementById('heartEmpty-Full');
+            heartIcon.src = "/img/loading.gif";
+
+            getLikesForUser(
+                response => { changeIcon(response); },
+                error => showError(error),
+                currentID);
+        }
+        loadingGif();
+    }
+
+
+}
 
 function changeIcon(value) {
 
@@ -370,12 +379,21 @@ function changeDownArrowInComments(userLikes) {
     }
 }
 
-function getCurrentMovieID() {
+function getCurrentID() {
 
     let pathArray = window.location.pathname.split('/');
     let pathID = pathArray[2];
     return pathID;
 }
+
+function isThisForum() {
+
+    let pathArray = window.location.pathname.split('/');
+    let pathID = pathArray[1];
+    return pathID;
+}
+
+
 
 var navbar = document.getElementById("nav");
 
@@ -388,18 +406,31 @@ function stickyNavBar() {
     }
 }
 
-function showLoginForm() {
+function showLoginFormHandlebars() {
     var loginForm = document.getElementById("loginForm");
     document.getElementById('movieDetailDiv').style.zIndex = '-1';
     loginForm.style.display = "flex";
     navbar.style.display = "none";
 }
 
-function closeLoginForm() {
+function showCreateGroupFormHandlebars() {
+    var groupForm = document.getElementById("groupForm");
+    document.getElementById('movieDetailDiv').style.zIndex = '-1';
+    groupForm.style.display = "flex";
+    navbar.style.display = "none";
+}
+
+function closeLoginFormHandlebars() {
     var loginForm = document.getElementById("loginForm");
     loginForm.style.display = "none";
     navbar.style.display = "block";
     document.getElementById('movieDetailDiv').style.zIndex = '0';
+}
+
+function closeLoginForm() {
+    var loginForm = document.getElementById("loginForm");
+    loginForm.style.display = "none";
+    navbar.style.display = "block";
 }
 
 function stickyLoginForm() {
@@ -470,14 +501,28 @@ function checkCommentary(userName) {
 
     let selectedImage = document.getElementById('currentImage');
 
-    var userCommentary = {
-        text: document.getElementById('commentTextArea').value,
-        author: userName,
-        movieID: getCurrentMovieID(),
-        likes: 0,
-        date: Date.now()
-    }
+    if (isThisForum() == 'Forum') {
 
+        var userCommentary = {
+            text: document.getElementById('commentTextArea').value,
+            author: userName,
+            forumID: getCurrentID(),
+            movieID: null,
+            likes: 0,
+            date: Date.now()
+        }
+
+    } else {
+
+        var userCommentary = {
+            text: document.getElementById('commentTextArea').value,
+            author: userName,
+            forumID: null,
+            movieID: getCurrentID(),
+            likes: 0,
+            date: Date.now()
+        }
+    }
 
     const errorMessageDiv = document.getElementById('error-box');
 
@@ -549,7 +594,7 @@ function tryLike(value) {
     if (value !== "Usuario Anonimo") {
 
 
-        let movieID = getCurrentMovieID();
+        let movieID = getCurrentID();
         postLike(value, movieID);
 
 
@@ -627,7 +672,7 @@ function tryLikeCommentDown(value, target) {
 }
 
 
-function setUpComment(comments) {
+/*function setUpComment(comments) {
 
     if (comments.length == 1) {
 
@@ -856,4 +901,4 @@ function setUpComment(comments) {
         return commentDiv;
     }
 
-}
+}*/

@@ -100,6 +100,86 @@ app.get('/movies/:id', (req, res) => {
 
 });
 
+app.get('/Forum/:forumID', (req, res) => {
+    let searchparameter = req.params.forumID;
+    let userName = req.session.user;
+    mongoDatabase.Forum(searchparameter, userName, forumData => {
+        res.render('forum', { layout: 'forumLayout', forumData: forumData });
+    });
+});
+
+app.get('/checkBeforeEnter', (req, res) => {
+    let searchparameter = req.query.groupTitle;
+    let userName = req.session.user;
+
+    if (userName !== undefined) {
+        mongoDatabase.checkBeforeEnter(searchparameter, userName, cbOK => {
+
+            if (cbOK == 'noMember') {
+
+                res.send('noMember');
+
+            } else if (cbOK !== 'noMember') {
+
+                res.json(cbOK);
+
+            } else {
+
+                res.sendStatus(500);
+            }
+
+        });
+
+    } else {
+
+        res.sendStatus(403);
+    }
+
+});
+
+app.get('/checkAfterEnter', (req, res) => {
+    let searchparameter = req.query.forumID;
+    let userName = req.session.user;
+    if (userName != undefined) {
+
+        mongoDatabase.checkAfterEnter(searchparameter, userName, cbOK => {
+
+            if (cbOK == 'noMember') {
+
+                res.status(200).send('noMember');
+
+
+            } else if (cbOK !== 'noMember') {
+
+                res.status(200).send('ok');
+
+
+            } else {
+
+                res.sendStatus(500);
+            }
+
+        });
+
+    } else {
+        res.sendStatus(403);
+    }
+
+
+
+
+});
+
+
+
+app.get('/community', (req, res) => {
+    let userName = req.session.user;
+    mongoDatabase.getCommunityInfo(userName, communityInfo => {
+        res.render('community', { layout: 'communityLayout', communityInfo: communityInfo });
+    });
+
+});
+
 
 app.get('/ranked', (req, res) => {
     mongoDatabase.getRankedMovies(rankedMovies => {
@@ -108,17 +188,19 @@ app.get('/ranked', (req, res) => {
 });
 
 app.get('/getComments', (req, res) => {
-    let searchparameter = req.query.movieID;
+    let searchparameter = req.query.currentID;
+    let isForum = req.query.isForum;
     mongoDatabase.getComments(response => {
         res.json(response);
-    }, searchparameter);
+    }, searchparameter, isForum);
 });
 
 app.get('/getLastComment', (req, res) => {
-    let searchparameter = req.query.movieID;
+    let searchparameter = req.query.currentID;
+    let isForum = req.query.isForum;
     mongoDatabase.getLastComment(response => {
         res.json(response);
-    }, searchparameter);
+    }, searchparameter, isForum);
 });
 
 app.get('/getLikesForUser', (req, res) => {
@@ -127,9 +209,7 @@ app.get('/getLikesForUser', (req, res) => {
         let userName = req.session.user;
         let movieID = req.query.movieID;
         mongoDatabase.getLikesForUser(userName, movieID, cbOK => {
-
             res.json(cbOK);
-
         });
 
     } else {
@@ -139,22 +219,17 @@ app.get('/getLikesForUser', (req, res) => {
     }
 
 });
+
 app.get('/getUpLikesForComments', (req, res) => {
 
     if (req.session.user !== undefined) {
         let userName = req.session.user;
 
         mongoDatabase.getUpLikesForComments(userName, cbOK => {
-
-
             res.json(cbOK);
-
         });
-
     } else {
-
         res.status(200).send('Usuario Anonimo');
-
     }
 
 });
@@ -164,16 +239,11 @@ app.get('/getDownLikesForComments', (req, res) => {
         let userName = req.session.user;
 
         mongoDatabase.getDownLikesForComments(userName, cbOK => {
-
-
             res.json(cbOK);
-
         });
 
     } else {
-
         res.status(200).send('Usuario Anonimo');
-
     }
 
 });
@@ -259,8 +329,34 @@ app.post('/postLike', (req, res) => {
     });
 
 });
+//SUBSCRIBE
 
-//LIKE UP
+app.post('/subscribe', (req, res) => {
+    let subscribeData = req.body;
+    let userName = req.session.user;
+    mongoDatabase.subscribe(subscribeData, userName, cbOK => {
+
+        if (cbOK == 'se borro la subscripcion') {
+
+            res.status(200).send('se borro la subscripcion');
+
+        } else if (cbOK == 'se agrego a request') {
+
+            res.status(200).send('se agrego a request');
+
+        } else if (cbOK == 'se quito de request') {
+
+            res.status(200).send('se quito de request');
+
+        } {
+            res.status(500);
+        }
+
+    });
+
+});
+
+//UPVOTE 
 
 app.post('/postLikeCommentUp', (req, res) => {
     var commentUpData = req.body;
@@ -287,7 +383,7 @@ app.post('/postLikeCommentUp', (req, res) => {
 
 });
 
-//LIKE DOWN
+//DOWNVOTE
 
 app.post('/postLikeCommentDown', (req, res) => {
     var commentDownData = req.body;
@@ -315,9 +411,44 @@ app.post('/postLikeCommentDown', (req, res) => {
 
 });
 
+// CREATE GROUP
 
+app.post('/createGroup', (req, res) => {
+    let groupData = req.body;
+    mongoDatabase.addNewGroup(groupData, cbOK => {
+        if (`${cbOK}` == 403) {
 
+            res.sendStatus(403);
 
+        } else if (`${cbOK}` == 200) {
+
+            res.sendStatus(200);
+
+        } else {
+            res.sendStatus(500);
+        }
+    });
+});
+
+app.post('/acceptOrRejectMember', (req, res) => {
+    let acceptOrRejectMemberData = req.body;
+    mongoDatabase.acceptOrRejectMember(acceptOrRejectMemberData, cbOK => {
+
+        if (cbOK == 'se agrego a members') {
+
+            res.status(200).send('se agrego a members');
+
+        } else if (cbOK == 'se borro de request') {
+
+            res.status(200).send('se borro de request');
+
+        } else {
+            res.status(500);
+        }
+
+    });
+
+});
 
 
 app.listen(8000);

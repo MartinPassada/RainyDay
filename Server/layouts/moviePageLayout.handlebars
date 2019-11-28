@@ -15,20 +15,19 @@
 
 <body>
     <div class="nav" id="nav">
-       <!-- <ul class="navList" id="navList">
-            <li href="/" onclick="goHome()">Inicio</li>
-            <li>Contacto</li>
-            <button class="LogInButton" id="LogInButton" onclick="showLoginForm()">Ingresar</button>
-        </ul>-->
         <ul class="navList" id="navList">
             <li onclick="goHome()">Inicio</li>
-            <li>Series</li>
+            <!--<li><a class="communityLink" href="../community">Comunidad</a>
+                <ul class="sub-menuMovies">
+                    <li class="createGroup" onclick="showCreateGroupFormHandlebars()">Crear Grupo</li>
+                </ul>-->
+            </li>
             <li>Contacto</li>
-            <button class="LogInButton" id="LogInButton" onclick="showLoginForm()">Ingresar</button>
+            <button class="LogInButton" id="LogInButton" onclick="showLoginFormHandlebars()">Ingresar</button>
         </ul>
     </div>
 
-       <!-- LOGIN FORM -->
+    <!-- LOGIN FORM -->
     <section class="loginForm" id="loginForm">
         <div class="overlay"></div>
 
@@ -38,7 +37,7 @@
 
         <div class="login-container">
 
-            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeLoginForm()" height="25px" width="25px"></img>
+            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeLoginFormHandlebars()" height="25px" width="25px"></img>
             <img class="logoImage" src="img/logo.png" height="105px" width="105px"></img>
 
             <form class="form" action="">
@@ -66,6 +65,41 @@
         </div>
     </section>
     <!-- END OF LOGIN FORM --> 
+
+    <!-- Create Group FORM -->
+    <section class="groupForm" id="groupForm">
+        <div class="overlay"></div>
+
+        <div class="background-image-login"></div>
+
+        <h1 class="login-h1">CREAR GRUPO</h1>
+
+        <div class="login-container">
+
+            <img class="crossForCloseImg" id="crossForCloseImg" src="../img/crossforclose.png" onclick="closeGroupForm()" height="25px" width="25px"></img>
+            <img class="logoImage" src="img/groups.png" height="105px" width="105px"></img>
+
+            <form class="form" action="">
+                <label>
+                        <input class="groupName" id="groupName" type="text" placeholder="Nombre del Grupo" />
+                    </label>
+                <label>
+                        <input class="groupDescription" id="groupDescription" type="text" placeholder="Descripcion" />
+                    </label>
+
+                <div class="alertBox-SuccessForGroupsForm" id="alertBox-SuccessForGroupsForm">
+                    <strong>Exito!</strong>
+                </div>
+                <div class="alertBox-ErrorForGroupsForm" id="alertBox-ErrorForGroupsForm">
+                    <strong>Error!</strong>
+                </div>
+
+                <a class="submitButton" id="submitButton" onclick="checkUserStatusAndCreateGroup()">CREAR GRUPO</a>
+
+            </form>
+        </div>
+    </section>
+    <!-- END OF Create Group Form -->
 
     {{{body}}}
 
@@ -123,6 +157,8 @@
 
 <script src="../js/handlebars-ajax.js"></script>    
 <script src="../js/login-ajax.js"></script>
+{{!--<script src="../js/community-ajax.js"></script>--}}
+{{!--<script src="../js/community.js"></script>--}}
 <script src="../js/login.js"></script>
 <script src="../js/handlebars.js"></script>
 

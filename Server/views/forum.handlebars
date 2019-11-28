@@ -1,0 +1,30 @@
+{{#each forumData}}
+
+<section class="forumBanner" id="forumBanner">
+    <h1 class="forumTitle" id="forumTitle">{{this.groupName}}</h1>
+    <h2 class="forumDescription" id="forumDescription">{{this.groupDescription}}</h2>
+    <h3 class="adminName" id="adminName">Administrador: {{this.creator}}</h3>
+
+</section>
+{{#if this.joinRequests.length}}
+  {{#if this.isCreator}}
+  <h3 class="requestListTitle" id="requestListTitle"> Estas personas quieren entrar al grupo</h3>
+    <table class="requestTable" id="requestTable">
+      <tr>
+      <th>Usuarios</th>
+      </tr>
+      {{#each this.joinRequests as |item|}}
+      <tr>
+      <td><h4 class="requestedUserName" id="requestedUserName">{{item}}</h4>
+        <button class="acceptMemberButton" id="acceptMemberButton">Aceptar</button>
+        <button class="rejectMemberButton" id="rejectMemberButton">Rechazar</button>
+        </td>
+      </tr>
+      {{/each}}
+    </table>
+
+  {{/if}}
+{{/if}}
+
+
+{{/each}}

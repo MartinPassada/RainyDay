@@ -5,6 +5,24 @@ getUserName(
     error => showError(error)
 );
 
+function showLoginForm() {
+    var navbar = document.getElementById("nav");
+    var loginForm = document.getElementById("loginForm");
+    loginForm.style.display = "flex";
+    navbar.style.display = "none";
+}
+
+function closeLoginForm() {
+    var navbar = document.getElementById("nav");
+    var loginForm = document.getElementById("loginForm");
+    navbar.style.display = "block";
+    loginForm.style.display = "none";
+}
+
+function stickyLoginForm() {
+    loginForm.classList.add("sticky");
+}
+
 function UserNameOnNavBar(userName) {
     let navList = document.getElementById('navList');
     let userNameLink = document.createElement("li");

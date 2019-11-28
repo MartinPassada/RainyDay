@@ -1,0 +1,48 @@
+{{#each communityInfo}}
+
+    <div class="groupDiv" id="groupDiv">
+        <h2 class="groupTitle" id="groupTitle">{{this.groupName}}</h2>
+        <table class="groupTable" id="groupTable">
+            <tr>
+            <th>Administrador</th>
+            <th>Miembros</th>
+            <th>Comentarios</th>
+            </tr>
+            <tr>
+            <td>{{this.creator}}</td>
+            <td>{{this.members.length}}</td>
+            <td>{{this.numberOfComments}}</td>
+            </tr>
+        </table>
+        <div class="groupAndStateButton" id="groupAndStateButton">
+            
+            {{#if this.isCreator}}
+            
+            <img class="stateImage" id="stateImage" src="../img/administrator.png"></img>
+            <h5 class="groupState" id="groupState">Administrador</h5>
+            {{else if this.isNosession}}
+            <img class="stateImage" id="stateImage" src="../img/nosession.png"></img>
+            <h5 class="groupState" id="groupState">No estas Logueado</h5>
+
+            {{else if this.isNoMember}}
+            <img class="stateImage" id="stateImage" src="../img/nomember.png"></img>
+            {{!--<h5 class="groupState" id="groupState">No Miembro</h5>--}}
+            <button class="EnterGroupButton" id="EnterGroupButton">ENTRAR AL GRUPO</button>
+
+            {{else if this.isMember}}
+            <img class="stateImage" id="stateImage" src="../img/member.png"></img>
+            {{!--<h5 class="groupState" id="groupState">Miembro</h5>--}}
+            <button class="EnterGroupButton" id="EnterGroupButton">DEJAR EL GRUPO</button>
+
+            {{else if this.isRequested}}
+            <img class="stateImage" id="stateImage" src="../img/requested.png"></img>
+            {{!--<h5 class="groupState" id="groupState">Solicitud Enviada</h5>--}}
+            <button class="EnterGroupButton" id="EnterGroupButton">CANCELAR SOLICITUD</button>
+
+            {{/if}}
+
+        </div>
+        <h4 class="groupSubTitle" id="groupSubTitle">{{this.groupDescription}}</h4>
+    </div> 
+
+{{/each}}

@@ -1,6 +1,6 @@
 var galleryDiv = document.getElementById("gallery");
 var genreDiv = document.getElementById('genreButtonsDiv');
-var linkMostWieved = document.getElementById("linkMoreViewed");
+var linkMostWieved = document.getElementById("linkMostViewed");
 var linkRanking = document.getElementById("linkRanking");
 
 linkRanking.addEventListener("click", function() {

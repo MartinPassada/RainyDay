@@ -15,6 +15,13 @@ module.exports.commentUp = commentUp;
 module.exports.commentDown = commentDown;
 module.exports.getUpLikesForComments = getUpLikesForComments;
 module.exports.getDownLikesForComments = getDownLikesForComments;
+module.exports.addNewGroup = addNewGroup;
+module.exports.getCommunityInfo = getCommunityInfo;
+module.exports.subscribe = subscribe;
+module.exports.Forum = Forum;
+module.exports.checkBeforeEnter = checkBeforeEnter;
+module.exports.checkAfterEnter = checkAfterEnter;
+module.exports.acceptOrRejectMember = acceptOrRejectMember;
 
 
 const mongodb = require("mongodb");
@@ -113,6 +120,77 @@ function getMovieInfo(cbOK, searchparameter) {
                     }
                 }
                 cbOK(data);
+            });
+        }
+        //client.close();
+    });
+
+}
+
+function getCommunityInfo(userName, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var community = db.collection("community");
+
+            community.find().limit(50).toArray((err, data) => {
+
+                if (userName !== undefined) {
+
+                    var isCreator = false;
+                    var foundInMember = false;
+                    var foundInJoinRequest = false;
+
+                    for (let i = 0; i < data.length; i++) {
+
+                        if (data[i].creator == userName) {
+                            data[i].isCreator = true;
+                            isCreator = true;
+                        } else {
+                            for (let m = 0; m < data[i].members.length; m++) {
+
+                                if (data[i].members[m] == userName) {
+
+                                    data[i].isMember = true;
+                                    foundInMember = true;
+                                }
+                            }
+
+                            if (foundInMember == false) {
+                                for (let j = 0; j < data[i].joinRequests.length; j++) {
+
+                                    if (data[i].joinRequests[j] == userName) {
+
+                                        data[i].isRequested = true;
+                                        foundInJoinRequest = true;
+                                    }
+                                }
+                                if (foundInMember == false && foundInJoinRequest == false) {
+
+                                    data[i].isNoMember = true;
+                                }
+                            }
+                        }
+                        isCreator = false;
+                        foundInMember = false;
+                        foundInJoinRequest = false;
+                    }
+
+                    cbOK(data);
+
+                } else {
+
+                    for (let u = 0; u < data.length; u++) {
+
+                        data[u].isNosession = true;
+                    }
+
+                    cbOK(data);
+
+                }
             });
         }
         //client.close();
@@ -239,22 +317,48 @@ function postComment(userCommentary, cbOK) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("comments");
+            var community = db.collection("community");
+            var ObjectID = require('mongodb').ObjectID;
 
             collection.count({}, function(err, NroOfdocs) {
 
-                var aux = NroOfdocs;
 
-                collection.insertOne({
+                if (userCommentary.movieID !== null) {
 
-                    movieID: `${userCommentary.movieID}`,
-                    author: `${userCommentary.author}`,
-                    date: userCommentary.date,
-                    image: userCommentary.image,
-                    likes: userCommentary.likes,
-                    text: `${userCommentary.text}`,
-                    Nro: (aux + 1)
+                    var aux = NroOfdocs;
+                    collection.insertOne({
 
-                });
+                        movieID: `${userCommentary.movieID}`,
+                        author: `${userCommentary.author}`,
+                        date: userCommentary.date,
+                        image: userCommentary.image,
+                        likes: userCommentary.likes,
+                        text: `${userCommentary.text}`,
+
+                        Nro: (aux + 1)
+
+                    });
+                } else {
+
+                    var aux = NroOfdocs;
+
+                    collection.insertOne({
+
+                        forumID: `${userCommentary.forumID}`,
+                        author: `${userCommentary.author}`,
+                        date: userCommentary.date,
+                        image: userCommentary.image,
+                        likes: userCommentary.likes,
+                        text: `${userCommentary.text}`,
+
+                        Nro: (aux + 1)
+
+                    });
+
+                    community.updateOne({ "_id": ObjectID(`${userCommentary.forumID}`) }, { $inc: { numberOfComments: +1 } });
+
+                }
+
             });
 
 
@@ -268,7 +372,7 @@ function postComment(userCommentary, cbOK) {
 
 }
 
-function getComments(cbOK, searchparameter) {
+function getComments(cbOK, searchparameter, isForum) {
 
     mongoClient.connect(mongoURL, function(err, client) {
 
@@ -277,9 +381,16 @@ function getComments(cbOK, searchparameter) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("comments");
-            collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(15).toArray((err, data) => {
-                cbOK(data);
-            });
+            if (isForum == 'Forum') {
+                collection.find({ forumID: `${searchparameter}` }).sort({ date: -1 }).limit(15).toArray((err, data) => {
+                    cbOK(data);
+                });
+            } else {
+                collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(15).toArray((err, data) => {
+                    cbOK(data);
+                });
+            }
+
         }
 
 
@@ -287,7 +398,7 @@ function getComments(cbOK, searchparameter) {
     });
 }
 
-function getLastComment(cbOK, searchparameter) {
+function getLastComment(cbOK, searchparameter, isForum) {
 
     mongoClient.connect(mongoURL, function(err, client) {
 
@@ -296,10 +407,19 @@ function getLastComment(cbOK, searchparameter) {
         } else {
             var db = client.db("admin");
             var collection = db.collection("comments");
-            collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(1).toArray((err, data) => {
+            if (isForum == 'Forum') {
+                collection.find({ forumID: `${searchparameter}` }).sort({ date: -1 }).limit(1).toArray((err, data) => {
 
-                cbOK(data);
-            });
+                    cbOK(data);
+                });
+            } else {
+                collection.find({ movieID: `${searchparameter}` }).sort({ date: -1 }).limit(1).toArray((err, data) => {
+
+                    cbOK(data);
+
+                });
+            }
+
         }
 
 
@@ -537,6 +657,256 @@ function commentDown(commentDownData, cbOK) {
 
 
             });
+        }
+        //client.close();
+
+    });
+}
+//CREATE GROUP
+
+function addNewGroup(groupData, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("community");
+            collection.find({ "groupName": `${groupData.groupName}` }).limit(1).toArray((err, data) => {
+
+                if (data == '') {
+
+                    collection.insertOne({
+                        groupName: `${groupData.groupName}`,
+                        groupDescription: `${groupData.groupDescription}`,
+                        creator: `${groupData.creator}`,
+                        members: groupData.members,
+                        joinRequests: groupData.joinRequests,
+                        numberOfComments: 0
+                    });
+
+                    cbOK(200);
+
+                } else if (data[0].groupName === groupData.groupName) {
+
+                    cbOK(403);
+
+                } else {
+                    cbOK(500);
+                }
+            });
+        }
+
+        //client.close();
+    });
+}
+
+//SUBSCRIBE
+
+function subscribe(subscribeData, userName, cbOK) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var community = db.collection("community");
+
+            var foundInJoinRequest = false;
+            var foundInMember = false;
+
+
+            community.find({ groupName: `${subscribeData.groupTitle}` }).project({ members: 1.0, joinRequests: 1.0, _id: -1 }).limit(1).toArray((err, group) => {
+
+
+                for (var i = 0; i < group[0].members.length; i++) {
+                    if (group[0].members[i] == userName) {
+                        foundInMember = true;
+                    }
+                }
+                for (var i = 0; i < group[0].joinRequests.length; i++) {
+                    if (group[0].joinRequests[i] == userName) {
+                        foundInJoinRequest = true;
+                    }
+                }
+
+
+                if (foundInMember == true) {
+
+                    community.updateOne({ groupName: `${subscribeData.groupTitle}` }, { $pull: { members: `${userName}` } });
+
+                    //community.updateOne({ groupName: `${subscribeData.groupTitle}` }, { $inc: { members: -1 } });
+
+                    cbOK('se borro la subscripcion');
+
+
+                } else if (foundInMember == false && foundInJoinRequest == false) {
+
+
+                    community.updateOne({ groupName: `${subscribeData.groupTitle}` }, { $addToSet: { joinRequests: `${userName}` } });
+
+
+                    cbOK('se agrego a request');
+
+                } else if (foundInJoinRequest == true) {
+
+
+                    community.updateOne({ groupName: `${subscribeData.groupTitle}` }, { $pull: { joinRequests: `${userName}` } });
+
+
+                    cbOK('se quito de request');
+
+                } {
+                    cbOK('Nop...');
+                }
+
+
+            });
+        }
+        //client.close();
+
+    });
+}
+
+function Forum(searchparameter, userName, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("community");
+            var ObjectID = require('mongodb').ObjectID;
+
+            collection.find({ "_id": ObjectID(`${searchparameter}`) }).limit(1).toArray((err, data) => {
+                if (data[0].creator == userName) {
+                    data[0].isCreator = true;
+                }
+                cbOK(data);
+
+
+            });
+        }
+        //client.close();
+    });
+
+}
+
+function checkBeforeEnter(searchparameter, userName, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("community");
+            var isCreator = false;
+            var isMember = false;
+
+            collection.find({ groupName: `${searchparameter}` }).limit(1).toArray((err, data) => {
+
+
+                if (data[0].creator == userName) {
+                    isCreator = true;
+
+                } else {
+                    for (let i = 0; i < data[0].members.length; i++) {
+                        if (data[0].members[i] == userName) {
+                            isMember = true;
+                        }
+                    }
+
+                }
+                if (isCreator == true || isMember == true) {
+
+                    cbOK(data);
+
+                } else {
+
+                    cbOK('noMember');
+
+                }
+
+            });
+        }
+        //client.close();
+    });
+
+}
+
+function checkAfterEnter(searchparameter, userName, cbOK) {
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var collection = db.collection("community");
+            var ObjectID = require('mongodb').ObjectID;
+            var isCreator = false;
+            var isMember = false;
+
+            collection.find({ "_id": ObjectID(`${searchparameter}`) }).limit(1).toArray((err, data) => {
+
+
+                if (data[0].creator == userName) {
+                    isCreator = true;
+
+                } else {
+                    for (let i = 0; i < data[0].members.length; i++) {
+                        if (data[0].members[i] == userName) {
+                            isMember = true;
+                        }
+                    }
+
+                }
+                if (isCreator == true || isMember == true) {
+
+                    cbOK('ok');
+
+                } else {
+
+                    cbOK('noMember');
+
+                }
+
+            });
+
+        }
+        //client.close();
+    });
+
+}
+
+function acceptOrRejectMember(acceptOrRejectMemberData, cbOK) {
+
+    mongoClient.connect(mongoURL, function(err, client) {
+        if (err) {
+            cbError("No se pudo conectar a la DB. " + err);
+        } else {
+            var db = client.db("admin");
+            var community = db.collection("community");
+            var ObjectID = require('mongodb').ObjectID;
+
+
+            if (acceptOrRejectMemberData.actionClicked == 'accepted') {
+
+                community.updateOne({ "_id": ObjectID(`${acceptOrRejectMemberData.forumID}`) }, { $pull: { joinRequests: `${acceptOrRejectMemberData.userName}` } });
+
+                community.updateOne({ "_id": ObjectID(`${acceptOrRejectMemberData.forumID}`) }, { $addToSet: { members: `${acceptOrRejectMemberData.userName}` } });
+
+
+                cbOK('se agrego a members');
+
+
+            } else if (acceptOrRejectMemberData.actionClicked == 'rejected') {
+
+
+                community.updateOne({ "_id": ObjectID(`${acceptOrRejectMemberData.forumID}`) }, { $pull: { joinRequests: `${acceptOrRejectMemberData.userName}` } });
+
+
+                cbOK('se borro de request');
+
+            }
         }
         //client.close();
 
