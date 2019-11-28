@@ -10,7 +10,7 @@
 3. Users can now join to others users forums and comments on them
 4. Only forum's administrators will see a table of users that requested privileges to enter owned forum
 5. Css fixes
-6. Added two trailer to watch (Rock of Ages and School of Rock). Subtitles belong to full movies, so dont expect to work properly with these trailers
+6. Added two trailers to watch (Rock of Ages and School of Rock). Subtitles belong to full movies, so dont expect to work properly with these trailers
 
 
 *Server-Side
