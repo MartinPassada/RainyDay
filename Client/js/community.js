@@ -99,8 +99,8 @@ function checkGroupData(userName) {
 
         };
 
-        var groupDescriptionPattern = /^([\s\w\d áéíóú a-zA-Z0-9_+/.:'!’"#ñ,()¿?*=-]{5,150})$/g;
-        var groupNamePattern = /^([\s\w\d áéíóú a-zA-Z0-9_+/.:'!’"#ñ,()¿?*=-]{5,45})$/gm;
+        var groupDescriptionPattern = /^([\s\w\d áéíóú a-zA-Z0-9_+/.:'!’"#ñ,()¿?*=-]{5,75})$/g;
+        var groupNamePattern = /^([\s\w\d áéíóú a-zA-Z0-9_+/.:'!’"#ñ,()¿?*=-]{5,25})$/gm;
 
         if (groupData.groupName == '') {
             errorMessageDiv.innerHTML = "Debes introducir un nombre para el grupo";
@@ -108,7 +108,7 @@ function checkGroupData(userName) {
             setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
 
         } else if (groupData.groupName.search(groupNamePattern)) {
-            errorMessageDiv.innerHTML = "El nombre del grupo debe tener entre 5 y 45 caracteres y no debe contener caracteres invalidos";
+            errorMessageDiv.innerHTML = "El nombre del grupo debe tener entre 5 y 25 caracteres y no debe contener caracteres invalidos";
             errorMessageDiv.style.display = "flex";
             setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
 
@@ -118,7 +118,7 @@ function checkGroupData(userName) {
             setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
 
         } else if (groupData.groupDescription.search(groupDescriptionPattern)) {
-            errorMessageDiv.innerHTML = "La descripcion del grupo debe contener entre 5 y 150 caracteres, sin caracteres invalidos";
+            errorMessageDiv.innerHTML = "La descripcion del grupo debe contener entre 5 y 75 caracteres, sin caracteres invalidos";
             errorMessageDiv.style.display = "flex";
             setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
         } else {
