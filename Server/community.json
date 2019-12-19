@@ -1,0 +1,9 @@
+{"_id":{"$oid":"5dfbccbf14b8b434783793da"},"groupName":"Hola, soy un grupo","groupDescription":"Hola, soy una descripcion","creator":"Martin","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbcd419e397c3688f08cf0"},"groupName":"Grupo 2","groupDescription":"Descripcion 2","creator":"Martin","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbce3f9e397c3688f08cf5"},"groupName":"El grupo de Pepe","groupDescription":"Eaeapepe","creator":"Pepee","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbced49e397c3688f08cf7"},"groupName":"El grupo de Jorgito","groupDescription":"\"El nombre del alfajor\"","creator":"Jorgito","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbcf049e397c3688f08cf8"},"groupName":"Magic The Gathering","groupDescription":"Grupo para hablar de las cartas Magic","creator":"Jorgito","members":["Martin"],"joinRequests":[],"numberOfComments":{"$numberInt":"3"}}
+{"_id":{"$oid":"5dfbd0369e397c3688f08cfd"},"groupName":"Mr Robot","groupDescription":"Me faltan solo 2 capitulos....","creator":"Elliot","members":[],"joinRequests":["Martin","Jorgito"],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbd05f9e397c3688f08cfe"},"groupName":"Otro grupo mas","groupDescription":"Solo para que scrollees y veas los mensajitos nuevos","creator":"Elliot","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbd0889e397c3688f08cff"},"groupName":"La password de pepe","groupDescription":"456456","creator":"Elliot","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
+{"_id":{"$oid":"5dfbd0989e397c3688f08d00"},"groupName":"Todas las demas passwords","groupDescription":"123123","creator":"Elliot","members":[],"joinRequests":[],"numberOfComments":{"$numberInt":"0"}}
