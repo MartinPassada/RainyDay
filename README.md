@@ -3,7 +3,7 @@
 
 *Client-Side
 1. Random fixes
-2. Added new messages boxes 
+2. Added new message boxes 
 3. Fixed image's size when commentary loads. (just for huge images)
 
 ## Update #19
