@@ -166,6 +166,8 @@ function drawComments(comments) {
                 restoredImage.setAttribute('class', 'restoredImage');
                 restoredImage.setAttribute('id', 'restoredImage');
                 restoredImage.src = 'data:image/jpeg/png/jpg;charset=utf-8;base64,' + comments[i].image;
+                restoredImage.style.width = '100%';
+                restoredImage.style.margin = '2%';
                 commentDiv.appendChild(restoredImage);
             }
             document.getElementById('commentsSection').appendChild(commentDiv);
@@ -278,7 +280,10 @@ function drawComments(comments) {
                 restoredImage.setAttribute('class', 'restoredImage');
                 restoredImage.setAttribute('id', 'restoredImage');
                 restoredImage.src = 'data:image/jpeg/png/jpg;charset=utf-8;base64,' + comments[i].image;
+                restoredImage.style.width = '100%';
+                restoredImage.style.margin = '2%';
                 commentDiv.appendChild(restoredImage);
+
             }
 
             const commentsSection = document.getElementById('commentsSection');
@@ -445,19 +450,18 @@ function changeUserNameOnCommentsSection() {
 
 
 function readURL(input) {
+    var currentImage;
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function(e) {
             currentImage = document.getElementById('currentImage');
             currentImage.src = e.target.result;
-            //currentImage.style.width = '70%';
-            //currentImage.style.height = '70%';
+            //currentImage.style.maxWidth = '100%';
             currentImage.style.display = 'block';
         };
 
     }
-
     reader.readAsDataURL(input.files[0]);
 
 }
@@ -498,8 +502,7 @@ function tryComment(value) {
 
 
 function checkCommentary(userName) {
-
-    let selectedImage = document.getElementById('currentImage');
+    let currentImage = document.getElementById('currentImage');
 
     if (isThisForum() == 'Forum') {
 
@@ -537,17 +540,19 @@ function checkCommentary(userName) {
         errorMessageDiv.innerHTML = "El comentario debe tener entre 5 y 150 caracteres y no contener caracteres invalidos";
         errorMessageDiv.style.display = "flex";
         setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
-    } else if (selectedImage.src !== (window.location.href + '#')) {
+    } else if (currentImage.src !== (window.location.href + '#')) {
 
-        userCommentary.image = getBase64Image(selectedImage);
+
+        userCommentary.image = getBase64Image(currentImage);
+
 
         postComment(userCommentary);
 
         //erase inputs 
         document.getElementById('commentTextArea').value = "";
         document.getElementById('imageInput').innerHTML = null;
-        selectedImage.src = '#';
-        selectedImage.style.display = 'none';
+        currentImage.src = '#';
+        currentImage.style.display = 'none';
 
 
     } else {
@@ -557,8 +562,8 @@ function checkCommentary(userName) {
         //erase inputs 
         document.getElementById('commentTextArea').value = "";
         document.getElementById('imageInput').innerHTML = null;
-        selectedImage.src = '#';
-        selectedImage.style.display = 'none';
+        currentImage.src = '#';
+        currentImage.style.display = 'none';
 
     }
 
@@ -635,10 +640,22 @@ function tryLikeCommentUp(value, target) {
         postLikeCommentUp(value, commentLikeData);
 
     } else if (value == "Usuario Anonimo") {
-        alert("Debes iniciar sesion para realizar esta accion");
+        Swal.fire({
+            title: 'No estas logueado',
+            text: 'Inicia sesion para realizar esta accion',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        //alert("Debes iniciar sesion para realizar esta accion");
 
     } else {
-        alert("Algio salió mal :(");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Algio salió mal :(',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
+        //alert("Algio salió mal :(");
 
     }
 }
@@ -663,242 +680,22 @@ function tryLikeCommentDown(value, target) {
         postLikeCommentDown(value, commentLikeData);
 
     } else if (value == "Usuario Anonimo") {
-        alert("Debes iniciar sesion para realizar esta accion");
+        Swal.fire({
+            title: 'No estas logueado',
+            text: 'Inicia sesion para realizar esta accion',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        //alert("Debes iniciar sesion para realizar esta accion");
 
     } else {
-        alert("Algio salió mal :(");
+        Swal.fire({
+            title: 'Error!',
+            text: 'Algio salió mal :(',
+            icon: 'error',
+            confirmButtonText: 'OK',
+        });
+        //alert("Algio salió mal :(");
 
     }
 }
-
-
-/*function setUpComment(comments) {
-
-    if (comments.length == 1) {
-
-        for (var i = 0; i < comments.length; i++) {
-
-            //div
-            var commentDiv = document.createElement('div');
-            commentDiv.setAttribute('class', 'commentDiv');
-            commentDiv.setAttribute('id', 'commentDiv');
-
-            //autor
-            var authorName = document.createElement('h4');
-            authorName.setAttribute('class', 'authorName');
-            authorName.setAttribute('id', 'authorName');
-            authorName.innerHTML = comments[i].author;
-
-            //text
-            var commentText = document.createElement('p');
-            commentText.setAttribute('class', 'commentText');
-            commentText.setAttribute('id', 'commentText');
-            commentText.innerHTML = comments[i].text;
-
-            //date
-            var dateText = document.createElement('h5');
-            dateText.setAttribute('class', 'dateText');
-            dateText.setAttribute('id', 'dateText');
-            dateText.innerHTML = "Comentado el: ";
-            var dateNumber = new Date(comments[i].date);
-            dateNumber = dateNumber.toLocaleString();
-            var aux = document.createElement('h5');
-            aux.setAttribute('class', 'dateNumber');
-            aux.setAttribute('id', 'dateNumber');
-            aux.innerHTML = (dateNumber);
-            var fullDate = document.createElement('div');
-            fullDate.setAttribute('class', 'fullDate');
-            fullDate.setAttribute('id', 'fullDate');
-            fullDate.append(dateText);
-            fullDate.append(aux);
-
-            //Id
-            var commentId = document.createElement('h6');
-            commentId.innerHTML = comments[i]._id;
-            commentId.setAttribute('class', 'commentId' + i);
-            commentId.setAttribute('id', 'commentId' + i);
-            commentId.style.display = 'none';
-            commentId.style.visibility = 'hidden';
-
-            //Likes 
-            var commentLikes = document.createElement('span');
-            commentLikes.innerHTML = comments[i].likes;
-            commentLikes.setAttribute('class', 'commentLikes' + i);
-            commentLikes.setAttribute('id', 'commentLikes' + i);
-            commentLikes.style.marginLeft = '33%';
-            commentLikes.style.fontSize = 'large';
-
-
-            var arrowAndLikesDiv = document.createElement('div');
-            arrowAndLikesDiv.setAttribute('class', 'arrowAndLikesDiv');
-            arrowAndLikesDiv.setAttribute('id', 'arrowAndLikesDiv');
-
-
-            //arrows for Like 
-            var arrowUp = document.createElement('img');
-            arrowUp.setAttribute('class', 'arrowUp' + i);
-            arrowUp.setAttribute('id', 'arrowUp' + i);
-            arrowUp.src = '/img/loading.gif'
-            arrowUp.style.width = '25px';
-            arrowUp.style.height = '25px';
-            arrowUp.style.cursor = 'pointer';
-            arrowUp.addEventListener("click", function(e) {
-                e = e || window.event;
-                var target = e.target || e.srcElement;
-                getUserName(
-                    response => { tryLikeCommentUp(response, target); },
-                    error => showError(error),
-                );
-            }, false);
-            var arrowDown = document.createElement('img');
-            arrowDown.setAttribute('class', 'arrowDown' + i);
-            arrowDown.setAttribute('id', 'arrowDown' + i);
-            arrowDown.src = '/img/loading.gif'
-            arrowDown.style.width = '25px';
-            arrowDown.style.height = '25px';
-            arrowDown.style.cursor = 'pointer';
-            arrowDown.addEventListener("click", function(e) {
-                e = e || window.event;
-                var target = e.target || e.srcElement;
-                getUserName(
-                    response => { tryLikeCommentDown(response, target); },
-                    error => showError(error),
-                );
-            }, false);
-
-            arrowAndLikesDiv.appendChild(arrowUp);
-            arrowAndLikesDiv.appendChild(commentLikes);
-            arrowAndLikesDiv.appendChild(arrowDown);
-
-            commentDiv.appendChild(commentId);
-            commentDiv.appendChild(arrowAndLikesDiv);
-            commentDiv.appendChild(authorName);
-            commentDiv.appendChild(fullDate);
-            commentDiv.appendChild(commentText);
-
-            //image
-            if (comments[i].image != null) {
-
-                var restoredImage = document.createElement('IMG');
-                restoredImage.setAttribute('class', 'restoredImage');
-                restoredImage.setAttribute('id', 'restoredImage');
-                restoredImage.src = 'data:image/jpeg/png/jpg;charset=utf-8;base64,' + comments[i].image;
-                commentDiv.appendChild(restoredImage);
-            }
-            return commentDiv
-        }
-
-    }
-    for (var i = 1; i < comments.length; i++) {
-
-        //div
-        var commentDiv = document.createElement('div');
-        commentDiv.setAttribute('class', 'commentDiv');
-        commentDiv.setAttribute('id', 'commentDiv');
-
-        //autor
-        var authorName = document.createElement('h4');
-        authorName.setAttribute('class', 'authorName');
-        authorName.setAttribute('id', 'authorName');
-        authorName.innerHTML = comments[i].author;
-
-        //text
-        var commentText = document.createElement('p');
-        commentText.setAttribute('class', 'commentText');
-        commentText.setAttribute('id', 'commentText');
-        commentText.innerHTML = comments[i].text;
-
-        //date
-        var dateText = document.createElement('h5');
-        dateText.setAttribute('class', 'dateText');
-        dateText.setAttribute('id', 'dateText');
-        dateText.innerHTML = "Comentado el: ";
-        var dateNumber = new Date(comments[i].date);
-        dateNumber = dateNumber.toLocaleString();
-        var aux = document.createElement('h5');
-        aux.setAttribute('class', 'dateNumber');
-        aux.setAttribute('id', 'dateNumber');
-        aux.innerHTML = (dateNumber);
-        var fullDate = document.createElement('div');
-        fullDate.setAttribute('class', 'fullDate');
-        fullDate.setAttribute('id', 'fullDate');
-        fullDate.append(dateText);
-        fullDate.append(aux);
-
-        //Id
-        var commentId = document.createElement('h6');
-        commentId.innerHTML = comments[i]._id;
-        commentId.setAttribute('class', 'commentId' + i);
-        commentId.setAttribute('id', 'commentId' + i);
-        commentId.style.display = 'none';
-        commentId.style.visibility = 'hidden';
-
-        //Likes 
-        var commentLikes = document.createElement('span');
-        commentLikes.innerHTML = comments[i].likes;
-        commentLikes.setAttribute('class', 'commentLikes' + i);
-        commentLikes.setAttribute('id', 'commentLikes' + i);
-        commentLikes.style.marginLeft = '33%';
-        commentLikes.style.fontSize = 'large';
-
-
-        var arrowAndLikesDiv = document.createElement('div');
-        arrowAndLikesDiv.setAttribute('class', 'arrowAndLikesDiv');
-        arrowAndLikesDiv.setAttribute('id', 'arrowAndLikesDiv');
-
-
-        //arrows for Like 
-        var arrowUp = document.createElement('img');
-        arrowUp.setAttribute('class', 'arrowUp' + i);
-        arrowUp.setAttribute('id', 'arrowUp' + i);
-        arrowUp.src = '/img/loading.gif'
-        arrowUp.style.width = '25px';
-        arrowUp.style.height = '25px';
-        arrowUp.style.cursor = 'pointer';
-        arrowUp.addEventListener("click", function(e) {
-            e = e || window.event;
-            var target = e.target || e.srcElement;
-            getUserName(
-                response => { tryLikeCommentUp(response, target); },
-                error => showError(error),
-            );
-        }, false);
-        var arrowDown = document.createElement('img');
-        arrowDown.setAttribute('class', 'arrowDown' + i);
-        arrowDown.setAttribute('id', 'arrowDown' + i);
-        arrowDown.src = '/img/loading.gif'
-        arrowDown.style.width = '25px';
-        arrowDown.style.height = '25px';
-        arrowDown.style.cursor = 'pointer';
-        arrowDown.addEventListener("click", function(e) {
-            e = e || window.event;
-            var target = e.target || e.srcElement;
-            getUserName(
-                response => { tryLikeCommentDown(response, target); },
-                error => showError(error),
-            );
-        }, false);
-
-        arrowAndLikesDiv.appendChild(arrowUp);
-        arrowAndLikesDiv.appendChild(commentLikes);
-        arrowAndLikesDiv.appendChild(arrowDown);
-
-        commentDiv.appendChild(commentId);
-        commentDiv.appendChild(arrowAndLikesDiv);
-        commentDiv.appendChild(authorName);
-        commentDiv.appendChild(fullDate);
-        commentDiv.appendChild(commentText);
-
-        //image
-        if (comments[i].image != null) {
-
-            var restoredImage = document.createElement('IMG');
-            restoredImage.setAttribute('class', 'restoredImage');
-            restoredImage.setAttribute('id', 'restoredImage');
-            restoredImage.src = 'data:image/jpeg/png/jpg;charset=utf-8;base64,' + comments[i].image;
-            commentDiv.appendChild(restoredImage);
-        }
-        return commentDiv;
-    }
-
-}*/

@@ -54,6 +54,7 @@ function subscribe(failure, groupTitle, statusImg, target) {
 
                 statusImg.src = "img/nomember.png";
                 target.innerHTML = 'ENTRAR AL GRUPO'
+                target.parentNode.parentElement.childNodes[3].childNodes[1].childNodes[2].childNodes[3].childNodes[0].data--
 
             } else if (this.responseText == 'se quito de request') {
 
@@ -97,12 +98,18 @@ function checkBeforeEnter(searchparameter) {
 
             if (this.responseText == 'noMember') {
 
-                if (window.pageYOffset <= 150) {
+                if (window.pageYOffset <= 100) {
                     errorMessageDiv.innerHTML = "Solo se permite la entrada a miembros";
                     errorMessageDiv.style.display = "flex";
                     setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
                 } else {
-                    alert('Solo se permite la entrada a miembros');
+                    Swal.fire({
+                        title: 'No eres miembro de este grupo',
+                        text: 'Solo se permite la entrada a miembros',
+                        icon: 'warning',
+                        confirmButtonText: 'OK'
+                    });
+                    //alert('Solo se permite la entrada a miembros');
                 }
             } else if (this.responseText !== 'noMember') {
 
@@ -114,22 +121,34 @@ function checkBeforeEnter(searchparameter) {
             }
         } else if (this.status == 403) {
 
-            if (window.pageYOffset <= 150) {
+            if (window.pageYOffset <= 100) {
                 errorMessageDiv.innerHTML = "Inicia sesion para realizar esta accion";
                 errorMessageDiv.style.display = "flex";
                 setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
             } else {
-                alert('Inicia sesion para realizar esta accion');
+                Swal.fire({
+                    title: 'No estas logueado',
+                    text: 'Inicia sesion para realizar esta accion',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                //alert('Inicia sesion para realizar esta accion');
             }
 
         } else {
 
-            if (window.pageYOffset <= 150) {
+            if (window.pageYOffset <= 100) {
                 errorMessageDiv.innerHTML = "Algo salio mal";
                 errorMessageDiv.style.display = "flex";
                 setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
             } else {
-                alert('Algo salio mal');
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'Algo salió mal :(',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+                //alert('Algo salio mal');
             }
         }
 

@@ -1,10 +1,14 @@
 # Changelog
+## Update #20
+
+*Client-Side
+1. Random fixes
+2. Added new messages boxes 
+3. Fixed image's size when commentary loads. (just for huge images)
 
 ## Update #19
 
 *Client-Side
-
-
 1. Community section
 2. Users can create forums and accept or reject other users
 3. Users can now join to others users forums and comments on them

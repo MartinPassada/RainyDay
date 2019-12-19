@@ -258,18 +258,39 @@ function postLikeCommentUp(userName, commentLikeData) {
                 commentLikeData.arrowDown.style.zIndex = '0';
 
             } else if (this.responseText == 'Nop...') {
-                alert('Nop...');
+                Swal.fire({
+                    title: 'Hacker Detected!',
+                    imageUrl: '/img/hackerdetected.jpg',
+                    imageWidth: 400,
+                    imageHeight: 300,
+                    imageAlt: '/img/loading.gif',
+                    text: 'El replicado no esta permitido!',
+                    confirmButtonText: 'OK'
+                        //icon: 'warning',
+                });
+                //alert('Nop...');
             }
 
 
         } else if (this.status == 500) {
-
-            alert("Oh no !! Hemos tenido un problema");
+            Swal.fire({
+                title: 'Error!',
+                text: 'Oh no !! Hemos tenido un problema',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert("Oh no !! Hemos tenido un problema");
 
 
         } else {
 
-            alert('Algo se rompió');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Algo se rompió',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert('Algo se rompió');
 
 
         }
@@ -306,19 +327,40 @@ function postLikeCommentDown(userName, commentLikeData) {
                 commentLikeData.arrowUp.style.zIndex = '0';
 
             } else if (this.responseText == 'Nop...') {
-                alert('Nop...');
+                Swal.fire({
+                    title: 'Hacker Detected!',
+                    imageUrl: '/img/hackerdetected.jpg',
+                    imageWidth: 400,
+                    imageHeight: 300,
+                    imageAlt: '/img/loading.gif',
+                    text: 'El replicado no esta permitido!',
+                    confirmButtonText: 'OK'
+                        //icon: 'warning',
+                });
+                //alert('Nop...');
             }
 
 
 
         } else if (this.status == 500) {
 
-            alert("Oh no !! Hemos tenido un problema");
+            Swal.fire({
+                title: 'Error!',
+                text: 'Oh no !! Hemos tenido un problema',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert("Oh no !! Hemos tenido un problema");
 
 
         } else {
-
-            alert('Algo se rompió');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Algo se rompió :(',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert('Algo se rompió');
 
 
         }

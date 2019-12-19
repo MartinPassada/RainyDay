@@ -14,7 +14,8 @@ function checkUserData() {
     let password2 = document.getElementById('repeat-password').value;
 
     const errorMessageDiv = document.getElementById('alertBox-Error');
-    var searchPattern = /^\w+([\.-]?\w{1,10}){0,3}@\w+(\.\w\w\w?){0,3}(\.\w\w\w?)$/ig;
+    //var searchPattern = /^\w+([\.-]?\w{1,10}){0,3}@\w+(\.\w\w\w?){0,3}(\.\w\w\w?)$/ig;
+    var searchPattern = /^\w+([\.-]?\w{1,10}){0,3}@\w+\.{1,1}\w{3,3}$/ig;
     var passwordPattern = /^([a-zA-Z0-9_.-]{5,15})$/gm;
 
     if (userData.password1 == '') {

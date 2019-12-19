@@ -1,1528 +1,1543 @@
-    body {
-        background-color: #0d1841;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
+body {
+    background-color: #0d1841;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.LogInButton {
+    cursor: pointer;
+}
+
+.SignIn {
+    cursor: pointer;
+}
+
+.divImage {
+    text-align: center;
+    box-sizing: content-box;
+    position: relative;
+    margin-bottom: 30px;
+    object-fit: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 290.4px;
+    width: 193.6px;
+    color: white;
+    font-weight: 400;
+    font-size: .875rem;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: transparent;
+}
+
+.imageContainer {
+    display: flex;
+}
+
+.movieYear {
+    position: absolute;
+    bottom: .5rem;
+    right: .5rem;
+    /*! z-index: 3; */
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #007aff;
+    padding: 0 .5rem;
+    line-height: 1.2rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+
+.movieList>li:hover .divImage {
+    border-color: rgb(0, 174, 255);
+    cursor: pointer;
+}
+
+.movieList {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.movieList>li {
+    list-style-type: none;
+    margin-left: 0px;
+    margin-right: 35px;
+}
+
+.movieList>li>a {
+    text-decoration: none;
+}
+
+.movieList img {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.gallery {
+    max-width: 1268px;
+    margin-top: 0%;
+    height: auto;
+    margin-left: 14%;
+    margin-right: 0px;
+    background-color: #0d1841;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    position: static;
+}
+
+.gallery2 {
+    background-color: #ec1212;
+    ;
+    max-width: 16%;
+    margin-top: -1881px;
+    height: 1500px;
+    width: 300px;
+    margin-left: 1448px;
+    margin-right: 200px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    display: none;
+}
+
+.nav {
+    min-height: 60px;
+    background-color: #0d1841;
+    /*! overflow: hidden; */
+    display: block;
+    /*! position: fixed; */
+    z-index: 1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.nav>ul>li {
+    list-style-type: none;
+    display: inline-block;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.nav>ul {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    /*! font-size:18px; */
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 33%;
+    position: absolute;
+    /*! display: flow-root; */
+}
+
+ul.sub-menuMovies {
+    position: absolute;
+    background-color: #0d1841;
+    list-style-type: none;
+    margin-top: 4%;
+    margin-left: -25px;
+    width: 130px;
+    padding-left: 5%;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    border-radius: 5px;
+    /*! padding: ; */
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+ul.sub-menuMovies li {
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+ul.sub-menuMovies li:hover {
+    cursor: pointer;
+    color: #007aff;
+}
+
+.nav li:hover {
+    color: #007aff;
+    cursor: pointer;
+}
+
+.nav li:hover .sub-menuMovies {
+    z-index: 1;
+    opacity: 1;
+}
+
+.galleryHeader>h1 {
+    font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    color: white;
+    margin-left: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.galleryHeader {
+    max-width: 1268px;
+    margin-top: 0%;
+    margin-left: 16%;
+    margin-right: 200px;
+    background-color: #0d1841;
+    margin-bottom: 1%;
+}
+
+.foot {
+    display: inline-;
+    box-sizing: border-box;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #010d2f;
+    margin-top: 3%;
+}
+
+.footIcons {
+    position: relative;
+    align-content: center;
+    height: auto;
+    width: auto;
+}
+
+.footIcons img {
+    margin-left: 5px;
+    height: 35px;
+    width: 35px;
+}
+
+.footIcons img:hover {
+    cursor: pointer;
+}
+
+ul.footLinks {
+    display: inline-flex;
+    position: relative;
+    list-style-type: none;
+    color: whitesmoke;
+    position: static;
+    margin-left: 20%;
+    margin-top: 2.5%;
+    margin-bottom: 1.5%;
+    /*! margin-right: 20%; */
+}
+
+ul.footLinks>li {
+    margin-left: 50px;
+}
+
+ul.footLinks>li>h4 {
+    font-weight: 300;
+}
+
+ul.footLinks>li>h4:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.carouselDiv {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    background-color: #0d1841
+}
+
+.carouselDiv>img {
+    object-fit: contain;
+}
+
+.fadedDiv {
+    position: relative;
+    /*! z-index:2; */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #0d1841 80%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+    margin-top: -300px;
+}
+
+.genreButtonsDiv {
+    max-width: 1268px;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: inline-table;
+    position: static;
+    margin-left: 14%;
+    display: none;
+}
+
+.genreList {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.genreList img {
+    left: 0;
+    top: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.genreList>li {
+    list-style-type: none;
+}
+
+.divButtonWithImage {
+    text-align: center;
+    box-sizing: content-box;
+    position: relative;
+    color: white;
+    object-fit: cover;
+    font-weight: 400;
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 120px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.genreList>li>.divButtonWithImage:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/***********************************************handlebars******************************************************/
+
+.movieDetailDiv {
+    width: 80%;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #0d1841;
+    margin-right: 10%;
+    margin-left: 10%;
+    color: #fff;
+    flex-wrap: wrap;
+    display: flow-root;
+    height: auto;
+    max-height: -moz-max-content;
+    height: 300px;
+    float: inherit;
+    z-index: 0;
+}
+
+.movieDetailDiv>h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 25%;
+    font-size: 2.85rem;
+    position: relative;
+    float: inline-start;
+}
+
+.likesNumber {
+    font-size: larger;
+}
+
+.viewsNumber {
+    font-size: larger;
+}
+
+.resolution {
+    z-index: 3;
+    font-size: .75rem;
+    font-weight: 700;
+    background-color: #edb709;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    line-height: 1.2rem;
+    border-radius: 1rem;
+    color: #1a1818;
+}
+
+.movieTitleEng {
+    position: absolute;
+    position: relative;
+    display: block;
+    margin-top: 0%;
+    color: #8da0bc;
+    margin-right: 53%;
+    margin-bottom: 0px;
+    font-size: large;
+}
+
+.synopsis {
+    color: #8da0bc;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    overflow: auto;
+    font-size: medium;
+}
+
+.movieInfoList1 {
+    list-style-type: none;
+    color: #8da0bc;
+}
+
+.movieInfoList2 {
+    list-style-type: none;
+    font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: inline-start;
+    padding-left: 0px;
+}
+
+.movieInfoList2 :nth-child(1) strong {
+    color: #8da0bc;
+}
+
+.movieInfoList2 :nth-child(2) strong {
+    color: #8da0bc;
+}
+
+.movieInfoList2 :nth-child(3) strong {
+    color: #8da0bc;
+}
+
+.year {
+    margin-right: 1%;
+}
+
+.movieLength {
+    margin-right: 1%;
+}
+
+.resolution {
+    margin-right: 1%;
+}
+
+.movieInfoList1>li:nth-child(2) {
+    font-style: italic;
+    font-size: small;
+}
+
+.views>img:nth-child(1) {
+    width: 17px;
+    height: 17px;
+    margin-top: 0.5%;
+}
+
+.infoImgDiv {
+    box-sizing: content-box;
+    max-height: 310.4px;
+    max-width: 203.6px;
+    text-align: center;
+    color: #fff;
+    object-fit: cover;
+    height: auto;
+    width: auto;
+    margin-right: 2.5%;
+    float: left;
+}
+
+.movieDetailDiv>img {
+    left: 0;
+    top: 0;
+    height: 300.4px;
+    width: 203.6px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 5px;
+}
+
+.movieInfoImg {
+    max-height: 310.4px;
+    max-width: 203.6px;
+    margin-bottom: 8.5%;
+}
+
+.heartEmpty-Full {
+    margin-left: 7.5%;
+    margin-right: 2.5%;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+}
+
+.synopsisDiv {
+    white-space: initial;
+    text-overflow: ellipsis;
+    height: auto;
+    position: relative;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    max-height: 150px;
+}
+
+.playerdiv {
+    box-sizing: content-box;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    align-content: center;
+}
+
+.subtitles {
+    height: 85%;
+    text-indent: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #666;
+    background: #000;
+    border-radius: 2px;
+}
+
+.commentsSection {
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    height: auto;
+}
+
+.commentsSectionTitle {
+    color: whitesmoke;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10%;
+}
+
+.inputCommentDiv>textarea:nth-child(1) {
+    width: 70%;
+}
+
+.newCommentdiv {
+    padding-left: 3.5%;
+    padding-right: 4.5%;
+    padding-top: 0px;
+    padding-bottom: 1.0%;
+    width: 55.3%;
+    margin-top: 2%;
+    margin-bottom: 0%;
+    /*! padding-bottom: 4%; */
+    padding-top: 1%;
+    height: auto;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: whitesmoke;
+    background-color: whitesmoke;
+    max-width: auto;
+    /*! z-index: -1; */
+    /*! margin-right: 10%; */
+    margin-left: 10%;
+}
+
+.userInfo {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    margin-left: 0px;
+    margin-right: 3%;
+}
+
+.userNameTitle {
+    display: ruby-text;
+    margin-left: 0.3%;
+    margin-bottom: 1%;
+    border-radius: 0.5rem;
+    background: 0d1841;
+    background-color: rgb(43, 107, 190);
+    color: whitesmoke;
+    padding-top: 0.3%;
+    padding-bottom: 0.3%;
+    padding-right: 0.5%;
+    padding-left: 0.5%;
+    height: auto;
+    width: auto;
+    margin-right: 1%;
+    margin-top: 31.2833px;
+    /*! z-index: 0; */
+}
+
+.userImage {
+    margin-bottom: 2%;
+    border-radius: 2.5rem;
+    display: inline-block;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.commentButton {
+    background-color: rgb(43, 107, 190);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /*! font-size: 16px; */
+    cursor: pointer;
+    /*! float: inline-end; */
+    border-radius: 1.5rem;
+    display: block;
+    position: inherit;
+    /*! float: inline-end; */
+    margin-top: 1%;
+}
+
+.loginForm {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.groupForm {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.76);
+    z-index: 2;
+}
+
+.background-image-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: src="img/nouser.png";
+    background-size: cover;
+}
+
+.login-h1 {
+    color: #fff;
+    z-index: 2;
+    font-weight: 300;
+    font-size: 1.6em;
+    margin: 0;
+    font-size: 1.35em;
+    padding-bottom: 1em;
+    margin-bottom: 0.8em;
+    margin-top: 1.1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 340px;
+    background-color: #fff;
+    padding: 1em;
+    margin-top: 1em;
+    position: relative;
+    padding-top: 1.em;
+    z-index: 3;
+}
+
+.login>img {
+    width: 20%;
+    display: table;
+    margin: 0.6em auto 1.4em;
+}
+
+.form.input {
+    width: 100%;
+    padding: 1em;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-weight: 300;
+}
+
+.submitButton {
+    color: whitesmoke;
+    background-color: #e76e54;
+    padding: 1em;
+    padding-right: 1.2em;
+    padding-left: 1.2em;
+    margin-left: 33.5%;
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    /*! margin-right: 50.5%; */
+}
+
+.submitButton:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.submitSignUpButton {
+    color: whitesmoke;
+    background-color: #e76e54;
+    padding: 1em;
+    padding-right: 1.2em;
+    padding-left: 1.2em;
+    margin-left: 28.5%;
+    display: inline-flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.submitSignUpButton:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.logoImage {
+    margin-left: 33%;
+    margin-bottom: 5%;
+}
+
+.crossForCloseImg {
+    float: right;
+    cursor: pointer;
+}
+
+.e-mail {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+.e-mail:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.groupName {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+.groupName:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.user-name {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 3%;
+}
+
+.user-name:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.password:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.password {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 10.2px;
+}
+
+.groupDescription:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.groupDescription {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 10.2px;
+}
+
+.repeat-password:hover {
+    background-color: rgb(231, 231, 231);
+}
+
+.repeat-password {
+    height: 30px;
+    width: 230px;
+    margin-left: 15%;
+    margin-bottom: 10.2px;
+}
+
+.alertBox-Success {
+    margin-top: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+.success-box {
+    margin-top: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+.boxCommunitySuccess {
+    margin-top: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    /*! display: none; */
+    margin-left: 20%;
+    margin-right: 20%;
+    display: none;
+}
+
+.alertBox-SuccessForGroupsForm {
+    margin-top: 16px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    display: none;
+}
+
+.alertBox-Error {
+    margin-top: 16px;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+}
+
+.boxCommunityError {
+    margin-top: 16px;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    /*! display: none; */
+    margin-left: 20%;
+    margin-right: 20%;
+    display: none;
+}
+
+.alertBox-ErrorForGroupsForm {
+    margin-top: 16px;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+}
+
+.groupDiv {
+    background-color: whitesmoke;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: block;
+    border-left-color: orange;
+    border-left-width: 1ch;
+    border-left-style: solid;
+    z-index: 0;
+    margin-top: 1%;
+}
+
+.requestTable {
+    margin-left: 29.5%;
+    display: block;
+    width: 43%;
+}
+
+.groupTitle {
+    margin: 0%;
+    display: inline-block;
+    /*! margin-left: 1%; */
+    margin-top: 0.5%;
+    /*! margin-left: 4%; */
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+
+/*group Table*/
+
+table.groupTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    display: inline-block;
+    float: right;
+    display: inline-block;
+}
+
+table.groupTable td,
+table.groupTable th {
+    border: 1px solid #fff4e9;
+    text-align: center;
+    padding: 8px;
+    color: black;
+}
+
+table.groupTable th {
+    background-color: orange;
+    color: whitesmoke;
+}
+
+
+/*End of group table*/
+
+.requestListTitle {
+    color: whitesmoke;
+    display: block;
+    margin-left: 43%;
+    width: 25%;
+    align-tetx: center;
+}
+
+.requestedUserName {
+    margin: 3%;
+    display: inline;
+    float: inline-start;
+}
+
+
+/*join Request Table*/
+
+table.requestTable {}
+
+table.requestTable th {
+    background-color: #2b6bbe;
+    color: whitesmoke;
+    width: 10%;
+}
+
+table.requestTable tr {
+    background-color: whitesmoke;
+}
+
+
+/* end of join Request Table*/
+
+.forumBanner {
+    margin-left: 20%;
+    margin-right: 20%;
+    border-style: groove;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    background-color: whitesmoke;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.forumTitle {
+    color: black;
+}
+
+.forumDescription {
+    color: black;
+}
+
+.adminName {
+    color: black;
+}
+
+.requestList {
+    background-color: whitesmoke;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2%;
+    width: 18%;
+    /*! padding: ; */
+}
+
+.memberRequestListItem {
+    color: black;
+}
+
+.acceptMemberButton {
+    /*! margin-left: 35%; */
+    box-shadow: inset 0px 1px 0px 0px #d9fbbe;
+    background-color: #7be356;
+    border: 1px solid #83c41a;
+    display: inline;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 11px 30px;
+    text-decoration: none;
+    /*! text-shadow: 0px 1px 0px #86ae47; */
+    margin: 2%;
+    float: inline-end;
+}
+
+.acceptMemberButton:hover {
+    /*! background: linear-gradient(to bottom, #a5cc52 5%, #b8e356 100%); */
+    background-color: #a5cc52;
+}
+
+.acceptMemberButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.rejectMemberButton {
+    box-shadow: inset 0px 1px 0px 0px #fabebe;
+    background-color: #e35656;
+    border: 1px solid #c21b1b;
+    display: inline;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 11px 30px;
+    text-decoration: none;
+    /*! text-shadow: 0px 1px 0px #86ae47; */
+    margin: 2%;
+    float: inline-end;
+}
+
+.rejectMemberButton:hover {
+    background-color: #cc5454;
+}
+
+.rejectMemberButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.stateImage {
+    width: 30%;
+    /*! height: 50%; */
+    margin-left: 25%;
+    display: block;
+}
+
+.groupState {
+    margin-top: 10%;
+    color: black;
+    /*! margin-bottom: ; */
+    /*! padding-bottom: ; */
+    margin-left: 10%;
+}
+
+.groupAndStateButton {
+    float: inline-start;
+    display: inline-block;
+    margin-left: 1%;
+    /*! margin-right: 2%; */
+    margin-top: 0.8%;
+    margin-right: 1%;
+    width: 160px;
+}
+
+.groupSubTitle {
+    /*! display: block; */
+    /*! margin: 2%; */
+    /*! margin-bottom: 1%; */
+    margin-left: 17%;
+    padding-bottom: 2%;
+}
+
+.EnterGroupButton {
+    margin-top: 8%;
+    /*! display: block; */
+    font-size: x-small;
+    height: px;
+    cursor: pointer;
+}
+
+.error-box {
+    margin-top: 16px;
+    position: static;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+    z-index: 0;
+}
+
+.errorBoxForLike {
+    margin-top: 3%;
+    position: relative;
+    padding: .75rem 1.25rem;
+    /*! margin-bottom: ; */
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: .25rem;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    display: none;
+    margin-left: 10%;
+    margin-right: 10%;
+    z-index: -1;
+}
+
+.signUp {
+    color: #007aff;
+    margin-left: 38%;
+}
+
+.forgot-password {
+    color: #007aff;
+    margin-left: 25%;
+}
+
+.enterButton {
+    -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    background-color: #7892c2;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
+}
+
+.enterButton:hover {
+    background-color: #1a70d9;
+}
+
+.enterButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.signUpButton {
+    -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    box-shadow: inset -50px 0px 0px -50px #9fb4f2;
+    background-color: #7892c2;
+    border: 1px solid #4e6096;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Trebuchet MS;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 12px 20px;
+    text-decoration: none;
+}
+
+.signUpButton:hover {
+    background-color: #1a70d9;
+}
+
+.signUpButton:active {
+    position: relative;
+    top: 1px;
+}
+
+@media screen and (max-width: 1025px) {
+    .groupDiv {
+        margin-left: 10%;
+        margin-right: 10%;
     }
-    
-    .LogInButton {
-        cursor: pointer;
-    }
-    
-    .SignIn {
-        cursor: pointer;
-    }
-    
-    .divImage {
-        text-align: center;
-        box-sizing: content-box;
-        position: relative;
-        margin-bottom: 30px;
-        object-fit: cover;
-        font-family: Arial, Helvetica, sans-serif;
-        height: 290.4px;
-        width: 193.6px;
-        color: white;
-        font-weight: 400;
-        font-size: .875rem;
-        border-left-width: 1px;
-        border-left-style: solid;
-        border-top-width: 1px;
-        border-top-style: solid;
-        border-right-width: 1px;
-        border-right-style: solid;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-        border-color: transparent;
-    }
-    
-    .movieYear {
-        position: absolute;
-        bottom: .5rem;
-        right: .5rem;
-        /*! z-index: 3; */
-        font-size: .75rem;
-        font-weight: 700;
-        background-color: #007aff;
-        padding: 0 .5rem;
-        line-height: 1.2rem;
-        border-radius: 1rem;
-        color: #fff;
-    }
-    
-    .movieList>li:hover .divImage {
-        border-color: rgb(0, 174, 255);
-        cursor: pointer;
-    }
-    
-    .movieList {
-        display: inline-flex;
-        flex-wrap: wrap;
-    }
-    
-    .movieList>li {
-        list-style-type: none;
-        margin-left: 0px;
-        margin-right: 35px;
-    }
-    
-    .movieList>li>a {
-        text-decoration: none;
-    }
-    
-    .movieList img {
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    
-    .gallery {
-        max-width: 1268px;
-        margin-top: 0%;
-        height: auto;
-        margin-left: 14%;
-        margin-right: 0px;
-        background-color: #0d1841;
-        overflow: hidden;
-        box-sizing: border-box;
-        display: inline-table;
-        position: static;
-    }
-    
-    .gallery2 {
-        background-color: #ec1212;
-        ;
-        max-width: 16%;
-        margin-top: -1881px;
-        height: 1500px;
-        width: 300px;
-        margin-left: 1448px;
-        margin-right: 200px;
-        overflow: hidden;
-        box-sizing: border-box;
-        display: inline-table;
-        display: none;
-    }
-    
-    .nav {
-        min-height: 60px;
-        background-color: #0d1841;
-        /*! overflow: hidden; */
-        display: block;
-        /*! position: fixed; */
-        z-index: 1;
-    }
-    
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-    }
-    
-    .nav>ul>li {
-        list-style-type: none;
+    .fullDate {
         display: inline-block;
-        position: relative;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        padding-right: 25px;
-        padding-left: 25px;
     }
-    
-    .nav>ul {
-        background-color: transparent;
-        color: rgb(255, 255, 255);
-        /*! font-size:18px; */
-        font-family: Arial, Helvetica, sans-serif;
-        padding-left: 33%;
-        position: absolute;
-        /*! display: flow-root; */
-    }
-    
-    ul.sub-menuMovies {
-        position: absolute;
-        background-color: #0d1841;
-        list-style-type: none;
-        margin-top: 4%;
-        margin-left: -25px;
-        width: 130px;
-        padding-left: 5%;
-        color: rgb(255, 255, 255);
-        opacity: 0;
-        border-radius: 5px;
-        /*! padding: ; */
-        padding-right: 5%;
-        padding-bottom: 5%;
-    }
-    
-    ul.sub-menuMovies li {
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    
-    ul.sub-menuMovies li:hover {
-        cursor: pointer;
-        color: #007aff;
-    }
-    
-    .nav li:hover {
-        color: #007aff;
-        cursor: pointer;
-    }
-    
-    .nav li:hover .sub-menuMovies {
-        z-index: 1;
-        opacity: 1;
-    }
-    
-    .galleryHeader>h1 {
-        font-weight: 700;
-        font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
-        color: white;
-        margin-left: 40px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-    }
-    
-    .galleryHeader {
-        max-width: 1268px;
-        margin-top: 0%;
-        margin-left: 16%;
-        margin-right: 200px;
-        background-color: #0d1841;
-        margin-bottom: 1%;
-    }
-    
-    .foot {
-        display: inline-;
-        box-sizing: border-box;
-        margin-left: 0%;
+    .commentDiv {
+        border-left-width: 0.3ch;
         margin-right: 0%;
-        background-color: #010d2f;
-        margin-top: 3%;
+        width: 100;
+        width: 78.5%;
     }
-    
-    .footIcons {
-        position: relative;
-        align-content: center;
-        height: auto;
-        width: auto;
-    }
-    
-    .footIcons img {
-        margin-left: 5px;
-        height: 35px;
-        width: 35px;
-    }
-    
-    .footIcons img:hover {
-        cursor: pointer;
-    }
-    
-    ul.footLinks {
-        display: inline-flex;
-        position: relative;
-        list-style-type: none;
-        color: whitesmoke;
-        position: static;
-        margin-left: 20%;
-        margin-top: 2.5%;
-        margin-bottom: 1.5%;
-        /*! margin-right: 20%; */
-    }
-    
-    ul.footLinks>li {
-        margin-left: 50px;
-    }
-    
-    ul.footLinks>li>h4 {
-        font-weight: 300;
-    }
-    
-    ul.footLinks>li>h4:hover {
-        text-decoration: underline;
-        cursor: pointer;
-    }
-    
-    .carouselDiv {
-        width: auto;
-        height: auto;
-        box-sizing: border-box;
-        display: flex;
-        position: relative;
-        background-color: #0d1841
-    }
-    
-    .carouselDiv>img {
-        object-fit: contain;
-    }
-    
-    .fadedDiv {
-        position: relative;
-        /*! z-index:2; */
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 300px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #0d1841 80%);
-        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
-        margin-top: -300px;
-    }
-    
-    .genreButtonsDiv {
-        max-width: 1268px;
-        height: auto;
-        width: auto;
-        overflow: hidden;
-        box-sizing: border-box;
-        display: inline-table;
-        position: static;
-        margin-left: 14%;
-        display: none;
-    }
-    
-    .genreList {
-        display: inline-flex;
-        flex-wrap: wrap;
-    }
-    
-    .genreList img {
-        left: 0;
-        top: 0;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 5px;
-        box-sizing: border-box;
-    }
-    
-    .genreList>li {
-        list-style-type: none;
-    }
-    
-    .divButtonWithImage {
-        text-align: center;
-        box-sizing: content-box;
-        position: relative;
-        color: white;
-        object-fit: cover;
-        font-weight: 400;
-        height: auto;
-        width: auto;
-        max-width: 200px;
-        max-height: 120px;
-        margin-top: 10px;
-        display: inline-block;
-    }
-    
-    .genreList>li>.divButtonWithImage:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
-    /***********************************************handlebars******************************************************/
-    
-    .movieDetailDiv {
-        width: 80%;
-        box-sizing: border-box;
-        position: relative;
-        background-color: #0d1841;
-        margin-right: 10%;
-        margin-left: 10%;
-        color: #fff;
-        flex-wrap: wrap;
-        display: flow-root;
-        height: auto;
-        max-height: -moz-max-content;
-        height: 300px;
-        float: inherit;
-        z-index: 0;
-    }
-    
-    .movieDetailDiv>h1 {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-right: 25%;
-        font-size: 2.85rem;
-        position: relative;
-        float: inline-start;
-    }
-    
-    .likesNumber {
-        font-size: larger;
-    }
-    
-    .viewsNumber {
-        font-size: larger;
-    }
-    
-    .resolution {
-        z-index: 3;
-        font-size: .75rem;
-        font-weight: 700;
-        background-color: #edb709;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        padding-top: 0.1rem;
-        padding-bottom: 0.1rem;
-        line-height: 1.2rem;
-        border-radius: 1rem;
-        color: #1a1818;
-    }
-    
-    .movieTitleEng {
-        position: absolute;
-        position: relative;
-        display: block;
-        margin-top: 0%;
-        color: #8da0bc;
-        margin-right: 53%;
-        margin-bottom: 0px;
-        font-size: large;
-    }
-    
-    .synopsis {
-        color: #8da0bc;
-        font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
-        overflow: auto;
-        font-size: medium;
-    }
-    
-    .movieInfoList1 {
-        list-style-type: none;
-        color: #8da0bc;
-    }
-    
-    .movieInfoList2 {
-        list-style-type: none;
-        font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        float: inline-start;
-        padding-left: 0px;
-    }
-    
-    .movieInfoList2 :nth-child(1) strong {
-        color: #8da0bc;
-    }
-    
-    .movieInfoList2 :nth-child(2) strong {
-        color: #8da0bc;
-    }
-    
-    .movieInfoList2 :nth-child(3) strong {
-        color: #8da0bc;
-    }
-    
-    .year {
-        margin-right: 1%;
-    }
-    
-    .movieLength {
-        margin-right: 1%;
-    }
-    
-    .resolution {
-        margin-right: 1%;
-    }
-    
-    .movieInfoList1>li:nth-child(2) {
-        font-style: italic;
-        font-size: small;
-    }
-    
-    .views>img:nth-child(1) {
-        width: 17px;
-        height: 17px;
-        margin-top: 0.5%;
-    }
-    
-    .infoImgDiv {
-        box-sizing: content-box;
-        max-height: 310.4px;
-        max-width: 203.6px;
-        text-align: center;
-        color: #fff;
-        object-fit: cover;
-        height: auto;
-        width: auto;
-        margin-right: 2.5%;
-        float: left;
-    }
-    
-    .movieDetailDiv>img {
-        left: 0;
-        top: 0;
-        height: 300.4px;
-        width: 203.6px;
-        object-fit: cover;
-        object-position: top;
-        border-radius: 5px;
-    }
-    
-    .movieInfoImg {
-        max-height: 310.4px;
-        max-width: 203.6px;
-        margin-bottom: 8.5%;
-    }
-    
-    .heartEmpty-Full {
-        margin-left: 7.5%;
-        margin-right: 2.5%;
-        cursor: pointer;
-        width: 22px;
-        height: 22px;
-    }
-    
-    .synopsisDiv {
-        white-space: initial;
-        text-overflow: ellipsis;
-        height: auto;
-        position: relative;
-        margin-top: 0%;
-        margin-bottom: 0%;
-        max-height: 150px;
-    }
-    
-    .playerdiv {
-        box-sizing: content-box;
-        margin-top: 5%;
-        margin-bottom: 3%;
-        margin-left: 10%;
-        margin-right: 10%;
-        align-content: center;
-    }
-    
-    .subtitles {
-        height: 85%;
-        text-indent: 0;
-        font-size: 16px;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #666;
-        background: #000;
-        border-radius: 2px;
-    }
-    
     .commentsSection {
         margin-left: 10%;
-        margin-right: 10%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        height: auto;
+        margin-right: 0%
     }
-    
-    .commentsSectionTitle {
-        color: whitesmoke;
-        margin-top: 0px;
-        margin-bottom: 0px;
-        margin-left: 10%;
-    }
-    
-    .inputCommentDiv>textarea:nth-child(1) {
-        width: 70%;
-    }
-    
-    .newCommentdiv {
-        padding-left: 3%;
-        padding-right: 3%;
-        padding-top: 0px;
-        padding-bottom: 1.0%;
-        width: 55.3%;
-        margin-top: 2%;
-        margin-bottom: 0%;
-        /*! padding-bottom: 4%; */
-        padding-top: 1%;
-        height: auto;
-        border-top-style: solid;
-        border-right-style: solid;
-        border-bottom-style: solid;
-        border-left-style: solid;
-        border-color: whitesmoke;
-        background-color: whitesmoke;
-        max-width: auto;
-        /*! z-index: -1; */
-        /*! margin-right: 10%; */
-        margin-left: 10%;
-    }
-    
-    .userInfo {
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
-        margin-left: 0px;
-        margin-right: 3%;
-    }
-    
-    .userNameTitle {
-        display: ruby-text;
-        margin-left: 0.3%;
-        margin-bottom: 1%;
-        border-radius: 0.5rem;
-        background: 0d1841;
-        background-color: rgb(43, 107, 190);
-        color: whitesmoke;
-        padding-top: 0.3%;
-        padding-bottom: 0.3%;
-        padding-right: 0.5%;
-        padding-left: 0.5%;
-        height: auto;
-        width: auto;
-        margin-right: 1%;
-        margin-top: 31.2833px;
-        /*! z-index: 0; */
-    }
-    
-    .userImage {
-        margin-bottom: 2%;
-        border-radius: 2.5rem;
+    .dateNumber {
+        margin: 0%;
+        margin-left: 1%;
         display: inline-block;
-        margin-left: 0px;
-        margin-bottom: 0px;
-        margin-right: 0px;
     }
-    
-    .commentButton {
-        background-color: rgb(43, 107, 190);
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        /*! font-size: 16px; */
-        cursor: pointer;
-        /*! float: inline-end; */
-        border-radius: 1.5rem;
-        display: block;
-        position: inherit;
-        /*! float: inline-end; */
-        margin-top: 1%;
-    }
-    
-    .loginForm {
-        width: 100%;
-        height: 100%;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .groupForm {
-        width: 100%;
-        height: 100%;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.76);
-        z-index: 2;
-    }
-    
-    .background-image-login {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: -1;
-        background: src="img/nouser.png";
-        background-size: cover;
-    }
-    
-    .login-h1 {
-        color: #fff;
-        z-index: 2;
-        font-weight: 300;
-        font-size: 1.6em;
-        margin: 0;
-        font-size: 1.35em;
-        padding-bottom: 1em;
-        margin-bottom: 0.8em;
-        margin-top: 1.1em;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    .login-container {
-        width: 100%;
-        max-width: 340px;
-        background-color: #fff;
-        padding: 1em;
-        margin-top: 1em;
-        position: relative;
-        padding-top: 1.em;
-        z-index: 3;
-    }
-    
-    .login>img {
-        width: 20%;
-        display: table;
-        margin: 0.6em auto 1.4em;
-    }
-    
-    .form.input {
-        width: 100%;
-        padding: 1em;
-        font-size: 1.1em;
-        margin-bottom: 0.5em;
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        font-weight: 300;
-    }
-    
-    .submitButton {
-        color: whitesmoke;
-        background-color: #e76e54;
-        padding: 1em;
-        padding-right: 1.2em;
-        padding-left: 1.2em;
-        margin-left: 33.5%;
-        display: inline-flex;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        /*! margin-right: 50.5%; */
-    }
-    
-    .submitButton:hover {
-        background-color: lightblue;
-        cursor: pointer;
-    }
-    
-    .submitSignUpButton {
-        color: whitesmoke;
-        background-color: #e76e54;
-        padding: 1em;
-        padding-right: 1.2em;
-        padding-left: 1.2em;
-        margin-left: 28.5%;
-        display: inline-flex;
-        margin-top: 5%;
-        margin-bottom: 5%;
-    }
-    
-    .submitSignUpButton:hover {
-        background-color: lightblue;
-        cursor: pointer;
-    }
-    
-    .logoImage {
-        margin-left: 33%;
-        margin-bottom: 5%;
-    }
-    
-    .crossForCloseImg {
-        float: right;
-        cursor: pointer;
-    }
-    
-    .e-mail {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 3%;
-    }
-    
-    .e-mail:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .groupName {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 3%;
-    }
-    
-    .groupName:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .user-name {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 3%;
-    }
-    
-    .user-name:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .password:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .password {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 10.2px;
-    }
-    
-    .groupDescription:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .groupDescription {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 10.2px;
-    }
-    
-    .repeat-password:hover {
-        background-color: rgb(231, 231, 231);
-    }
-    
-    .repeat-password {
-        height: 30px;
-        width: 230px;
-        margin-left: 15%;
-        margin-bottom: 10.2px;
-    }
-    
-    .alertBox-Success {
-        margin-top: 16px;
-        color: #155724;
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        display: none;
-    }
-    
-    .success-box {
-        margin-top: 16px;
-        color: #155724;
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        display: none;
-    }
-    
-    .boxCommunitySuccess {
-        margin-top: 16px;
-        color: #155724;
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        /*! display: none; */
-        margin-left: 20%;
-        margin-right: 20%;
-        display: none;
-    }
-    
-    .alertBox-SuccessForGroupsForm {
-        margin-top: 16px;
-        color: #155724;
-        background-color: #d4edda;
-        border-color: #c3e6cb;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        display: none;
-    }
-    
-    .alertBox-Error {
-        margin-top: 16px;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        display: none;
-    }
-    
-    .boxCommunityError {
-        margin-top: 16px;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        /*! display: none; */
-        margin-left: 20%;
-        margin-right: 20%;
-        display: none;
-    }
-    
-    .alertBox-ErrorForGroupsForm {
-        margin-top: 16px;
-        position: relative;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        display: none;
-    }
-    
-    .groupDiv {
-        background-color: whitesmoke;
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-top: 1%;
-        margin-bottom: 1%;
-        display: block;
-        border-left-color: orange;
-        border-left-width: 1ch;
-        border-left-style: solid;
-        z-index: 0;
-        margin-top: 1%;
-    }
-    
-    .requestTable {
-        margin-left: 29.5%;
-        display: block;
-        width: 43%;
-    }
-    
-    .groupTitle {
+    .dateText {
         margin: 0%;
         display: inline-block;
-        /*! margin-left: 1%; */
-        margin-top: 0.5%;
-        /*! margin-left: 4%; */
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
     }
-    /*group Table*/
-    
-    table.groupTable {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        display: inline-block;
-        float: right;
-        display: inline-block;
+    .gallery {
+        margin-left: 0%;
     }
-    
-    table.groupTable td,
-    table.groupTable th {
-        border: 1px solid #fff4e9;
-        text-align: center;
-        padding: 8px;
-        color: black;
+    .foot ul {
+        margin-left: 0%
     }
-    
-    table.groupTable th {
-        background-color: orange;
-        color: whitesmoke;
+    .galleryHeader {
+        margin-left: 4%;
     }
-    /*End of group table*/
-    
-    .requestListTitle {
-        color: whitesmoke;
-        display: block;
-        margin-left: 43%;
-        width: 25%;
-        align-tetx: center;
+    .nav ul {
+        padding-left: 17%;
     }
-    
-    .requestedUserName {
-        margin: 3%;
-        /*! margin-left: ; */
-        margin-left: ;
-        margin\ left: 35%;
-        display: inline;
-        float: inline-start;
+    .commentButton {
+        padding: 13px;
     }
-    /*join Request Table*/
-    
-    table.requestTable {}
-    
-    table.requestTable th {
-        background-color: #2b6bbe;
-        color: whitesmoke;
-        width: %;
-        /*! width: ; */
-        /*! width: ; */
-        width: 10%;
+    .newCommentdiv {
+        padding: 1.2em;
+        width: 72%
     }
-    
-    table.requestTable tr {
-        background-color: whitesmoke;
+    .genreButtonsDiv {
+        margin-left: 0%;
     }
-    /* end of join Request Table*/
-    
-    .forumBanner {
-        margin-left: 20%;
-        margin-right: 20%;
-        border-style: groove;
-        margin-top: 2%;
-        margin-bottom: 3%;
-        background-color: whitesmoke;
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
     }
-    
-    tr:nth-child(even) {
-        background-color: #fff;
+    ul.sub-menuMovies {
+        padding-right: 0%;
+        padding-left: 0%;
     }
-    
-    .forumTitle {
-        color: black;
-    }
-    
-    .forumDescription {
-        color: black;
-    }
-    
-    .adminName {
-        color: black;
-    }
-    
-    .requestList {
-        background-color: whitesmoke;
-        margin-left: 20%;
-        margin-right: 20%;
-        margin-bottom: 2%;
-        width: 18%;
-        /*! padding: ; */
-    }
-    
-    .memberRequestListItem {
-        color: black;
-    }
-    
-    .acceptMemberButton {
-        /*! margin-left: 35%; */
-        box-shadow: inset 0px 1px 0px 0px #d9fbbe;
-        background-color: #7be356;
-        border: 1px solid #83c41a;
-        display: inline;
-        cursor: pointer;
-        color: #ffffff;
-        font-family: Arial;
-        font-size: 15px;
-        padding: 11px 30px;
-        text-decoration: none;
-        /*! text-shadow: 0px 1px 0px #86ae47; */
-        margin: 2%;
-        float: inline-end;
-    }
-    
-    .acceptMemberButton:hover {
-        /*! background: linear-gradient(to bottom, #a5cc52 5%, #b8e356 100%); */
-        background-color: #a5cc52;
-    }
-    
-    .acceptMemberButton:active {
-        position: relative;
-        top: 1px;
-    }
-    
-    .rejectMemberButton {
-        box-shadow: inset 0px 1px 0px 0px #fabebe;
-        background-color: #e35656;
-        border: 1px solid #c21b1b;
-        display: inline;
-        cursor: pointer;
-        color: #ffffff;
-        font-family: Arial;
-        font-size: 15px;
-        padding: 11px 30px;
-        text-decoration: none;
-        /*! text-shadow: 0px 1px 0px #86ae47; */
-        margin: 2%;
-        float: inline-end;
-    }
-    
-    .rejectMemberButton:hover {
-        background-color: #cc5454;
-    }
-    
-    .rejectMemberButton:active {
-        position: relative;
-        top: 1px;
-    }
-    
-    .stateImage {
-        width: 30%;
-        /*! height: 50%; */
-        margin-left: 25%;
-        display: block;
-    }
-    
-    .groupState {
-        margin-top: 10%;
-        color: black;
-        /*! margin-bottom: ; */
-        /*! padding-bottom: ; */
-        margin-left: 10%;
-    }
-    
-    .groupAndStateButton {
-        float: inline-start;
-        display: inline-block;
-        margin-left: 1%;
-        /*! margin-right: 2%; */
-        margin-top: 0.8%;
-        margin-right: 1%;
-        width: 160px;
-    }
-    
-    .groupSubTitle {
-        /*! display: block; */
-        /*! margin: 2%; */
-        /*! margin-bottom: 1%; */
-        margin-left: 17%;
-        padding-bottom: 2%;
-    }
-    
-    .EnterGroupButton {
-        margin-top: 8%;
-        /*! display: block; */
-        font-size: x-small;
-        height: px;
-        cursor: pointer;
-    }
-    
-    .error-box {
-        margin-top: 16px;
-        position: static;
-        padding: .75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
-        display: none;
-        z-index: 0;
-    }
-    
     .errorBoxForLike {
-        margin-top: 3%;
-        position: relative;
-        padding: .75rem 1.25rem;
-        /*! margin-bottom: ; */
-        border: 1px solid transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        border-left-color: transparent;
-        border-radius: .25rem;
-        color: #721c24;
-        background-color: #f8d7da;
-        border-color: #f5c6cb;
         display: none;
-        margin-left: 10%;
-        margin-right: 10%;
-        z-index: -1;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
     }
-    
-    .signUp {
-        color: #007aff;
-        margin-left: 38%;
+    .views {
+        margin-bottom: 5%;
+        /*! 0 */
     }
-    
-    .forgot-password {
-        color: #007aff;
-        margin-left: 25%;
+    .movieDetailDiv {
+        margin-bottom: 10%;
     }
-    
-    .enterButton {
-        -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        background-color: #7892c2;
-        border: 1px solid #4e6096;
-        display: inline-block;
-        cursor: pointer;
-        color: #ffffff;
-        font-family: Trebuchet MS;
-        font-size: 28px;
-        font-weight: bold;
-        padding: 12px 20px;
-        text-decoration: none;
-    }
-    
-    .enterButton:hover {
-        background-color: #1a70d9;
-    }
-    
-    .enterButton:active {
-        position: relative;
-        top: 1px;
-    }
-    
-    .signUpButton {
-        -moz-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        -webkit-box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        box-shadow: inset -50px 0px 0px -50px #9fb4f2;
-        background-color: #7892c2;
-        border: 1px solid #4e6096;
-        display: inline-block;
-        cursor: pointer;
-        color: #ffffff;
-        font-family: Trebuchet MS;
-        font-size: 28px;
-        font-weight: bold;
-        padding: 12px 20px;
-        text-decoration: none;
-    }
-    
-    .signUpButton:hover {
-        background-color: #1a70d9;
-    }
-    
-    .signUpButton:active {
-        position: relative;
-        top: 1px;
-    }
-    
-    @media screen and (max-width: 1025px) {
-        .groupDiv {
-            margin-left: 10%;
-            margin-right: 10%;
-        }
-        .fullDate {
-            display: inline-block;
-        }
-        .commentDiv {
-            border-left-width: 0.3ch;
-        }
-        .dateNumber {
-            margin: 0%;
-            margin-left: 1%;
-            display: inline-block;
-        }
-        .dateText {
-            margin: 0%;
-            display: inline-block;
-        }
-        .gallery {
-            margin-left: 0%;
-        }
-        .foot ul {
-            margin-left: 0%
-        }
-        .galleryHeader {
-            margin-left: 4%;
-        }
-        .nav ul {
-            padding-left: 17%;
-        }
-        .commentButton {
-            padding: 13px;
-        }
-        .newCommentdiv {
-            padding: 1.2em;
-            width: 72%
-        }
-        .genreButtonsDiv {
-            margin-left: 0%;
-        }
-        .synopsisDiv {
-            text-overflow: ellipsis;
-            white-space: inherit;
-            overflow: scroll;
-        }
-        ul.sub-menuMovies {
-            padding-right: 0%;
-            padding-left: 0%;
-        }
-        .errorBoxForLike {
-            display: none;
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 6.5%;
-        }
-        .views {
-            margin-bottom: 5%;
-            /*! 0 */
-        }
-        .movieDetailDiv {
-            margin-bottom: 10%;
-        }
-    }
-    
-    @media screen and (max-width: 1280px) {
-        .fullDate {
-            display: inline-block;
-        }
-        .dateNumber {
-            margin: 0%;
-            margin-left: 1%;
-            display: inline-block;
-        }
-        .dateText {
-            margin: 0%;
-            display: inline-block;
-        }
-        .gallery {
-            margin-left: 0%;
-        }
-        .foot ul {
-            margin-left: 0%
-        }
-        .galleryHeader {
-            margin-left: 4%;
-        }
-        .nav ul {
-            padding-left: 17%;
-        }
-        .commentButton {
-            padding: 13px;
-        }
-        .newCommentdiv {
-            padding: 1.2em;
-        }
-        .genreButtonsDiv {
-            margin-left: 0%;
-        }
-        .synopsisDiv {
-            text-overflow: ellipsis;
-            white-space: inherit;
-            overflow: scroll;
-        }
-        ul.sub-menuMovies {
-            padding-right: 0%;
-            padding-left: 0%;
-        }
-        .errorBoxForLike {
-            display: none;
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 6.5%;
-        }
-    }
-    
-    @media screen and (max-width: 1546px) {
-        .fullDate {
-            display: inline-block;
-            width: auto;
-        }
-        .dateNumber {
-            margin: 0%;
-            margin-left: 1%;
-            display: inline-block;
-            width: 100%;
-        }
-        .dateText {
-            margin: 0%;
-            display: inline-block;
-            width: 100%;
-        }
-        .movieDetailDiv {
-            margin-left: 5%;
-            margin-right: 5%;
-            width: 90%;
-            display: flow-root;
-        }
-        .synopsisDiv {
-            text-overflow: ellipsis;
-            white-space: inherit;
-            overflow: scroll;
-        }
-        .nav ul {
-            padding-left: 17%;
-        }
-        .playerdiv {
-            padding: 0%;
-            margin: 5em;
-            margin-top: 10%;
-        }
-        .errorBoxForLike {
-            display: none;
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 6.5%;
-        }
-    }
-    
-    .userNameLink {
-        float: right;
-    }
-    
-    .imageInput {
-        display: block;
-    }
-    
-    .currentImage {
-        display: none;
-    }
-    /*Comments */
-    
-    .commentDiv {
-        margin-bottom: 2%;
-        background-color: whitesmoke;
-        width: 76.5%;
-        height: auto;
-        padding-bottom: 1%;
-        border-left-style: solid;
-        border-left-color: orange;
-        border-left-width: 1ch;
-    }
-    
-    .authorName {
-        display: inline-block;
-        margin-top: 2.5%;
-        margin-left: 1%;
-        color: 007aff;
-        color: #007aff;
-    }
-    
-    .commentText {
-        margin-left: 1%;
-        display: block;
-        margin-top: 1%;
-        margin-bottom: 1%;
-    }
-    
-    .dateText {
-        color: #007aff;
-        display: inline-block;
-    }
-    
-    .dateNumber {
-        color: orange;
-        display: inline-block;
-        margin-left: 2%;
-    }
-    
+}
+
+@media screen and (max-width: 1280px) {
     .fullDate {
-        float: inline-end;
-        width: 20%;
+        display: inline-block;
     }
-    
-    .restoredImage {
-        margin-top: 1%;
-        margin-bottom: 1%;
+    .dateNumber {
+        margin: 0%;
         margin-left: 1%;
+        display: inline-block;
     }
-    
-    .arrowUp {
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
+    .dateText {
+        margin: 0%;
+        display: inline-block;
     }
-    
-    .arrowDown {
-        width: 25px;
-        height: 25px;
-        cursor: pointer;
+    .gallery {
+        margin-left: 0%;
     }
-    
-    .arrowAndLikesDiv {
-        float: inline-start;
-        /*! height: min-content; */
-        height: 10%;
-        /*! display: inline-grid; */
-        /*! position: absolute; */
-        display: inline-grid;
-        margin-left: 0.5%;
+    .foot ul {
+        margin-left: 0%
     }
-    
-    .commentId {
-        visibility: hidden;
+    .galleryHeader {
+        margin-left: 4%;
+    }
+    .nav ul {
+        padding-left: 17%;
+    }
+    .commentButton {
+        padding: 13px;
+    }
+    .newCommentdiv {
+        padding: 1.2em;
+    }
+    .genreButtonsDiv {
+        margin-left: 0%;
+    }
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
+    }
+    ul.sub-menuMovies {
+        padding-right: 0%;
+        padding-left: 0%;
+    }
+    .errorBoxForLike {
         display: none;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
     }
-    
-    .commentLikes {
-        /*! padding-left: 1%; */
-        margin-left: 33%;
-        font-size: large;
+}
+
+@media screen and (max-width: 1546px) {
+    .fullDate {
+        display: inline-block;
+        width: auto;
     }
-    
-    .noscriptDiv {
-        background-image: url('img/noscript.jpg');
-        height: auto;
-        display: block;
+    .dateNumber {
+        margin: 0%;
+        margin-left: 1%;
+        display: inline-block;
+        width: 100%;
     }
-    
-    .noscriptTitle {
-        color: whitesmoke;
+    .dateText {
+        margin: 0%;
+        display: inline-block;
+        width: 100%;
     }
-    
-    .communityLink {
-        text-decoration: none;
-        color: whitesmoke;
+    .movieDetailDiv {
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        display: flow-root;
     }
+    .synopsisDiv {
+        text-overflow: ellipsis;
+        white-space: inherit;
+        overflow: scroll;
+    }
+    .nav ul {
+        padding-left: 17%;
+    }
+    .playerdiv {
+        padding: 0%;
+        margin: 5em;
+        margin-top: 10%;
+    }
+    .errorBoxForLike {
+        display: none;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 6.5%;
+    }
+}
+
+.userNameLink {
+    float: right;
+}
+
+.imageInput {
+    display: block;
+}
+
+.currentImage {
+    display: none;
+    /*width: 100%;*/
+}
+
+
+/*Comments */
+
+.commentDiv {
+    margin-bottom: 2%;
+    background-color: whitesmoke;
+    width: 76.5%;
+    height: auto;
+    padding-bottom: 1%;
+    border-left-style: solid;
+    border-left-color: orange;
+    border-left-width: 1ch;
+    padding-right: 2.5%;
+}
+
+.authorName {
+    display: inline-block;
+    margin-top: 2.5%;
+    margin-left: 1%;
+    color: 007aff;
+    color: #007aff;
+}
+
+.commentText {
+    margin-left: 1%;
+    display: block;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.dateText {
+    color: #007aff;
+    display: inline-block;
+}
+
+.dateNumber {
+    color: orange;
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.fullDate {
+    float: inline-end;
+    width: 20%;
+}
+
+.arrowUp {
+    width: 25px;
+    /*! height: 25px; */
+    cursor: pointer;
+}
+
+.arrowDown {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.arrowAndLikesDiv {
+    float: inline-start;
+    /*! height: min-content; */
+    height: 10%;
+    /*! display: inline-grid; */
+    /*! position: absolute; */
+    display: inline-grid;
+    margin-left: 0.5%;
+}
+
+.commentId {
+    visibility: hidden;
+    display: none;
+}
+
+.commentLikes {
+    /*! padding-left: 1%; */
+    margin-left: 33%;
+    font-size: large;
+}
+
+.noscriptDiv {
+    background-image: url('img/noscript.jpg');
+    height: auto;
+    display: block;
+}
+
+.noscriptTitle {
+    color: whitesmoke;
+}
+
+.communityLink {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.restoredImage {}

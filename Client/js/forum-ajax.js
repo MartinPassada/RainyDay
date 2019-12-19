@@ -9,21 +9,47 @@ function checkAfterEnter(searchparameter) {
 
             if (this.responseText == 'noMember') {
 
-
-                alert('Como has llegado hasta aqui sin ser miembro ?');
-                window.location.replace("/community");
-
+                Swal.fire({
+                    title: 'Hacker Detected!',
+                    imageUrl: '/img/hackerdetected.jpg',
+                    imageWidth: 400,
+                    imageHeight: 300,
+                    imageAlt: '/img/loading.gif',
+                    text: 'Como has llegado hasta aqui sin ser miembro ?',
+                    //icon: 'warning',
+                    timer: 4500,
+                    timerProgressBar: true,
+                    onClose: () => {
+                        window.location.replace("/community");
+                    }
+                });
+                //alert('Como has llegado hasta aqui sin ser miembro ?');
             } else {
 
             }
 
         } else if (this.status == 403) {
+            Swal.fire({
+                title: 'Hey!',
+                text: 'No puedes entrar o permanecer aqui si no estas logueado',
+                icon: 'warning',
+                timer: 4500,
+                timerProgressBar: true,
+                onClose: () => {
+                    window.location.replace("/community");
+                }
+            });
+            //alert('No puedes entrar o permanecer aqui si no estas logueado');
 
-            alert('No puedes entrar o permanecer aqui si no estas logueado');
-            window.location.replace("/community");
 
         } else {
-            alert('Algo salio mal');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Algo salió mal :(',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert('Algo salio mal');
         }
 
     }
@@ -43,12 +69,22 @@ function acceptOrRejectMember(success, userName, forumID, actionClicked) {
 
 
         } else if (this.status == 500) {
-
-            alert('se rompio algo');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Se rompió algo',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert('se rompio algo');
 
         } else {
-
-            alert('hubo un problema');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Hubo un problema',
+                icon: 'error',
+                confirmButtonText: 'OK',
+            });
+            //alert('hubo un problema');
         }
 
     }
