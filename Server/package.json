@@ -13,6 +13,7 @@
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
     "express-session": "^1.16.2",
+    "handlebars": "^4.7.6",
     "mongodb": "^3.2.3",
     "sweetalert2": "^9.5.3"
   }

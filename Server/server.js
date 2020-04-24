@@ -141,33 +141,18 @@ app.get('/checkAfterEnter', (req, res) => {
     let searchparameter = req.query.forumID;
     let userName = req.session.user;
     if (userName != undefined) {
-
         mongoDatabase.checkAfterEnter(searchparameter, userName, cbOK => {
-
             if (cbOK == 'noMember') {
-
                 res.status(200).send('noMember');
-
-
             } else if (cbOK !== 'noMember') {
-
                 res.status(200).send('ok');
-
-
             } else {
-
                 res.sendStatus(500);
             }
-
         });
-
     } else {
         res.sendStatus(403);
     }
-
-
-
-
 });
 
 
