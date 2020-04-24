@@ -3,7 +3,7 @@ function getLatestMovies(success, failure) {
 
     req = new XMLHttpRequest();
 
-    req.onload = function() {
+    req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
 
@@ -15,6 +15,7 @@ function getLatestMovies(success, failure) {
 
             failure(respObj.error);
         }
+        //hgfghfghhgfghf
 
     }
 
@@ -27,7 +28,7 @@ function getGenres(success, failure) {
 
     req = new XMLHttpRequest();
 
-    req.onload = function() {
+    req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
 
@@ -50,7 +51,7 @@ function getSearchByGenre(success, failure, searchparameter) {
 
     req = new XMLHttpRequest();
 
-    req.onload = function() {
+    req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
 
@@ -73,7 +74,7 @@ function getMostViewedMovies(success, failure) {
 
     req = new XMLHttpRequest();
 
-    req.onload = function() {
+    req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
 
@@ -96,7 +97,7 @@ function getRankedMovies(success, failure) {
 
     req = new XMLHttpRequest();
 
-    req.onload = function() {
+    req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
 
