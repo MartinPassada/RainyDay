@@ -16,5 +16,8 @@
     "handlebars": "^4.7.6",
     "mongodb": "^3.5.7",
     "sweetalert2": "^9.10.13"
+  },
+  "scripts": {
+    "start": "server.js"
   }
 }
