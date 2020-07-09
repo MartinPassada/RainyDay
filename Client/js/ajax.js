@@ -6,7 +6,7 @@ function getLatestMovies(success, failure) {
     req.onload = function () {
 
         let respObj = JSON.parse(this.responseText);
-
+        
         if (this.status == 200) {
 
             success(respObj);
@@ -23,6 +23,10 @@ function getLatestMovies(success, failure) {
     req.send();
 
 }
+
+
+
+
 
 function getGenres(success, failure) {
 

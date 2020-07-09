@@ -7,7 +7,6 @@ function checkUserData() {
         moviesLiked: [],
         commentsLiked: [],
         commentsUnliked: []
-
     };
 
 
@@ -21,34 +20,34 @@ function checkUserData() {
     if (userData.password1 == '') {
         errorMessageDiv.innerHTML = "Debes introducir una password";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
 
     } else if (userData.password1.search(passwordPattern)) {
         errorMessageDiv.innerHTML = "La password debe tener entre 5 y 15 caracteres y no debe contener caracteres invalidos";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 5000);
 
     } else if (userData.password1 === password2) {
 
         if (userData.email == '') {
             errorMessageDiv.innerHTML = "Debes introducir un e-mail";
             errorMessageDiv.style.display = "flex";
-            setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+            setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
 
         } else if (userData.email.search(searchPattern)) {
             errorMessageDiv.innerHTML = "E-mail invalido";
             errorMessageDiv.style.display = "flex";
-            setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+            setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
 
         } else if (userData.userName == '') {
             errorMessageDiv.innerHTML = "El nombre de usuario no puede quedar vacio";
             errorMessageDiv.style.display = "flex";
-            setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+            setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
 
         } else if (userData.userName.search(passwordPattern)) {
             errorMessageDiv.innerHTML = "El nombre de usuario debe tener entre 5 y 15 caracteres y no debe contener caracteres invalidos";
             errorMessageDiv.style.display = "flex";
-            setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
+            setTimeout(function () { errorMessageDiv.style.display = "none" }, 5000);
         } else {
 
 
@@ -58,6 +57,6 @@ function checkUserData() {
     } else {
         errorMessageDiv.innerHTML = "Ambas passwords deben que coincidir";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
     }
 }
