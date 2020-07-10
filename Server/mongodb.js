@@ -55,7 +55,7 @@ function getLatestMovies(cbOK) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -76,7 +76,7 @@ function getGenres(cbOK) {
 
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -98,7 +98,7 @@ function searchByGenres(cbOK, searchparameter) {
 
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -119,7 +119,7 @@ function getMovieInfo(cbOK, searchparameter) {
 
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -148,7 +148,7 @@ function getCommunityInfo(userName, cbOK) {
     mongoClient.connect(err => {
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var community = db.collection("community");
@@ -220,7 +220,7 @@ function getMostWievedMovies(cbOK) {
 
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -239,7 +239,7 @@ function getRankedMovies(cbOK) {
 
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
@@ -258,7 +258,7 @@ function getRankedMovies(cbOK) {
 function validateLogin(loginData, cbOK) {
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("users");
@@ -289,7 +289,7 @@ function validateLogin(loginData, cbOK) {
 function addNewUser(userData, cbOK) {
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("users");
@@ -330,7 +330,7 @@ function addNewUser(userData, cbOK) {
 function postComment(userCommentary, cbOK) {
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("comments");
@@ -394,7 +394,7 @@ function getComments(cbOK, searchparameter, isForum) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("comments");
@@ -420,7 +420,7 @@ function getLastComment(cbOK, searchparameter, isForum) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("comments");
@@ -448,7 +448,7 @@ function postLike(userData, cbOK) {
     var ObjectID = require('mongodb').ObjectID;
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var users = db.collection("users");
@@ -499,7 +499,7 @@ function getLikesForUser(userName, movieID, cbOK) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("users");
@@ -528,7 +528,7 @@ function getUpLikesForComments(userName, cbOK) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("users");
@@ -549,7 +549,7 @@ function getDownLikesForComments(userName, cbOK) {
     mongoClient.connect(err => {
 
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("users");
@@ -569,7 +569,7 @@ function commentUp(commentUpData, cbOK) {
     var ObjectID = require('mongodb').ObjectID;
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var users = db.collection("users");
@@ -627,7 +627,7 @@ function commentDown(commentDownData, cbOK) {
     var ObjectID = require('mongodb').ObjectID;
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var users = db.collection("users");
@@ -684,7 +684,7 @@ function commentDown(commentDownData, cbOK) {
 function addNewGroup(groupData, cbOK) {
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("community");
@@ -723,7 +723,7 @@ function subscribe(subscribeData, userName, cbOK) {
 
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var community = db.collection("community");
@@ -788,7 +788,7 @@ function Forum(searchparameter, userName, cbOK) {
     mongoClient.connect(err => {
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("community");
@@ -812,7 +812,7 @@ function checkBeforeEnter(searchparameter, userName, cbOK) {
     mongoClient.connect(err => {
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("community");
@@ -854,7 +854,7 @@ function checkAfterEnter(searchparameter, userName, cbOK) {
     mongoClient.connect(err => {
         if (err) {
 
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("community");
@@ -898,7 +898,7 @@ function acceptOrRejectMember(acceptOrRejectMemberData, cbOK) {
 
     mongoClient.connect(err => {
         if (err) {
-            cbError("No se pudo conectar a la DB. " + err);
+            console.log("No se pudo conectar a la DB. " + err);
         } else {
             var db = mongoClient.db("RainyDayDatabase");
             var community = db.collection("community");

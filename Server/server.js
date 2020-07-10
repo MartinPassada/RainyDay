@@ -162,7 +162,6 @@ app.get('/community', (req, res) => {
     mongoDatabase.getCommunityInfo(userName, communityInfo => {
         res.render('community', { layout: 'communityLayout', communityInfo: communityInfo });
     });
-
 });
 
 
