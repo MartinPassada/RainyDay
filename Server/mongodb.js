@@ -60,7 +60,13 @@ function getLatestMovies(cbOK) {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
             collection.find().sort({ AddedDate: -1 }).limit(20).toArray((err, data) => {
-                cbOK(data);
+                if (err) {
+                    console.log(err);
+                } else if (data) {
+                    console.log(data);
+                    cbOK(data);
+                }
+
             });
         }
 
@@ -81,7 +87,12 @@ function getGenres(cbOK) {
             var db = mongoClient.db("RainyDayDatabase");
             var collection = db.collection("moviesdatabase");
             collection.find().project({ "genre": 1.0, "_id": 0.0 }).toArray((err, data) => {
-                cbOK(data);
+                if (err) {
+                    console.log(err);
+                } else if (data) {
+                    console.log(data);
+                    cbOK(data);
+                }
             });
         }
 
