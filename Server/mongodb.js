@@ -33,7 +33,7 @@ var mongoClient = '';
 if (usingOnlineCluster) {
     //Online Mongo BD Atlas
     mongodb = require("mongodb").MongoClient;
-    mongoURL = "mongodb+srv://Tincho:5dumbx57WYgXY9p@rainydaydatabase.jmnwb.mongodb.net/RainyDayDatabase?retryWrites=true&w=majority";
+    mongoURL = 'mongodb+srv://Tincho:76UdKBJtXvX4JkGU@rainydaydatabase.jmnwb.mongodb.net/RainyDayDatabase?retryWrites=true&w=majority'
     mongoClient = new mongodb(mongoURL, { useNewUrlParser: true }, { useUnifiedTopology: true });
 } else {
     // New Local Mongo DB config
