@@ -21,7 +21,7 @@ function getLatestMovies(success, failure) {
 
     req.open("GET", "/latestmovies");
     req.send();
-
+    //
 }
 
 
