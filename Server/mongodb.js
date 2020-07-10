@@ -63,7 +63,6 @@ function getLatestMovies(cbOK) {
                 if (err) {
                     console.log(err);
                 } else if (data) {
-                    console.log(data);
                     cbOK(data);
                 }
 
@@ -90,7 +89,6 @@ function getGenres(cbOK) {
                 if (err) {
                     console.log(err);
                 } else if (data) {
-                    console.log(data);
                     cbOK(data);
                 }
             });

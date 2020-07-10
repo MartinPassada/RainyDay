@@ -23,7 +23,7 @@ app.use(session({
 }))
 
 // Recursos estaticos
-app.use(express.static(path.join(__dirname, '../Client')));
+app.use(express.static(path.join(__dirname, '../Client/')));
 
 // Configuracion Handlebars
 app.engine('handlebars', exphbs({
