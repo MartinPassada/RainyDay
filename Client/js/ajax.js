@@ -4,9 +4,9 @@ function getLatestMovies(success, failure) {
     req = new XMLHttpRequest();
 
     req.onload = function () {
-
+        console.log(this.responseText);
         let respObj = JSON.parse(this.responseText);
-        
+
         if (this.status == 200) {
 
             success(respObj);
@@ -15,7 +15,7 @@ function getLatestMovies(success, failure) {
 
             failure(respObj.error);
         }
-        //hgfghfghhgfghf
+
 
     }
 
@@ -33,7 +33,7 @@ function getGenres(success, failure) {
     req = new XMLHttpRequest();
 
     req.onload = function () {
-
+        console.log(this.responseText);
         let respObj = JSON.parse(this.responseText);
 
         if (this.status == 200) {
