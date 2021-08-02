@@ -2,9 +2,9 @@ function goHome() {
     window.location.href = "/";
 }
 
-window.onscroll = function() { changeUserNameOnCommentsSection(), stickyNavBar() };
+window.onscroll = function () { changeUserNameOnCommentsSection(), stickyNavBar() };
 
-window.onload = function() {
+window.onload = function () {
     stickyLoginForm();
     //stickyGroupForm();
     var currentID = this.getCurrentID();
@@ -125,7 +125,7 @@ function drawComments(comments) {
             arrowUp.style.width = '25px';
             arrowUp.style.height = '25px';
             arrowUp.style.cursor = 'pointer';
-            arrowUp.addEventListener("click", function(e) {
+            arrowUp.addEventListener("click", function (e) {
                 e = e || window.event;
                 var target = e.target || e.srcElement;
                 getUserName(
@@ -140,7 +140,7 @@ function drawComments(comments) {
             arrowDown.style.width = '25px';
             arrowDown.style.height = '25px';
             arrowDown.style.cursor = 'pointer';
-            arrowDown.addEventListener("click", function(e) {
+            arrowDown.addEventListener("click", function (e) {
                 e = e || window.event;
                 var target = e.target || e.srcElement;
                 getUserName(
@@ -239,7 +239,7 @@ function drawComments(comments) {
             arrowUp.style.width = '25px';
             arrowUp.style.height = '25px';
             arrowUp.style.cursor = 'pointer';
-            arrowUp.addEventListener("click", function(e) {
+            arrowUp.addEventListener("click", function (e) {
                 e = e || window.event;
                 var target = e.target || e.srcElement;
                 getUserName(
@@ -254,7 +254,7 @@ function drawComments(comments) {
             arrowDown.style.width = '25px';
             arrowDown.style.height = '25px';
             arrowDown.style.cursor = 'pointer';
-            arrowDown.addEventListener("click", function(e) {
+            arrowDown.addEventListener("click", function (e) {
                 e = e || window.event;
                 var target = e.target || e.srcElement;
                 getUserName(
@@ -454,7 +454,7 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             currentImage = document.getElementById('currentImage');
             currentImage.src = e.target.result;
             //currentImage.style.maxWidth = '100%';
@@ -492,11 +492,11 @@ function tryComment(value) {
 
         errorMessageDiv.innerHTML = "Debes iniciar sesion para comentar";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
     } else {
         errorMessageDiv.innerHTML = "Algio salió mal :(";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
     }
 }
 
@@ -534,12 +534,12 @@ function checkCommentary(userName) {
     if (userCommentary.text == '') {
         errorMessageDiv.innerHTML = "Debes introducir un comentario";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
 
     } else if (userCommentary.text.search(commentaryPattern)) {
         errorMessageDiv.innerHTML = "El comentario debe tener entre 5 y 150 caracteres y no contener caracteres invalidos";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 5000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 5000);
     } else if (currentImage.src !== (window.location.href + '#')) {
 
 
@@ -577,7 +577,6 @@ function getBase64Image(imgElem) {
     ctx.drawImage(imgElem, 0, 0);
     var dataURL = canvas.toDataURL("image/png/jpg/jpeg");
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-
 }
 
 function checkUserStatusForLike() {
@@ -609,7 +608,7 @@ function tryLike(value) {
         playerDiv.style.marginTop = '2%';
         errorMessageDiv.style.display = "flex";
 
-        setTimeout(function() {
+        setTimeout(function () {
             playerDiv.style.marginTop = '5%',
                 errorMessageDiv.style.display = "none"
         }, 4000);
@@ -618,7 +617,7 @@ function tryLike(value) {
     } else {
         errorMessageDiv.innerHTML = "Algio salió mal :(";
         errorMessageDiv.style.display = "flex";
-        setTimeout(function() { errorMessageDiv.style.display = "none" }, 4000);
+        setTimeout(function () { errorMessageDiv.style.display = "none" }, 4000);
     }
 }
 
